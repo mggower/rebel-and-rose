@@ -1,5 +1,12 @@
 import logo from '@/assets/images/rose_color.png'
 import { css } from '@emotion/react'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Home from './Home'
+import Salon from './Salon'
+import Spa from './Spa'
+import About from './About'
+import Team from './Team'
+import Policies from './Policies'
 
 const styles = {
   container: css({
@@ -20,11 +27,20 @@ const styles = {
     fontStyle: 'italic',
   }),
 }
+
+const router = createBrowserRouter([
+  { path: '/', element: <Home /> },
+  { path: '/salon', element: <Salon /> },
+  { path: '/spa', element: <Spa /> },
+  { path: '/about', element: <About /> },
+  { path: '/team', element: <Team /> },
+  { path: '/policies', element: <Policies /> },
+])
+
 function App() {
   return (
     <div css={styles.container}>
-      {/* <img src={logo} alt='logo' /> */}
-      <h1 css={styles.header}>Coming Soon</h1>
+      <RouterProvider router={router} />
     </div>
   )
 }
