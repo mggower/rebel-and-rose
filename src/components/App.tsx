@@ -1,4 +1,4 @@
-import logo from '@/assets/rose_color.png'
+import logo from '@/assets/images/rose_color.png'
 import { css } from '@emotion/react'
 
 const styles = {
