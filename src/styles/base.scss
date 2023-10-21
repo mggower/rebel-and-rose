@@ -1,0 +1,52 @@
+@use 'abstracts/palette';
+@import 'abstracts/fonts';
+@import 'reset';
+
+:root {
+  font-family: $myriad-pro, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color-scheme: normal;
+  color: palette.$black;
+  background-color: palette.$off-white;
+}
+
+body {
+  display: flex;
+  place-items: center;
+}
+
+.app {
+  width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+}
+
+%element {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+
+header {
+  @extend %element;
+  top: 0;
+  position: sticky;
+  background-color: palette.$off-white;
+}
+
+main {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+footer {
+  @extend %element;
+  color: palette.$off-white;
+  background-color: palette.$charcoal;
+}

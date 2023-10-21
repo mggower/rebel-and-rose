@@ -1,0 +1,30 @@
+// variables
+$font-path: '../assets/fonts/';
+
+// font-families
+$myriad-pro: 'Myriad Pro';
+$nickson-one: 'Nickson One';
+$bandoeng: 'Bandoeng';
+$american-typewriter: 'American Typewriter';
+
+// assets
+@font-face {
+  font-family: $myriad-pro;
+  src: url($font-path + 'MyriadPro-Regular.otf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: $nickson-one;
+  src: url($font-path + 'S_S Nickson One.otf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: $bandoeng;
+  src: url($font-path + 'Bandoeng.otf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: $american-typewriter;
+  src: url($font-path + 'AmericanTypewriter.ttc');
+  font-weight: 400;
+}
