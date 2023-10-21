@@ -1,12 +1,12 @@
-import logo from '@/assets/images/rose_color.png'
-import { css } from '@emotion/react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Home from './Home'
-import Salon from './Salon'
-import Spa from './Spa'
-import About from './About'
-import Team from './Team'
-import Policies from './Policies'
+import { css } from '@emotion/react'
+import logo from '@/assets/images/rose_color.png'
+import Home from './Routes/Home'
+import Salon from './Routes/Salon'
+import Spa from './Routes/Spa'
+import About from './Routes/About'
+import Team from './Routes/Team'
+import Policies from './Routes/Policies'
 
 const styles = {
   container: css({
