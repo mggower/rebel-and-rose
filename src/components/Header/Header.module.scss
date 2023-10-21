@@ -1,0 +1,71 @@
+@use '@/styles/fonts';
+@use '@/styles/palette';
+
+header {
+  display: flex;
+  margin-top: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+h1 {
+  font-family: fonts.$bandoeng;
+  font-size: 4rem;
+  color: palette.$charcoal;
+  letter-spacing: 0.1rem;
+  line-height: 0.8;
+}
+
+h3 {
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+}
+
+h5 {
+  font-size: 10px;
+  font-weight: 300;
+  color: palette.$charcoal;
+  border-top: 1px solid palette.$charcoal;
+  border-bottom: 1px solid palette.$charcoal;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  padding: 4px 2px;
+}
+
+.icons {
+  display: grid;
+  grid-template: auto auto / auto auto;
+  place-items: center;
+  place-content: center;
+  gap: 0.5em;
+  width: 3em;
+
+  & * {
+    font-size: 0.75em;
+    transition: font-size 300ms ease;
+    &:hover {
+      font-size: 2em;
+    }
+  }
+}
+
+.banner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  transform: translateY(-1rem);
+
+  & div {
+    font-family: fonts.$nickson-one;
+    display: 'flex';
+    place-items: center;
+    gap: 0.5rem;
+  }
+}

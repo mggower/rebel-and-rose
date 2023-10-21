@@ -1,5 +1,0 @@
-export { default as MenuBarsIcon } from './MenuBars'
-export { default as PlusIcon } from './Plus'
-export { default as FacebookIcon } from './Facebook'
-export { default as InstagramIcon } from './Instagram'
-export { default as TikTokIcon } from './TikTok'

@@ -1,5 +1,5 @@
-@use 'abstracts/palette';
-@import 'abstracts/fonts';
+@use 'palette';
+@import 'fonts';
 @import 'reset';
 
 :root {
@@ -26,9 +26,6 @@ body {
 %element {
   width: 100%;
   padding: 2rem;
-  display: flex;
-  place-items: center;
-  justify-content: center;
 }
 
 header {
@@ -49,4 +46,7 @@ footer {
   @extend %element;
   color: palette.$off-white;
   background-color: palette.$charcoal;
+  display: flex;
+  place-items: center;
+  justify-content: center;
 }
