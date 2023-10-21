@@ -1,7 +1,6 @@
-import { FunctionComponent } from 'react'
 import styles from './styles'
 
-const Team: FunctionComponent = () => {
+function Team() {
   return <div css={styles.container}>Team</div>
 }
 

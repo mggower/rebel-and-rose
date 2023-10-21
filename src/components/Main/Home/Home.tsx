@@ -1,7 +1,6 @@
-import { FunctionComponent } from 'react'
 import styles from './styles'
 
-const Home: FunctionComponent = () => {
+function Home() {
   return <div css={styles.container}>Home</div>
 }
 

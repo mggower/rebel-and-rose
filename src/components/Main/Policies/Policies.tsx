@@ -1,7 +1,6 @@
-import { FunctionComponent } from 'react'
 import styles from './styles'
 
-const Policies: FunctionComponent = () => {
+function Policies() {
   return <div css={styles.container}>Policies</div>
 }
 

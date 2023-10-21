@@ -1,8 +1,7 @@
-import { FunctionComponent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons'
 
-const Facebook: FunctionComponent = () => {
+function Facebook() {
   return <FontAwesomeIcon icon={faFacebookF} />
 }
 

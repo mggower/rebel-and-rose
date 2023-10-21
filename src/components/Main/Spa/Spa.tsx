@@ -1,7 +1,6 @@
-import { FunctionComponent } from 'react'
 import styles from './styles'
 
-const Spa: FunctionComponent = () => {
+function Spa() {
   return <div css={styles.container}>Spa</div>
 }
 
