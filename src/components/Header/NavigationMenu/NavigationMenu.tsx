@@ -1,5 +1,5 @@
 import { DropdownMenu, MenuItem } from '@/components/DropdownMenu'
-import { RoutePath } from '@/components/Main/routes'
+import { RoutePath } from '@/components/Main'
 import Icon, { bars } from '@/components/Icon'
 import NavigationItem from './NavigationItem'
 

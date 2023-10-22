@@ -1,1 +1,7 @@
-export { default } from './Main'
+export { default as Home } from './Home'
+export { default as About } from './About'
+export { default as Contact } from './Contact'
+export { default as Policies } from './Policies'
+export { default as Salon } from './Salon'
+export { default as Spa } from './Spa'
+export { default as Team } from './Team'

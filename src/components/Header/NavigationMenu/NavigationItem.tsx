@@ -1,5 +1,5 @@
 import { useLinkClickHandler } from 'react-router-dom'
-import { RoutePath } from '@/components/Main/routes'
+import { RoutePath } from '@/components/Main'
 import { MenuItem } from '@/components/DropdownMenu'
 
 interface Props {
