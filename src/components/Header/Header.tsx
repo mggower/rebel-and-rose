@@ -1,6 +1,6 @@
 import Icon, { plus, facebook, instagram, tiktok } from '@/components/Icon'
 import styles from './Header.module.scss'
-import Menu from './NavigationMenu'
+import Menu from './Navigation'
 
 function Header() {
   return (

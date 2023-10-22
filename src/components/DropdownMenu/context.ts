@@ -5,7 +5,7 @@ type SetState<T> = React.Dispatch<React.SetStateAction<T>>
 export interface DropdownContext {
   isOpen: boolean
   activeIndex: number | null
-  setHasFocusInside: SetState<boolean>
+  setIsOpen: SetState<boolean>
   setActiveIndex: SetState<number | null>
   getItemProps: (userProps?: React.HTMLProps<HTMLElement>) => Record<string, unknown>
 }

@@ -17,6 +17,7 @@ import {
   useInteractions,
   useListNavigation,
 } from '@floating-ui/react'
+import styles from './styles.module.scss'
 
 type Props = {
   label: React.ReactNode
@@ -28,7 +29,6 @@ const DropdownMenu = forwardRef<HTMLButtonElement, Props>(function DropdownMenu(
   propRef,
 ) {
   const [isOpen, setIsOpen] = useState(false)
-  const [hasFocusInside, setHasFocusInside] = useState(false)
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
   const elements = useRef<(HTMLButtonElement | null)[]>([])
@@ -39,7 +39,7 @@ const DropdownMenu = forwardRef<HTMLButtonElement, Props>(function DropdownMenu(
     onOpenChange: setIsOpen,
     placement: 'bottom-start',
     whileElementsMounted: autoUpdate,
-    middleware: [offset({ mainAxis: 4, alignmentAxis: 0 }), flip(), shift()],
+    middleware: [offset({ mainAxis: 8, alignmentAxis: -3 }), flip(), shift()],
   })
 
   const ref = useMergeRefs([refs.setReference, propRef])
@@ -72,7 +72,6 @@ const DropdownMenu = forwardRef<HTMLButtonElement, Props>(function DropdownMenu(
       setIsOpen,
       activeIndex,
       setActiveIndex,
-      setHasFocusInside,
       getItemProps,
     }),
     [isOpen, setIsOpen, activeIndex, getItemProps],
@@ -82,15 +81,9 @@ const DropdownMenu = forwardRef<HTMLButtonElement, Props>(function DropdownMenu(
     <Fragment>
       <button
         ref={ref}
+        className={styles.menu}
         data-open={isOpen ? '' : undefined}
-        data-focus-inside={hasFocusInside ? '' : undefined}
-        {...getReferenceProps({
-          ...props,
-          onFocus: (event: React.FocusEvent<HTMLButtonElement>) => {
-            props.onFocus?.(event)
-            setHasFocusInside(true)
-          },
-        })}>
+        {...getReferenceProps(props)}>
         {label}
       </button>
 
@@ -99,7 +92,26 @@ const DropdownMenu = forwardRef<HTMLButtonElement, Props>(function DropdownMenu(
           {isOpen && (
             <FloatingPortal>
               <FloatingFocusManager context={context} modal={false}>
-                <div ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()}>
+                <div
+                  ref={refs.setFloating}
+                  style={floatingStyles}
+                  className={styles.dropdown}
+                  {...getFloatingProps({
+                    onKeyDown: (event: React.KeyboardEvent<HTMLDivElement>) => {
+                      if (event.key === 'Tab') {
+                        event.preventDefault()
+                        setActiveIndex((index) => {
+                          if (index === null) {
+                            return 0
+                          } else if (event.shiftKey) {
+                            return index === 0 ? null : index - 1
+                          } else {
+                            return index === elements.current.length - 1 ? null : index + 1
+                          }
+                        })
+                      }
+                    },
+                  })}>
                   {children}
                 </div>
               </FloatingFocusManager>

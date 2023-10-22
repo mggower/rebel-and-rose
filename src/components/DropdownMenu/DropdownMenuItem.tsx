@@ -1,7 +1,7 @@
 import { useListItem, useMergeRefs } from '@floating-ui/react'
 import { useDropdownContext } from './context'
 import { forwardRef } from 'react'
-
+import styles from './styles.module.scss'
 interface Props {
   label: string
   selected?: boolean
@@ -11,7 +11,7 @@ interface Props {
 const MenuItem = forwardRef<
   HTMLButtonElement,
   Props & React.ButtonHTMLAttributes<HTMLButtonElement>
->(function MenuItem({ label, selected, disabled, ...props }, propRef) {
+>(function MenuItem({ label, selected, disabled, className, ...props }, propRef) {
   const menu = useDropdownContext()
   const item = useListItem({ label: disabled ? null : label })
   const ref = useMergeRefs([item.ref, propRef])
@@ -26,11 +26,14 @@ const MenuItem = forwardRef<
       role='menuitem'
       disabled={disabled}
       tabIndex={isActive ? 0 : -1}
+      data-active={isActive ? '' : undefined}
       data-selected={selected ? '' : undefined}
+      className={`${styles.item} ${className ?? ''}`}
       {...menu.getItemProps({
-        onFocus: (event: React.FocusEvent<HTMLButtonElement>) => {
-          props.onFocus?.(event)
-          menu.setHasFocusInside(true)
+        ...props,
+        onClick: (event: React.MouseEvent<HTMLButtonElement>) => {
+          props.onClick?.(event)
+          menu.setIsOpen(false)
         },
       })}>
       {label}

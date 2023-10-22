@@ -1,3 +1,3 @@
 export * from './context'
 export { default as DropdownMenu } from './DropdownMenu'
-export { default as MenuItem } from './MenuItem'
+export { default as DropdownMenuItem } from './DropdownMenuItem'
