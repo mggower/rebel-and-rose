@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
 import paths from '../utils/routes'
+import BookNow from './BookNow'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <div className='app'>
         <Header />
         <main>
+          <BookNow />
           <Routes>
             <Route path={paths.home} element={<Home />} />
             <Route path={paths.about} element={<About />} />

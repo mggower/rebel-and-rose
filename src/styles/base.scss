@@ -36,10 +36,10 @@ header {
 }
 
 main {
-  margin: 2rem;
   display: flex;
   flex-direction: column;
   place-items: center;
+  position: relative;
 }
 
 footer {

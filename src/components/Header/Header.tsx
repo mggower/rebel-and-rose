@@ -1,24 +1,28 @@
+import { useNavigate } from 'react-router-dom'
 import SocialMediaLinks from './SocialMedia'
 import NavigationMenu from './Navigation'
 import styles from './Header.module.scss'
+import routes from '@/utils/routes'
 
 function Header() {
+  const navigate = useNavigate()
   return (
     <header>
-      <SocialMediaLinks />
+      <div className={styles.primary}>
+        <SocialMediaLinks />
 
-      <div className={styles.banner}>
-        <h5>in historic</h5>
-        <div className={styles.logo}>
+        <div className={styles.banner} onClick={() => navigate(routes.home)}>
+          <h5>in historic</h5>
           <h1>Rebel & Rose</h1>
-          <div>
-            <h3>Beauty House</h3>
-          </div>
+          <h5>concord, ma</h5>
         </div>
-        <h5>concord, ma</h5>
+
+        <NavigationMenu />
       </div>
 
-      <NavigationMenu />
+      <h3>Beauty House</h3>
+
+      <div className={styles.texture} />
     </header>
   )
 }
