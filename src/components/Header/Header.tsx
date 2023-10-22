@@ -1,5 +1,6 @@
-import Icon, { bars, plus, facebook, instagram, tiktok } from '@/components/Icon'
+import Icon, { plus, facebook, instagram, tiktok } from '@/components/Icon'
 import styles from './Header.module.scss'
+import Menu from './NavigationMenu'
 
 function Header() {
   return (
@@ -22,9 +23,7 @@ function Header() {
         <h5>concord, ma</h5>
       </div>
 
-      <nav>
-        <Icon icon={bars} size='xl' />
-      </nav>
+      <Menu />
     </header>
   )
 }
