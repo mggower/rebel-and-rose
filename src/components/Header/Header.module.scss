@@ -11,7 +11,7 @@ header {
 h1 {
   font-family: fonts.$bandoeng;
   font-size: 4rem;
-  color: palette.$charcoal;
+  color: palette.$tertiary-500;
   letter-spacing: 0.1rem;
   line-height: 0.8;
 }
@@ -24,29 +24,12 @@ h3 {
 h5 {
   font-size: 10px;
   font-weight: 300;
-  color: palette.$charcoal;
-  border-top: 1px solid palette.$charcoal;
-  border-bottom: 1px solid palette.$charcoal;
+  color: palette.$tertiary-500;
+  border-top: 1px solid palette.$tertiary-500;
+  border-bottom: 1px solid palette.$tertiary-500;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   padding: 4px 2px;
-}
-
-.icons {
-  display: grid;
-  grid-template: auto auto / auto auto;
-  place-items: center;
-  place-content: center;
-  gap: 0.5em;
-  width: 3em;
-
-  & * {
-    font-size: 0.75em;
-    transition: font-size 300ms ease;
-    &:hover {
-      font-size: 2em;
-    }
-  }
 }
 
 .banner {

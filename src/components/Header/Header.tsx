@@ -1,16 +1,11 @@
-import Icon, { plus, facebook, instagram, tiktok } from '@/components/Icon'
+import SocialMediaLinks from './SocialMedia'
+import NavigationMenu from './Navigation'
 import styles from './Header.module.scss'
-import Menu from './Navigation'
 
 function Header() {
   return (
     <header>
-      <div className={styles.icons}>
-        <Icon icon={plus} />
-        <Icon icon={facebook} />
-        <Icon icon={instagram} />
-        <Icon icon={tiktok} />
-      </div>
+      <SocialMediaLinks />
 
       <div className={styles.banner}>
         <h5>in historic</h5>
@@ -23,7 +18,7 @@ function Header() {
         <h5>concord, ma</h5>
       </div>
 
-      <Menu />
+      <NavigationMenu />
     </header>
   )
 }

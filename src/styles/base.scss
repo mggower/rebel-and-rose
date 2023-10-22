@@ -7,7 +7,7 @@
   font-size: 16px;
   font-weight: 400;
   color-scheme: normal;
-  color: palette.$black;
+  color: palette.$ink;
   background-color: palette.$off-white;
 }
 
@@ -45,7 +45,7 @@ main {
 footer {
   @extend %element;
   color: palette.$off-white;
-  background-color: palette.$charcoal;
+  background-color: palette.$tertiary-400;
   display: flex;
   place-items: center;
   justify-content: center;

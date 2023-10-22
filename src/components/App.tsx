@@ -2,7 +2,7 @@ import { About, Contact, Home, Policies, Salon, Spa, Team } from './Main'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
-import paths from './routes'
+import paths from '../utils/routes'
 
 function App() {
   return (

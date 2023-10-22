@@ -17,7 +17,7 @@ import {
   useInteractions,
   useListNavigation,
 } from '@floating-ui/react'
-import styles from './styles.module.scss'
+import styles from './DropdownMenu.module.scss'
 
 type Props = {
   label: React.ReactNode
