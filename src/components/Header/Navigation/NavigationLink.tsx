@@ -6,7 +6,7 @@ interface Props {
   href: string
 }
 
-function ExternalLink({ label, href }: Props) {
+function NavigationLink({ label, href }: Props) {
   const { ref, menu, props } = useDropdownItem<HTMLAnchorElement>({ label })
   return (
     <a
@@ -21,4 +21,4 @@ function ExternalLink({ label, href }: Props) {
   )
 }
 
-export default ExternalLink
+export default NavigationLink
