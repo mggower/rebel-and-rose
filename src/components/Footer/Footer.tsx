@@ -1,8 +1,8 @@
 import { ADDRESS, BOOKER_URL, SCHEDULE } from '@/utils/constants'
-import { Fragment } from 'react'
-import styles from './Footer.module.scss'
-import Pendant from '@/assets/logos/pendant.svg?react'
 import { Link, useLocation } from 'react-router-dom'
+import { Fragment } from 'react'
+import Pendant from '@/assets/logos/pendant.svg?react'
+import styles from './Footer.module.scss'
 import routes from '@/utils/routes'
 
 function Footer() {

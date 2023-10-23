@@ -58,11 +58,11 @@ h5 {
 
 .texture {
   height: 2rem;
-  width: 50vw;
+  width: 100%;
   margin-top: 1.5rem;
   justify-self: center;
   background: url('@/assets/images/textures/boho-folk-E.jpg') repeat;
   background-position: 0 var(--pos, 50px);
   background-size: auto 300px;
-  max-width: 1200px;
+  max-width: 1000px;
 }

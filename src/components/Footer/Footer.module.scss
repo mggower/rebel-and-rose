@@ -3,8 +3,8 @@
 .content {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  max-width: 1100px;
+  justify-content: space-between;
+  max-width: 1200px;
   flex-grow: 1;
 }
 
@@ -58,8 +58,8 @@
 }
 
 .route {
-  margin-top: -4px;
-  padding: 4px 12px;
+  margin-top: -2px;
+  padding: 2px 6px;
   color: palette.$off-white;
   text-decoration: none;
   text-transform: uppercase;
@@ -68,21 +68,21 @@
   font-size: 14px;
   outline: none;
   transition: 100ms ease;
-  border-right: 4px solid transparent;
 
   &:visited {
     color: palette.$off-white;
   }
   &:hover,
   &:focus {
-    background-color: palette.$off-white;
+    background-color: palette.$tertiary-200;
     color: palette.$ink;
     &:active {
-      background-color: palette.$tertiary-200;
+      color: palette.$off-white;
+      background-color: palette.$tertiary-300;
     }
   }
 }
 
 .route[data-active='true'] {
-  border-right: 4px solid palette.$off-white;
+  text-decoration: underline;
 }
