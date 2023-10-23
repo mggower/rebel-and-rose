@@ -25,14 +25,18 @@ body {
 
 %element {
   width: 100%;
-  padding: 2rem;
 }
 
 header {
   @extend %element;
   top: 0;
+  padding: 2rem 2rem 0;
   position: sticky;
   background-color: palette.$off-white;
+  display: grid;
+  grid-template-columns: auto;
+  align-items: center;
+  z-index: 100;
 }
 
 main {
@@ -40,10 +44,12 @@ main {
   flex-direction: column;
   place-items: center;
   position: relative;
+  padding: 2rem;
 }
 
 footer {
   @extend %element;
+  padding: 2rem;
   color: palette.$off-white;
   background-color: palette.$tertiary-400;
   display: flex;

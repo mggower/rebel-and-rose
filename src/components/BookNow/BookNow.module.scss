@@ -2,9 +2,9 @@
 
 .booker {
   left: 0;
-  top: 0;
+  top: 200px;
   padding: 1rem;
-  position: absolute;
+  position: fixed;
   writing-mode: vertical-rl;
   text-orientation: upright;
   font-size: 14px;
@@ -15,7 +15,6 @@
   text-decoration: none;
   outline: none;
   border-radius: 2px;
-
   &:hover,
   &:focus {
     background-color: palette.$russet-medium;

@@ -5,6 +5,7 @@ header {
   display: grid;
   grid-template-columns: auto;
   align-items: center;
+  z-index: 100;
 }
 
 h1 {
@@ -49,12 +50,19 @@ h5 {
   gap: 2rem;
 }
 
+.logo {
+  fill: palette.$ink;
+  height: 100px;
+  width: auto;
+}
+
 .texture {
   height: 2rem;
   width: 50vw;
   margin-top: 1.5rem;
   justify-self: center;
-  background: url('@/assets/images/textures/boho-folk-E.jpg') center center repeat;
+  background: url('@/assets/images/textures/boho-folk-E.jpg') repeat;
+  background-position: 0 var(--pos, 50px);
   background-size: auto 300px;
   max-width: 1200px;
 }

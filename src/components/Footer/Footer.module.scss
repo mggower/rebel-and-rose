@@ -68,7 +68,7 @@
   font-size: 14px;
   outline: none;
   transition: 100ms ease;
-  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
 
   &:visited {
     color: palette.$off-white;
@@ -84,5 +84,5 @@
 }
 
 .route[data-active='true'] {
-  border-left: 4px solid palette.$off-white;
+  border-right: 4px solid palette.$off-white;
 }
