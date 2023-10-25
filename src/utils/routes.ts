@@ -22,6 +22,7 @@ export default {
     return matchPath(route, pathname) !== null
   },
   list: [
+    { route: RoutePath.HOME, label: 'Home' },
     { route: RoutePath.SALON, label: 'Salon' },
     { route: RoutePath.SPA, label: 'Spa' },
     { route: RoutePath.ABOUT, label: 'About' },

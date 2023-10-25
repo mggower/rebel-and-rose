@@ -1,0 +1,41 @@
+@use '@/styles/palette';
+@use '@/styles/fonts';
+
+.container {
+  height: 300vh;
+}
+
+.image {
+  width: 100%;
+  height: 40vh;
+  max-width: 1000px;
+  background: url('@/assets/images/content/image-7.jpg') no-repeat center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+  background-position: 0 var(--pos, 0%);
+
+  & div {
+    & h5 {
+      font-size: 1.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: palette.$off-white;
+      font-family: fonts.$nickson-one;
+    }
+
+    & h1 {
+      text-rendering: geometricPrecision;
+      font-family: fonts.$bandoeng;
+      text-align: justify;
+      font-size: 8rem;
+      color: palette.$bright-russet;
+      letter-spacing: 0.1rem;
+      line-height: 1.2;
+      align-self: center;
+    }
+  }
+}
