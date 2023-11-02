@@ -1,3 +1,11 @@
-export const createCssVariable = (name: string, value: string | number) => {
-  return { [`--${name}`]: value } as React.CSSProperties
+export const pixel = (value: number) => `${value}px`
+
+export const createCssVariable = (...vars: [name: string, value: string | number][]) => {
+  return vars.reduce(
+    (acc, [name, value]) => {
+      acc[`--${name}`] = value
+      return acc
+    },
+    {} as Record<string, string | number>,
+  ) as React.CSSProperties
 }

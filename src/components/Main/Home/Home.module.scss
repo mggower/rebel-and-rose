@@ -1,21 +1,21 @@
 @use '@/styles/palette';
 @use '@/styles/fonts';
+@import '@/styles/library';
 
 .container {
   height: 300vh;
   display: flex;
-  margin: 1rem 0;
+  margin: 2rem 0;
   flex-direction: column;
   place-items: center;
   width: 100vw;
 }
 
 .image {
-  width: 80vw;
+  @include fit-content;
   height: 50vh;
   border-radius: 2px;
-  max-width: 1200px;
-  background: url('@/assets/images/content/image-7.jpg') no-repeat center;
+  background: url('@/assets/images/image-7.jpg') no-repeat center;
   background-size: cover;
   display: grid;
   grid-template-rows: calc(50% - 3rem) min-content auto;
@@ -30,11 +30,7 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: palette.$off-white;
-    font-family: fonts.$nickson-one;
-  }
-
-  @media (max-width: 850px) {
-    width: 100vw;
+    font-family: fonts.$calder;
   }
 }
 
@@ -50,14 +46,13 @@
 }
 
 .garden {
+  @include shadow;
   width: 34vh;
   height: 45vh;
-  background: url('@/assets/images/content/image-2.jpg') no-repeat center;
+  background: url('@/assets/images/image-2.jpg') no-repeat center;
   background-size: cover;
   background-position-x: 90%;
   transform: translateY(-2rem);
-  border-radius: 2px;
-  filter: drop-shadow(0 0 2px rgba(palette.$tertiary-400, 0.5));
 }
 
 .story {
@@ -66,12 +61,12 @@
   align-items: flex-start;
   margin: 4rem;
   padding: 1rem;
-  gap: 1rem;
+  gap: 2rem;
 
   & h5 {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     letter-spacing: 3px;
-    font-family: fonts.$nickson-one;
+    font-family: fonts.$calder-dark;
     text-transform: uppercase;
   }
   & p {
@@ -87,4 +82,27 @@
     font-family: fonts.$american-typewriter;
     text-decoration: underline;
   }
+}
+
+.text {
+  width: 40vw;
+  position: absolute;
+  opacity: 0.3;
+  transform: translate(-42px, -78px);
+}
+
+.haircut {
+  @include shadow;
+  position: absolute;
+  width: 400px;
+  transform: translateY(48px);
+  right: 0;
+}
+.salon {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  margin: 2rem 0;
+  background-color: rgba(palette.$earth, 0.7);
+  min-height: 50vh;
 }

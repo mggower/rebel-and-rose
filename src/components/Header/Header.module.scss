@@ -1,11 +1,12 @@
 @use '@/styles/fonts';
 @use '@/styles/palette';
+@import '@/styles/library';
 
 .primary {
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 2rem 2rem 0;
+  padding: 2rem;
   justify-content: space-between;
 }
 
@@ -32,18 +33,22 @@
   width: auto;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 .texture {
+  @include fit-content;
+  @include shadow;
   height: 2rem;
-  width: 80vw;
-  margin-top: 2rem;
-  border-radius: 2px;
-  justify-self: center;
-  background: url('@/assets/images/textures/boho-folk-E.jpg') repeat;
+  position: absolute;
+  z-index: 100;
+  background: url('@/assets/textures/boho-folk-E.jpg') repeat;
   background-position: 0 var(--pos, 50px);
   background-size: auto 300px;
-  max-width: 1200px;
-  filter: drop-shadow(0 0 2px rgba(palette.$tertiary-400, 0.5));
-
+  top: var(--top, 200px);
+  position: fixed;
   @media (max-width: 850px) {
     width: 100vw;
   }

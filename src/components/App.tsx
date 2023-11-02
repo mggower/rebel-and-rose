@@ -2,7 +2,6 @@ import { About, Contact, Home, Policies, Salon, Spa, Team } from './Main'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
-import BookNow from './BookNow'
 import paths from '../utils/routes'
 
 function App() {
@@ -11,7 +10,6 @@ function App() {
       <div className='app'>
         <Header />
         <main>
-          <BookNow />
           <Routes>
             <Route path={paths.home} element={<Home />} />
             <Route path={paths.about} element={<About />} />
