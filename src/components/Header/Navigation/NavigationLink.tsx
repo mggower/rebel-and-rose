@@ -1,4 +1,4 @@
-import { useDropdownItem } from '@/components/DropdownMenu'
+import { useDropdownItem } from '@/components/Shared/DropdownMenu'
 import styles from './Navigation.module.scss'
 
 interface Props {

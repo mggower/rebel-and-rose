@@ -31,7 +31,6 @@ header {
   @extend %element;
   top: 0;
   position: sticky;
-  background-color: palette.$off-white;
   display: grid;
   grid-template-columns: auto;
   align-items: center;

@@ -8,6 +8,16 @@
   align-items: center;
   padding: 2rem;
   justify-content: space-between;
+  background-color: palette.$off-white;
+  &::after {
+    content: ' ';
+    height: 1rem;
+    width: 100%;
+    bottom: -1rem;
+    left: 0;
+    position: absolute;
+    background: linear-gradient(palette.$off-white, palette.$off-white, transparent);
+  }
 }
 
 .banner {
@@ -36,20 +46,21 @@
 .center {
   display: flex;
   justify-content: center;
+  background: transparent;
 }
 
-.texture {
+.texture-container {
   @include fit-content;
-  @include shadow;
-  height: 2rem;
-  position: absolute;
+  padding-top: 8px;
+  position: fixed;
   z-index: 100;
+  top: var(--top, 200px);
+  background-color: palette.$off-white;
+}
+.texture {
+  height: 2rem;
+  @include shadow;
   background: url('@/assets/textures/boho-folk-E.jpg') repeat;
   background-position: 0 var(--pos, 50px);
   background-size: auto 300px;
-  top: var(--top, 200px);
-  position: fixed;
-  @media (max-width: 850px) {
-    width: 100vw;
-  }
 }

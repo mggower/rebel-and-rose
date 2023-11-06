@@ -10,7 +10,6 @@
   padding: 4px 12px;
   outline: none;
   background-color: transparent;
-  border-left: 4px solid transparent;
   text-decoration: none;
   transition: 100ms ease;
 
@@ -29,5 +28,5 @@
 }
 
 .item[data-selected='true'] {
-  border-color: palette.$blush;
+  text-decoration: underline;
 }

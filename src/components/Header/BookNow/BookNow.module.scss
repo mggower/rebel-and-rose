@@ -1,0 +1,27 @@
+@use '@/styles/palette';
+
+.booker {
+  left: 0;
+  top: 0;
+  transform: translateY(calc(var(--top, 200px) + 2rem));
+  padding: 1rem;
+  position: fixed;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  z-index: 1000;
+  font-size: 14px;
+  line-height: 14px;
+  color: palette.$off-white;
+  background-color: palette.$russet;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: none;
+  border-radius: 2px;
+  &:hover,
+  &:focus {
+    background-color: palette.$russet-medium;
+    &:active {
+      background-color: palette.$russet-dark;
+    }
+  }
+}

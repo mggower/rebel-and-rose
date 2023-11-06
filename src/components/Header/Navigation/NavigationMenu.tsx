@@ -1,9 +1,9 @@
-import { DropdownMenu } from '@/components/DropdownMenu'
+import { DropdownMenu } from '@/components/Shared/DropdownMenu'
 import { BOOKER_URL } from '@/utils/constants'
 import { bars } from '@/utils/icons'
 import NavigationItem from './NavigationItem'
 import NavigationLink from './NavigationLink'
-import Icon from '@/components/Icon'
+import Icon from '@/components/Shared/Icon'
 import routes from '@/utils/routes'
 
 function NavigationMenu() {

@@ -1,5 +1,5 @@
 import { useMatch, useNavigate } from 'react-router-dom'
-import { useDropdownItem } from '@/components/DropdownMenu'
+import { useDropdownItem } from '@/components/Shared/DropdownMenu'
 import { RoutePath } from '@/utils/routes'
 import styles from './Navigation.module.scss'
 

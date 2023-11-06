@@ -1,6 +1,6 @@
 import { FACEBOOK_URL, INSTAGRAM_URL } from '@/utils/constants'
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import Icon from '@/components/Icon'
+import Icon from '@/components/Shared/Icon'
 import styles from './SocialMedia.module.scss'
 import * as icons from '@/utils/icons'
 

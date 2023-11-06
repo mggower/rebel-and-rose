@@ -5,15 +5,16 @@ import { useEffect, useRef, useState } from 'react'
 import SocialMediaLinks from './SocialMedia'
 import NavigationMenu from './Navigation'
 import LogoBanner from '@/assets/logos/banner.svg?react'
+import BookNow from './BookNow'
 import styles from './Header.module.scss'
 import routes from '@/utils/routes'
-import BookNow from '../BookNow'
 
 function Header() {
-  const [top, setTop] = useState(200)
   const ref = useRef<HTMLHeadingElement>(null)
   const navigate = useNavigate()
   const position = useScrollPosition((position) => Math.ceil(position / 10))
+
+  const [top, setTop] = useState(200)
 
   useEffect(() => {
     setTop(ref.current?.getBoundingClientRect().height ?? 200)
@@ -36,9 +37,10 @@ function Header() {
       </header>
       <div className={styles.center}>
         <div
-          className={styles.texture}
-          style={createCssVariable(['pos', pixel(position)], ['top', pixel(top)])}
-        />
+          className={styles.textureContainer}
+          style={createCssVariable(['pos', pixel(position)], ['top', pixel(top)])}>
+          <div className={styles.texture} />
+        </div>
       </div>
 
       <BookNow top={top} />
