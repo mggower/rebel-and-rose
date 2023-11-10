@@ -2,7 +2,7 @@
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
-  content: ['./index.html', './src/**/*.{ts, tsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
       mono: defaultTheme.fontFamily.mono,
@@ -14,6 +14,7 @@ export default {
     },
     extend: {
       colors: {
+        offwhite: '#f4f3ea',
         wheat: {
           DEFAULT: '#e9d9bc',
           50: '#fbf8f1',
@@ -84,6 +85,9 @@ export default {
           900: '#3d3d3d',
           950: '#1b1b1b',
         },
+      },
+      backgroundImage: {
+        'banner-texture-e': "url('./src/assets/textures/boho-folk-E.jpg')",
       },
     },
   },

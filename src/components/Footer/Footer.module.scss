@@ -1,4 +1,14 @@
-@use '@/styles/palette';
+@use '@/styles/variables';
+
+footer {
+  width: 100%;
+  padding: 2rem;
+  color: variables.$off-white;
+  background-color: variables.$tertiary-400;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
 
 .content {
   display: flex;
@@ -12,7 +22,7 @@
   width: 40vw;
   max-width: 800px;
   display: grid;
-  border-right: 1px solid palette.$off-white;
+  border-right: 1px solid variables.$off-white;
   grid-template-columns: 1fr 1fr;
   align-items: start;
   justify-content: start;
@@ -26,15 +36,15 @@
   padding: 1rem 2rem 0.5rem 0;
   text-align: left;
   grid-column: span 2;
-  color: palette.$tertiary-300;
-  border-top: 1px solid palette.$off-white;
+  color: variables.$tertiary-300;
+  border-top: 1px solid variables.$off-white;
 }
 
 .meta {
   display: flex;
   flex-direction: column;
   padding: 0.5rem 0 1rem;
-  border-right: 1px solid palette.$off-white;
+  border-right: 1px solid variables.$off-white;
 }
 
 .schedule {
@@ -47,7 +57,7 @@
 .pendant {
   width: auto;
   height: 160px;
-  fill: palette.$off-white;
+  fill: variables.$off-white;
 }
 
 .links {
@@ -60,7 +70,7 @@
 .route {
   margin-top: -2px;
   padding: 2px 6px;
-  color: palette.$off-white;
+  color: variables.$off-white;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -70,15 +80,15 @@
   transition: 100ms ease;
 
   &:visited {
-    color: palette.$off-white;
+    color: variables.$off-white;
   }
   &:hover,
   &:focus {
-    background-color: palette.$tertiary-200;
-    color: palette.$ink;
+    background-color: variables.$tertiary-200;
+    color: variables.$ink;
     &:active {
-      color: palette.$off-white;
-      background-color: palette.$tertiary-300;
+      color: variables.$off-white;
+      background-color: variables.$tertiary-300;
     }
   }
 }

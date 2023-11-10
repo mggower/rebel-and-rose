@@ -1,4 +1,4 @@
-@use '@/styles/fonts';
+@use '@/styles/variables';
 @import '@/styles/library';
 
 .scrapbook {
@@ -16,7 +16,7 @@
     justify-content: center;
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-family: fonts.$american-typewriter;
+    font-family: variables.$american-typewriter;
     & h5 {
       transform: translateY(-4px);
     }

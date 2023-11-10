@@ -1,4 +1,4 @@
-@use '@/styles/palette';
+@use '@/styles/variables';
 
 .item {
   border: none;
@@ -14,17 +14,17 @@
   transition: 100ms ease;
 
   &:active {
-    background-color: palette.$blush;
+    background-color: variables.$blush;
   }
 
   &.external {
-    color: palette.$russet;
+    color: variables.$russet;
     margin-top: 1rem;
   }
 }
 
 .item[data-active='true']:not(:active) {
-  background-color: palette.$tertiary-200;
+  background-color: variables.$tertiary-200;
 }
 
 .item[data-selected='true'] {

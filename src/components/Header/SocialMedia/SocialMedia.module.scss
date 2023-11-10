@@ -1,4 +1,4 @@
-@use '@/styles/palette';
+@use '@/styles/variables';
 
 .icons {
   margin: -1.5rem;
@@ -41,6 +41,6 @@ a.item:focus {
   align-items: center;
   justify-content: center;
   & > svg {
-    color: palette.$russet;
+    color: variables.$russet;
   }
 }

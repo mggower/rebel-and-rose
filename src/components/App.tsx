@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <div className='app'>
         <Header />
-        <main>
+        <main className='relative flex flex-col place-items-center'>
           <Routes>
             <Route path={paths.home} element={<Home />} />
             <Route path={paths.about} element={<About />} />

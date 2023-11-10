@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Myriad Pro;
+    src: url('@/assets/fonts/MyriadPro-Regular.otf');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: Nickson One;
+    src: url('@/assets/fonts/S_S Nickson One.otf');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: Bandoeng;
+    src: url('@/assets/fonts/Bandoeng.otf');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: American Typewriter;
+    src: url('@/assets/fonts/AmericanTypewriter.ttc');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: calder-dark, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: calder-lc, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: calder-script, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  :root {
+    font-family: theme(fontFamily.sans);
+    color-scheme: normal;
+    color: theme(colors.ink.DEFAULT);
+    background-color: theme(colors.offwhite);
+  }
+
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  .app {
+    display: grid;
+    width: 100vw;
+    min-height: 100vh;
+    grid-template-rows: min-content auto min-content;
+  }
+}
+
+@layer utilities {
+  .contain-content {
+    width: 80vw;
+    max-width: 1200px;
+    @media screen(md) {
+      width: 100vw;
+    }
+  }
+
+  .shadow {
+    border-radius: 2px;
+    filter: drop-shadow(0 0 2px theme(colors.ink.700 / 50%));
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+}
