@@ -8,7 +8,7 @@ import LogoBanner from '@/assets/logos/banner.svg?react'
 import BookNow from './BookNow'
 import routes from '@/utils/routes'
 
-function Header() {
+export default function Header() {
   const ref = useRef<HTMLHeadingElement>(null)
   const navigate = useNavigate()
   const position = useScrollPosition((position) => Math.ceil(position / 10))
@@ -23,11 +23,11 @@ function Header() {
     <>
       <header
         ref={ref}
-        className='bg-offwhite sticky top-0 z-20 flex w-full items-center justify-between p-8'>
+        className='sticky top-0 z-20 grid w-full grid-cols-4 items-center justify-between bg-offwhite p-8'>
         <SocialMediaLinks />
 
         <div
-          className='flex items-center justify-center gap-12'
+          className='col-span-2 flex items-center justify-center gap-12'
           onClick={() => navigate(routes.home)}>
           <h5 className='whitespace-nowrap border-y border-ink px-0.5 py-1 text-xs font-light uppercase tracking-wider'>
             in historic
@@ -38,14 +38,16 @@ function Header() {
           </h5>
         </div>
 
-        <NavigationMenu />
+        <div className='flex items-center justify-end'>
+          <NavigationMenu />
+        </div>
       </header>
 
       <div
         className='fixed z-20 flex w-full justify-center bg-transparent'
         style={{ top: pixel(top) }}>
         <div
-          className='contain-content bg-banner-texture-e h-8 bg-[length:auto_300px] bg-repeat shadow'
+          className='contain-content h-8 bg-banner-texture-e bg-[length:auto_300px] bg-repeat shadow'
           style={{ backgroundPosition: `0 ${pixel(position)}` }}
         />
       </div>
@@ -54,5 +56,3 @@ function Header() {
     </>
   )
 }
-
-export default Header

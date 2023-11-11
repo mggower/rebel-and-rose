@@ -7,7 +7,7 @@ import paths from '../utils/routes'
 function App() {
   return (
     <BrowserRouter>
-      <div className='app'>
+      <div className='grid min-h-screen w-screen grid-rows-[min-content_auto_min-content]'>
         <Header />
         <main className='relative flex flex-col place-items-center'>
           <Routes>

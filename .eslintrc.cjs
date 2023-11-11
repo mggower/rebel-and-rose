@@ -16,6 +16,10 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'react/no-unknown-property': ['error', { ignore: ['css'] }],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      { varsIgnorePattern: '^_', argsIgnorePattern: '^_' },
+    ],
   },
   parserOptions: {
     ecmaVersion: 'latest',

@@ -56,21 +56,14 @@
     display: flex;
     place-items: center;
   }
-
-  .app {
-    display: grid;
-    width: 100vw;
-    min-height: 100vh;
-    grid-template-rows: min-content auto min-content;
-  }
 }
 
 @layer utilities {
   .contain-content {
-    width: 80vw;
-    max-width: 1200px;
+    width: 100vw;
     @media screen(md) {
-      width: 100vw;
+      max-width: 1200px;
+      width: 80vw;
     }
   }
 
