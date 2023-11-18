@@ -12,6 +12,14 @@ export default {
       cursive: ['Bandoeng', 'cursive'],
       calder: ['calder-lc', 'serif'],
     },
+    data: {
+      active: 'active="true"',
+      selected: 'selected="true"',
+      primary: 'theme="primary"',
+      secondary: 'theme="secondary"',
+      tertiary: 'theme="tertiary"',
+      open: 'open="true"',
+    },
     extend: {
       colors: {
         offwhite: '#f4f3ea',

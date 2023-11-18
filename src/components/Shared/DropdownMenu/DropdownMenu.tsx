@@ -17,7 +17,6 @@ import {
   useInteractions,
   useListNavigation,
 } from '@floating-ui/react'
-import styles from './DropdownMenu.module.scss'
 
 type Props = {
   label: React.ReactNode
@@ -81,8 +80,8 @@ const DropdownMenu = forwardRef<HTMLButtonElement, Props>(function DropdownMenu(
     <Fragment>
       <button
         ref={ref}
-        className={styles.menu}
-        data-open={isOpen ? '' : undefined}
+        data-open={isOpen}
+        className='link data-open:bg-ink-300/50 flex h-8 w-8 place-content-center place-items-center rounded p-1 text-xl active:bg-ink-300/50'
         {...getReferenceProps(props)}>
         {label}
       </button>
@@ -95,7 +94,7 @@ const DropdownMenu = forwardRef<HTMLButtonElement, Props>(function DropdownMenu(
                 <div
                   ref={refs.setFloating}
                   style={floatingStyles}
-                  className={styles.dropdown}
+                  className='flex w-40 flex-col rounded border border-ink-800 bg-wheat-100 p-1 outline-none'
                   {...getFloatingProps({
                     onKeyDown: (event: React.KeyboardEvent<HTMLDivElement>) => {
                       if (event.key === 'Tab') {
