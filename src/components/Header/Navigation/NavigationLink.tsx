@@ -13,7 +13,7 @@ function NavigationLink({ label, href }: Props) {
       href={href}
       target='_blank'
       rel='noreferrer'
-      data-theme='secondary'
+      data-palette='secondary'
       className='link mt-4 text-left text-xs'
       {...menu.getItemProps({ ...props, onClick: () => menu.setIsOpen(false) })}>
       {label}

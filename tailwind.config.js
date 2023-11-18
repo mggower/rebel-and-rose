@@ -15,9 +15,10 @@ export default {
     data: {
       active: 'active="true"',
       selected: 'selected="true"',
-      primary: 'theme="primary"',
-      secondary: 'theme="secondary"',
-      tertiary: 'theme="tertiary"',
+      primary: 'palette="primary"',
+      secondary: 'palette="secondary"',
+      light: 'theme="light"',
+      dark: 'theme="dark"',
       open: 'open="true"',
     },
     extend: {

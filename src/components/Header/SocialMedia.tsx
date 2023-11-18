@@ -67,7 +67,7 @@ export default function SocialMedia() {
         {...rest}
         onPointerLeave={onPointerLeave}
         onPointerDown={(e) => isVisible.current && onPointerDown?.(e)}
-        className='absolute flex touch-none items-center gap-4 rounded-md p-4'>
+        className='absolute flex touch-none items-center gap-3 rounded-md p-4'>
         <animated.div
           {...rest}
           ref={ref}
@@ -75,8 +75,8 @@ export default function SocialMedia() {
           tabIndex={0}
           onPointerDown={onPointerDown}
           onPointerEnter={onPointerEnter}
-          className='relative z-10 flex h-6 w-6 touch-none items-center  justify-center rounded-full bg-offwhite bg-clip-content focus-visible:outline-offset-2'>
-          <Icon icon={plus} />
+          className='relative z-10 flex touch-none items-center justify-center'>
+          <Icon icon={plus} className='link h-4 w-4 rounded p-2 text-sm' />
         </animated.div>
         {avatars.map((animation, index) => (
           <animated.a
@@ -87,8 +87,8 @@ export default function SocialMedia() {
             href={urls[SOCIALS[index]]}
             tabIndex={isVisible.current ? 0 : -1}
             ref={(ref) => (avatarRefs.current[index] = ref!)}
-            className='z-0 flex items-center justify-center rounded-full bg-offwhite p-4 hover:text-russet'>
-            <Icon icon={icons[SOCIALS[index]]} className='hover:text-russet' />
+            className='z-0 flex items-center justify-center'>
+            <Icon icon={icons[SOCIALS[index]]} className='link h-4 w-4 rounded p-2 text-sm' />
           </animated.a>
         ))}
       </animated.div>
