@@ -32,11 +32,11 @@ export default function Header() {
         <div
           className='col-span-2 flex items-center justify-center gap-12'
           onClick={() => navigate(routes.home)}>
-          <h5 className='whitespace-nowrap border-y border-ink px-0.5 py-1 text-xs font-light uppercase tracking-wider'>
+          <h5 className='tracking-extreme whitespace-nowrap border-y border-ink px-0.5 py-1 text-sm font-light uppercase'>
             in historic
           </h5>
           <LogoBanner className='h-28 w-auto fill-ink' />
-          <h5 className='whitespace-nowrap border-y border-ink px-0.5 py-1 text-xs font-light uppercase tracking-wider'>
+          <h5 className='tracking-extreme whitespace-nowrap border-y border-ink px-0.5 py-1 text-sm font-light uppercase'>
             concord, ma
           </h5>
         </div>

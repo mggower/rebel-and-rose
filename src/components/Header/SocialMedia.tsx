@@ -38,24 +38,30 @@ export default function SocialMedia() {
     }))
   }, [api])
 
+  const animateOpen = () => {
+    isVisible.current = true
+    api.start({ x: 0, opacity: 1 })
+  }
+
+  const animateClose = () => {
+    api.start((index) => ({
+      x: positions.current[index],
+      opacity: 0,
+      onRest: () => {
+        isVisible.current = false
+      },
+    }))
+  }
+
   const gestures = useHover(({ hovering }) => {
     if (hovering) {
       if (timeout.current) {
         clearTimeout(timeout.current)
       }
 
-      isVisible.current = true
-      api.start({ x: 0, opacity: 1 })
+      animateOpen()
     } else {
-      timeout.current = setTimeout(() => {
-        api.start((index) => ({
-          x: positions.current[index],
-          opacity: 0,
-          onRest: () => {
-            isVisible.current = false
-          },
-        }))
-      }, 2000)
+      timeout.current = setTimeout(animateClose, 2000)
     }
   })
 
@@ -73,8 +79,11 @@ export default function SocialMedia() {
           ref={ref}
           role='button'
           tabIndex={0}
-          onPointerDown={onPointerDown}
           onPointerEnter={onPointerEnter}
+          onPointerDown={(e) => {
+            isVisible.current ? animateClose() : animateOpen()
+            onPointerDown?.(e)
+          }}
           className='relative z-10 flex touch-none items-center justify-center'>
           <Icon icon={plus} className='link h-4 w-4 rounded p-2 text-sm' />
         </animated.div>

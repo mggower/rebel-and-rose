@@ -88,6 +88,9 @@ export default {
       backgroundImage: {
         ['boho-folk-e']: createTextureUrl('boho-folk-E'),
       },
+      letterSpacing: {
+        extreme: '0.3em',
+      },
     },
   },
   plugins: [],
