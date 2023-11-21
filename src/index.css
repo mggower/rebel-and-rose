@@ -27,29 +27,11 @@
     font-weight: 400;
   }
 
-  @font-face {
-    font-family: calder-dark, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: calder-lc, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: calder-script, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
   :root {
     font-family: theme(fontFamily.sans);
     color-scheme: normal;
     color: theme(colors.ink.DEFAULT);
-    background-color: theme(colors.offwhite);
+    background-color: theme(colors.wheat.100);
   }
 
   body {
@@ -60,7 +42,7 @@
 
 @layer components {
   .link {
-    @apply data-selected:underline data-secondary:text-russet data-secondary:active:text-ink data-dark:text-wheat-100 data-dark:bg-ink-800 data-dark:hover:bg-ink-600/50 data-dark:data-active:bg-earth/75 data-dark:active:bg-earth-300 data-dark:active:text-ink data-active:bg-ink-300/50 cursor-pointer rounded-sm border-none px-3 py-1 text-sm uppercase tracking-widest text-ink no-underline outline-none transition-all hover:bg-ink-300/50 active:bg-blush;
+    @apply cursor-pointer rounded-sm border-none px-3 py-1 text-sm uppercase tracking-widest text-ink no-underline outline-none transition-all hover:bg-ink-300/50 active:bg-blush data-active:bg-ink-300/50 data-selected:underline data-secondary:text-russet data-secondary:active:text-ink data-dark:bg-ink-800 data-dark:text-wheat-100 data-dark:hover:bg-ink-600/50 data-dark:active:bg-earth-300 data-dark:active:text-ink data-dark:data-active:bg-earth/75;
   }
 }
 

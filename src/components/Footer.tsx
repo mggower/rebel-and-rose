@@ -8,7 +8,7 @@ function Footer() {
   const { pathname } = useLocation()
 
   return (
-    <footer className='flex w-full place-items-center justify-center bg-ink-800 p-8 text-wheat-100'>
+    <footer className='z-20 flex w-full place-items-center justify-center bg-ink-800 p-8 text-wheat-100'>
       <div className='contain-content flex grow items-center justify-between'>
         <Pendant className='h-40 w-auto fill-wheat-100' />
 

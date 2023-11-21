@@ -9,3 +9,5 @@ export const createCssVariable = (...vars: [name: string, value: string | number
     {} as Record<string, string | number>,
   ) as React.CSSProperties
 }
+
+export const calcHeightFromWindow = (percentage: number) => window.innerHeight * (percentage / 100)

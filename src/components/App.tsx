@@ -1,13 +1,12 @@
 import { About, Contact, Home, Policies, Salon, Spa, Team } from './Main'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './Header'
-import Footer from './Footer'
 import paths from '../utils/routes'
 
 function App() {
   return (
     <BrowserRouter>
-      <div className='grid min-h-screen w-screen grid-rows-[min-content_auto_min-content]'>
+      <div className='grid min-h-screen w-screen grid-rows-[min-content_auto]'>
         <Header />
         <main className='relative flex flex-col place-items-center'>
           <Routes>
@@ -20,7 +19,6 @@ function App() {
             <Route path={paths.team} element={<Team />} />
           </Routes>
         </main>
-        <Footer />
       </div>
     </BrowserRouter>
   )

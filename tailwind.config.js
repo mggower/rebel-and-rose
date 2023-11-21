@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 import defaultTheme from 'tailwindcss/defaultTheme'
 
-const createTextureUrl = (name, ext = 'jpg') => `url('@/assets/textures/${name}.${ext}')`
+const createAssetUrl = (path) => `url('@/assets/${path}')`
 
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -13,6 +13,7 @@ export default {
       block: ['"Nickson One"', ...defaultTheme.fontFamily.serif],
       cursive: ['Bandoeng', 'cursive'],
       calder: ['calder-lc', 'serif'],
+      dark: ['calder-dark', 'serif'],
     },
     data: {
       active: 'active="true"',
@@ -25,7 +26,6 @@ export default {
     },
     extend: {
       colors: {
-        offwhite: '#f4f3ea',
         wheat: {
           DEFAULT: '#E9D9BC',
           100: '#FAF8F0',
@@ -86,7 +86,9 @@ export default {
         },
       },
       backgroundImage: {
-        ['boho-folk-e']: createTextureUrl('boho-folk-E'),
+        ['boho-folk-e']: createAssetUrl('textures/boho-folk-E.jpg'),
+        ['image-2']: createAssetUrl('images/image-2.jpg'),
+        ['image-7']: createAssetUrl('images/image-7.jpg'),
       },
       letterSpacing: {
         extreme: '0.3em',
