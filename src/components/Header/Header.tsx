@@ -7,7 +7,7 @@ import NavigationMenu from './Navigation'
 import LogoBanner from '@/assets/logos/banner.svg?react'
 import BookNow from './BookNow'
 import routes from '@/utils/routes'
-
+import assets from '@/utils/assets'
 export default function Header() {
   const ref = useRef<HTMLHeadingElement>(null)
   const navigate = useNavigate()
@@ -15,6 +15,9 @@ export default function Header() {
 
   const [top, setTop] = useState(200)
 
+  useEffect(() => {
+    console.log(assets.images.lipGloss)
+  }, [])
   useEffect(() => {
     setTop(ref.current?.getBoundingClientRect().height ?? 200)
   }, [])
@@ -47,7 +50,7 @@ export default function Header() {
         className='fixed z-20 flex w-full justify-center bg-transparent'
         style={{ top: pixel(top) }}>
         <div
-          className='contain-content h-8 bg-banner-texture-e bg-[length:auto_300px] bg-repeat shadow'
+          className='contain-content bg-boho-folk-e h-8 bg-[length:auto_300px] bg-repeat shadow'
           style={{ backgroundPosition: `0 ${pixel(position)}` }}
         />
       </div>

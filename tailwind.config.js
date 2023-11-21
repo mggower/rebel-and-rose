@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 import defaultTheme from 'tailwindcss/defaultTheme'
 
+const createTextureUrl = (name, ext = 'jpg') => `url('@/assets/textures/${name}.${ext}')`
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -84,7 +86,7 @@ export default {
         },
       },
       backgroundImage: {
-        'banner-texture-e': "url('./src/assets/textures/boho-folk-E.jpg')",
+        ['boho-folk-e']: createTextureUrl('boho-folk-E'),
       },
     },
   },
