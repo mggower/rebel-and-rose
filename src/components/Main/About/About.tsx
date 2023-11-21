@@ -1,7 +1,5 @@
-import styles from './styles'
-
 function About() {
-  return <div css={styles.container}>About</div>
+  return <div>About</div>
 }
 
 export default About
