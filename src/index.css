@@ -44,6 +44,10 @@
   .link {
     @apply cursor-pointer rounded-sm border-none px-3 py-1 text-sm uppercase tracking-widest text-ink no-underline outline-none transition-all hover:bg-ink-300/50 active:bg-blush data-active:bg-ink-300/50 data-selected:underline data-secondary:text-russet data-secondary:active:text-ink data-dark:bg-ink-800 data-dark:text-wheat-100 data-dark:hover:bg-ink-600/50 data-dark:active:bg-earth-300 data-dark:active:text-ink data-dark:data-active:bg-earth/75;
   }
+
+  .button {
+    @apply rounded-sm bg-russet p-4 text-sm uppercase text-wheat-100 no-underline outline-none hover:bg-russet-600 focus:bg-russet-600 hover:active:bg-russet-700 focus:active:bg-russet-700;
+  }
 }
 
 @layer utilities {
@@ -56,7 +60,6 @@
   }
 
   .shadow {
-    border-radius: 2px;
     filter: drop-shadow(0 0 2px theme(colors.ink.700 / 50%));
   }
 

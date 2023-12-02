@@ -8,7 +8,7 @@ import routes from '@/utils/routes'
 
 function NavigationMenu() {
   return (
-    <nav>
+    <nav className='translate-x-1'>
       <DropdownMenu label={<Icon icon={bars} />}>
         {routes.list.map(({ route, label }) => (
           <NavigationItem key={label} label={label} route={route} />

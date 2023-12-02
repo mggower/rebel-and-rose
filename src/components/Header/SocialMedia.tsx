@@ -68,24 +68,24 @@ export default function SocialMedia() {
   const { onPointerEnter, onPointerLeave, onPointerDown, ...rest } = gestures()
 
   return (
-    <div className='flex items-center justify-start'>
+    <div className='min-w-8 flex h-8 items-center justify-start'>
       <animated.div
         {...rest}
         onPointerLeave={onPointerLeave}
         onPointerDown={(e) => isVisible.current && onPointerDown?.(e)}
-        className='absolute flex touch-none items-center gap-3 rounded-md p-4'>
+        className='absolute flex translate-x-[-0.5rem] touch-none items-center gap-1 rounded-md md:gap-3'>
         <animated.div
           {...rest}
           ref={ref}
           role='button'
           tabIndex={0}
           onPointerEnter={onPointerEnter}
+          className='relative z-10 flex touch-none items-center justify-center'
           onPointerDown={(e) => {
             isVisible.current ? animateClose() : animateOpen()
             onPointerDown?.(e)
-          }}
-          className='relative z-10 flex touch-none items-center justify-center'>
-          <Icon icon={plus} className='link h-4 w-4 rounded p-2 text-sm' />
+          }}>
+          <Icon icon={plus} className='link h-4 w-4 rounded p-1 text-xs md:p-2 md:text-sm' />
         </animated.div>
         {avatars.map((animation, index) => (
           <animated.a
@@ -97,7 +97,10 @@ export default function SocialMedia() {
             tabIndex={isVisible.current ? 0 : -1}
             ref={(ref) => (avatarRefs.current[index] = ref!)}
             className='z-0 flex items-center justify-center'>
-            <Icon icon={icons[SOCIALS[index]]} className='link h-4 w-4 rounded p-2 text-sm' />
+            <Icon
+              icon={icons[SOCIALS[index]]}
+              className='link h-4 w-4 rounded p-1 text-xs md:p-2 md:text-sm'
+            />
           </animated.a>
         ))}
       </animated.div>

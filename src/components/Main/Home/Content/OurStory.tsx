@@ -9,8 +9,8 @@ export default function OurStory() {
 
         <p className='max-w-prose font-serif text-lg tracking-wide'>
           We are a full service hair studio and spa featuring luxury services for all of your beauty
-          needs. We strive to create an atmosphere where all are welcome and encouraged to celebrate
-          what makes them uniquely beautiful.
+          neReds. We strive to create an atmosphere where all are welcome and encouraged to
+          celebrate what makes them uniquely beautiful.
         </p>
 
         <Link to={routes.about} className='link translate-x-[-0.75rem] font-serif text-base'>

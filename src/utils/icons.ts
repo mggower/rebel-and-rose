@@ -1,4 +1,4 @@
-export { faBars as bars, faPlus as plus } from '@fortawesome/free-solid-svg-icons'
+export { faBars as bars, faPlus as plus, faBook as book } from '@fortawesome/free-solid-svg-icons'
 export {
   faFacebookF as facebook,
   faInstagram as instagram,
