@@ -19,7 +19,7 @@ export default function BookNow({ top }: Props) {
       rel='noreferrer'
       href={BOOKER_URL}
       style={{ transform }}
-      className='button vertical-text fixed left-0 top-10 z-20 items-center justify-center rounded-bl-none rounded-tl-none py-3 pl-2 pr-1 shadow md:top-12 lg:p-4'>
+      className='button vertical-text fixed left-0 top-10 z-20 items-center justify-center rounded-l-none py-3 pl-2 pr-1 shadow md:top-12 lg:p-4'>
       {mobile ? <Icon icon={book} className='text-wheat-100' /> : <>Book Now</>}
     </a>
   )

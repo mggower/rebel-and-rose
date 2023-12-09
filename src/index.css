@@ -34,9 +34,20 @@
     background-color: theme(colors.wheat.100);
   }
 
-  body {
+  #root,
+  #portal {
+    isolation: isolate;
+  }
+
+  #root {
     display: flex;
     place-items: center;
+  }
+
+  #portal {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
 

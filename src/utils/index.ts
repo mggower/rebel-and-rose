@@ -11,3 +11,7 @@ export const createCssVariable = (...vars: [name: string, value: string | number
 }
 
 export const calcHeightFromWindow = (percentage: number) => window.innerHeight * (percentage / 100)
+
+export const isNumber = (value: unknown): value is number => typeof value === 'number'
+export const isString = (value: unknown): value is string => typeof value === 'string'
+export const isBoolean = (value: unknown): value is boolean => typeof value === 'boolean'

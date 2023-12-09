@@ -6,6 +6,7 @@ import { pixel } from '@/utils'
 import Header from './Header'
 import BookNow from './BookNow'
 import paths from '../utils/routes'
+import SocialMedia from './SocialMedia'
 
 const DEFAULT_CONTENT_TOP = 200
 
@@ -33,6 +34,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className='grid min-h-screen w-screen grid-rows-[min-content_auto]'>
+        <SocialMedia />
         <Header ref={ref} />
         <div
           className='fixed z-20 flex w-full justify-center bg-transparent'
