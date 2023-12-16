@@ -11,7 +11,13 @@ export default {
     },
   }),
   shadow: css({
-    boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+    boxShadow: theme.shadow.sm,
+    [theme.attr.custom<boolean>('shadow', 'md').eq(true)]: {
+      boxShadow: theme.shadow.md,
+    },
+    [theme.attr.custom<boolean>('shadow', 'lg').eq(true)]: {
+      boxShadow: theme.shadow.lg,
+    },
   }),
   button: css({
     padding: '1rem',
@@ -33,9 +39,9 @@ export default {
     cursor: 'pointer',
     borderRadius: theme.rounded.sm,
     padding: '4px 12px',
-    fontSize: theme.fontSize.sm,
+    fontSize: theme.typography.size[100],
     textTransform: 'uppercase',
-    letterSpacing: theme.tracking.widest,
+    letterSpacing: theme.typography.tracking.widest,
     color: palette.ink.main,
     textDecorationLine: 'none',
     outline: '2px solid transparent',
@@ -46,24 +52,24 @@ export default {
     '&:hover': {
       backgroundColor: palette.ink[100],
     },
-    [`&:active, ${theme.attr('active').eq(true)}`]: {
+    [`&:active, ${theme.attr.active.eq(true)}`]: {
       backgroundCOlor: palette.ink[300],
     },
-    [theme.attr('selected').eq(true)]: {
+    [theme.attr.selected.eq(true)]: {
       textDecorationLine: 'underline',
     },
-    [theme.attr('theme').eq('secondary')]: {
+    [theme.attr.color.eq('secondary')]: {
       color: palette.russet.main,
-      [`&:active, ${theme.attr('active').eq(true)}`]: {
+      [`&:active, ${theme.attr.active.eq(true)}`]: {
         color: palette.ink.main,
       },
     },
-    [theme.attr('theme').eq('dark')]: {
+    [theme.attr.theme.eq('dark')]: {
       color: palette.wheat[100],
       '&:hover': {
         backgroundColor: `rgba(${palette.ink[600]}, 0.5)`,
       },
-      [`&:active, ${theme.attr('active').eq(true)}`]: {
+      [`&:active, ${theme.attr.active.eq(true)}`]: {
         color: palette.ink.main,
         backgroundColor: palette.earth[300],
       },

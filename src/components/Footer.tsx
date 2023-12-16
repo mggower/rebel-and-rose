@@ -40,9 +40,9 @@ const styles = {
     alignItems: 'start',
     justifyContent: 'start',
     alignSelf: 'start',
-    fontSize: theme.fontSize.sm,
+    fontSize: theme.typography.size[100],
     textTransform: 'uppercase',
-    letterSpacing: theme.tracking.wide,
+    letterSpacing: theme.typography.tracking.wide,
     lineHeight: 1.3,
   }),
   contact: css({
@@ -50,14 +50,14 @@ const styles = {
     flexDirection: 'column',
     borderRight: `1px solid ${palette.wheat[100]}`,
     padding: '16px 0',
-    letterSpacing: theme.tracking.widest,
+    letterSpacing: theme.typography.tracking.widest,
   }),
   header: css({
     margin: '4px 0',
-    letterSpacing: theme.tracking.widest,
+    letterSpacing: theme.typography.tracking.widest,
   }),
   text: css({
-    fontSize: theme.fontSize.sm,
+    fontSize: theme.typography.size[100],
     letterSpacing: '0.025rem',
   }),
   schedule: css({
@@ -71,8 +71,8 @@ const styles = {
     gridColumn: 'span 2',
     padding: '16px 32px 16px 0',
     borderTop: `1px solid ${palette.wheat[100]}`,
-    fontSize: theme.fontSize.xs,
-    letterSpacing: theme.tracking.widest,
+    fontSize: theme.typography.size[75],
+    letterSpacing: theme.typography.tracking.widest,
     color: palette.ink[200],
   }),
   routes: css({

@@ -1,3 +1,5 @@
+import { Primitive } from '@/types'
+
 export const pixel = (value: number) => `${value}px`
 export const rem = (value: number) => `${value}rem`
 export const em = (value: number) => `${value}em`
@@ -17,3 +19,5 @@ export const calcHeightFromWindow = (percentage: number) => window.innerHeight *
 export const isNumber = (value: unknown): value is number => typeof value === 'number'
 export const isString = (value: unknown): value is string => typeof value === 'string'
 export const isBoolean = (value: unknown): value is boolean => typeof value === 'boolean'
+
+export const stringify = (value: Primitive): string => (isString(value) ? value : String(value))

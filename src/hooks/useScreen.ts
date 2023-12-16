@@ -1,12 +1,12 @@
-import { Breakpoints } from '@/styles/theme'
 import { useMediaQuery } from 'usehooks-ts'
+import theme from '@/styles/theme'
 
-export type Breakpoint = keyof typeof Breakpoints
+export type Breakpoint = keyof typeof theme.breakpoints
 
 export const useMinScreen = (screen: Breakpoint = 'lg') => {
-  return useMediaQuery(`(min-width: ${Breakpoints[screen]}px)`)
+  return useMediaQuery(`(min-width: ${theme.breakpoints[screen]}px)`)
 }
 
-export const useMaxScreen = (breakpoint: Breakpoint = 'lg') => {
-  return useMediaQuery(`(max-width: ${Breakpoints[breakpoint]}px)`)
+export const useMaxScreen = (screen: Breakpoint = 'lg') => {
+  return useMediaQuery(`(max-width: ${theme.breakpoints[screen]}px)`)
 }
