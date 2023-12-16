@@ -1,16 +1,32 @@
 import { About, Contact, Home, Policies, Salon, Spa, Team } from './Main'
-import { useEffect, useLayoutEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useLayoutEffect, useState } from 'react'
 import { useResizeDetector } from 'react-resize-detector'
-import { pixel } from '@/utils'
+import { css } from '@emotion/react'
 import Header from './Header'
 import BookNow from './BookNow'
 import paths from '../utils/routes'
 import SocialMedia from './SocialMedia'
+import Banner from './Banner'
 
 const DEFAULT_CONTENT_TOP = 200
 
-function App() {
+const styles = {
+  container: css({
+    display: 'grid',
+    width: '100vw',
+    minHeight: '100vh',
+    gridTemplateRows: 'min-content auto',
+  }),
+  main: css({
+    display: 'flex',
+    position: 'relative',
+    placeItems: 'center',
+    flexDirection: 'column',
+  }),
+}
+
+export default function App() {
   const [top, setTop] = useState(DEFAULT_CONTENT_TOP)
 
   const { ref } = useResizeDetector<HTMLHeadingElement>({
@@ -28,23 +44,15 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  useEffect(() => {
-    console.log(top)
-  }, [top])
   return (
     <BrowserRouter>
-      <div className='grid min-h-screen w-screen grid-rows-[min-content_auto]'>
+      <div css={styles.container}>
         <SocialMedia />
         <Header ref={ref} />
-        <div
-          className='fixed z-20 flex w-full justify-center bg-transparent'
-          style={{ top: pixel(top) }}>
-          <div className='contain-content h-6 rounded-sm bg-boho-folk-e bg-[length:auto_300px] bg-repeat shadow md:h-8' />
-        </div>
-
+        <Banner top={top} />
         <BookNow top={top} />
 
-        <main className='relative flex flex-col place-items-center'>
+        <main css={styles.main}>
           <Routes>
             <Route path={paths.home} element={<Home />} />
             <Route path={paths.about} element={<About />} />
@@ -59,5 +67,3 @@ function App() {
     </BrowserRouter>
   )
 }
-
-export default App

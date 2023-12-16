@@ -1,4 +1,6 @@
 export const pixel = (value: number) => `${value}px`
+export const rem = (value: number) => `${value}rem`
+export const em = (value: number) => `${value}em`
 
 export const createCssVariable = (...vars: [name: string, value: string | number][]) => {
   return vars.reduce(
