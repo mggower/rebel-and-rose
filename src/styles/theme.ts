@@ -1,5 +1,6 @@
 import { em, pixel, stringify } from '@/utils'
 import { Primitive } from '@/types'
+import palette from './palette'
 
 const breakpoints = {
   sm: 640,
@@ -112,6 +113,7 @@ const attr = {
 }
 
 export default {
+  palette,
   breakpoints,
   screen,
   shadow,

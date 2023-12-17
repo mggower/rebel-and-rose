@@ -1,14 +1,16 @@
 import { CSSObject, css } from '@emotion/react'
 import typography from './typography'
-import palette from './palette'
 import theme from './theme'
 
 export type LinkColor = 'primary' | 'secondary' | 'tertiary'
 export type LinkTheme = 'light' | 'dark'
 
 export interface LinkStyleProps {
-  color?: LinkColor
-  theme?: LinkTheme
+  linkColor?: LinkColor
+  linkTheme?: LinkTheme
+  active?: boolean
+  selected?: boolean
+  uppercase?: boolean
 }
 
 interface ColorStyle {
@@ -24,48 +26,48 @@ interface LinkStyle extends ColorStyle {
 const lookup: Record<LinkTheme, Record<LinkColor, LinkStyle>> = {
   light: {
     primary: {
-      foreground: palette.earth[700],
-      hover: { foreground: palette.earth[400] },
-      active: { foreground: palette.earth[500] },
-      visited: { foreground: palette.earth[600] },
+      foreground: theme.palette.earth[700],
+      hover: { foreground: theme.palette.earth[400] },
+      active: { foreground: theme.palette.earth[500] },
+      visited: { foreground: theme.palette.earth[600] },
     },
     secondary: {
-      foreground: palette.russet[500],
-      hover: { foreground: palette.russet[700] },
-      active: { foreground: palette.russet[800] },
-      visited: { foreground: palette.russet[600] },
+      foreground: theme.palette.russet[500],
+      hover: { foreground: theme.palette.russet[700] },
+      active: { foreground: theme.palette.russet[800] },
+      visited: { foreground: theme.palette.russet[600] },
     },
     tertiary: {
-      foreground: palette.ink[950],
-      hover: { foreground: palette.ink[600] },
-      active: { foreground: palette.ink[700] },
-      visited: { foreground: palette.ink[800] },
+      foreground: theme.palette.ink[950],
+      hover: { foreground: theme.palette.ink[600] },
+      active: { foreground: theme.palette.ink[700] },
+      visited: { foreground: theme.palette.ink[800] },
     },
   },
   dark: {
     primary: {
-      foreground: palette.earth[200],
-      hover: { foreground: palette.earth[400] },
-      active: { foreground: palette.earth[500] },
-      visited: { foreground: palette.earth[300] },
+      foreground: theme.palette.earth[200],
+      hover: { foreground: theme.palette.earth[400] },
+      active: { foreground: theme.palette.earth[500] },
+      visited: { foreground: theme.palette.earth[300] },
     },
     secondary: {
-      foreground: palette.russet[300],
-      hover: { foreground: palette.russet[200] },
-      active: { foreground: palette.russet[300] },
-      visited: { foreground: palette.russet[400] },
+      foreground: theme.palette.russet[300],
+      hover: { foreground: theme.palette.russet[200] },
+      active: { foreground: theme.palette.russet[300] },
+      visited: { foreground: theme.palette.russet[400] },
     },
     tertiary: {
-      foreground: palette.ink[50],
-      hover: { foreground: palette.ink[200] },
-      active: { foreground: palette.ink[300] },
-      visited: { foreground: palette.ink[100] },
+      foreground: theme.palette.ink[50],
+      hover: { foreground: theme.palette.ink[200] },
+      active: { foreground: theme.palette.ink[300] },
+      visited: { foreground: theme.palette.ink[100] },
     },
   },
 }
 
-const applyStyle = (props: { color: LinkColor; theme: LinkTheme }): CSSObject => {
-  const { foreground, hover, active, visited } = lookup[props.theme][props.color]
+const applyStyle = (linkColor: LinkColor, linkTheme: LinkTheme): CSSObject => {
+  const { foreground, hover, active, visited } = lookup[linkTheme][linkColor]
   return {
     color: foreground,
     ['&:hover']: {
@@ -80,24 +82,38 @@ const applyStyle = (props: { color: LinkColor; theme: LinkTheme }): CSSObject =>
   }
 }
 
-const linkColor = theme.attr.custom<LinkColor>('link', 'color')
-const linkTheme = theme.attr.custom<LinkTheme>('link', 'theme')
+const linkColorAttr = theme.attr.custom<LinkColor>('link', 'color')
+const linkThemeAttr = theme.attr.custom<LinkTheme>('link', 'theme')
+
+export const applyLinkStyleProps = ({
+  linkColor,
+  linkTheme,
+  active = false,
+  selected = false,
+  uppercase = false,
+}: LinkStyleProps) => ({
+  ['data-link-color']: linkColor,
+  ['data-link-theme']: linkTheme,
+  ['data-uppercase']: uppercase,
+  ['data-selected']: selected,
+  ['data-active']: active,
+})
 
 export default {
   link: css(
     typography.body,
     {
-      ...applyStyle({ color: 'primary', theme: 'light' }),
-      [linkTheme.eq('dark')]: applyStyle({ color: 'primary', theme: 'dark' }),
+      ...applyStyle('primary', 'light'),
+      [linkThemeAttr.eq('dark')]: applyStyle('primary', 'dark'),
 
-      [linkColor.eq('secondary')]: {
-        ...applyStyle({ color: 'secondary', theme: 'light' }),
-        [linkTheme.eq('dark')]: applyStyle({ color: 'secondary', theme: 'dark' }),
+      [linkColorAttr.eq('secondary')]: {
+        ...applyStyle('secondary', 'light'),
+        [linkThemeAttr.eq('dark')]: applyStyle('secondary', 'dark'),
       },
 
-      [linkColor.eq('tertiary')]: {
-        ...applyStyle({ color: 'tertiary', theme: 'light' }),
-        [linkTheme.eq('dark')]: applyStyle({ color: 'tertiary', theme: 'dark' }),
+      [linkColorAttr.eq('tertiary')]: {
+        ...applyStyle('tertiary', 'light'),
+        [linkThemeAttr.eq('dark')]: applyStyle('tertiary', 'dark'),
       },
     },
     {
@@ -108,21 +124,25 @@ export default {
       outline: '2px solid transparent',
       borderRadius: theme.rounded.sm,
 
+      [theme.attr.selected.eq(true)]: {
+        textDecorationLine: 'underline',
+      },
+
       [theme.attr.custom<boolean>('uppercase').not(false)]: {
         textTransform: 'uppercase',
       },
 
       [`&:focus, ${theme.attr.active.eq(true)}`]: {
-        backgroundColor: palette.ink[100],
-        [linkTheme.eq('dark')]: {
-          backgroundColor: palette.ink[800],
+        backgroundColor: theme.palette.ink[100],
+        [linkThemeAttr.eq('dark')]: {
+          backgroundColor: theme.palette.ink[800],
         },
       },
 
       ['&:disabled']: {
         cursor: 'not-allowed',
         pointerEvents: 'none',
-        color: palette.ink[300],
+        color: theme.palette.ink[300],
       },
     },
   ),

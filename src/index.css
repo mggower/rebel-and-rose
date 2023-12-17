@@ -4,12 +4,6 @@
 
 @layer base {
   @font-face {
-    font-family: Myriad Pro;
-    src: url('@/assets/fonts/MyriadPro-Regular.otf');
-    font-weight: 400;
-  }
-
-  @font-face {
     font-family: Nickson One;
     src: url('@/assets/fonts/S_S Nickson One.otf');
     font-weight: 400;
@@ -18,12 +12,6 @@
   @font-face {
     font-family: Bandoeng;
     src: url('@/assets/fonts/Bandoeng.otf');
-    font-weight: 400;
-  }
-
-  @font-face {
-    font-family: American Typewriter;
-    src: url('@/assets/fonts/AmericanTypewriter.ttc');
     font-weight: 400;
   }
 

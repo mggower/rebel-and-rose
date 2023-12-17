@@ -2,8 +2,8 @@ import { CSSObject, css } from '@emotion/react'
 import { pixel } from '@/utils'
 import theme from './theme'
 
-export type BodyFontSize = keyof typeof bodyLookup
-export type HeaderFontSize = keyof typeof headerLookup
+export type BodyFontSize = keyof typeof bodyFontSize
+export type HeaderFontSize = keyof typeof headerFontSize
 export type FontWeight = keyof typeof theme.typography.weight
 export type LineHeight = keyof typeof theme.typography.line
 export type Tracking = keyof typeof theme.typography.tracking
@@ -18,7 +18,7 @@ export interface TypographyProps<T extends 'body' | 'header' = 'body'> {
 }
 
 /** body font size */
-const bodyLookup = {
+const bodyFontSize = {
   base: theme.typography.size[200],
   xxs: theme.typography.size[50],
   xs: theme.typography.size[75],
@@ -30,7 +30,7 @@ const bodyLookup = {
 }
 
 /** header font size */
-const headerLookup = {
+const headerFontSize = {
   base: theme.typography.size[500],
   min: theme.typography.size[200],
   xs: theme.typography.size[300],
@@ -85,13 +85,27 @@ const FONT_FAMILY: CSSObject = {
   }, {}),
 }
 
+export const applyTypographyProps = <T extends 'header' | 'body'>({
+  size,
+  weight,
+  italic,
+  tracking,
+  family,
+}: TypographyProps<T>) => ({
+  ['data-font-size']: size,
+  ['data-font-weight']: weight,
+  ['data-font-italic']: italic,
+  ['data-font-tracking']: tracking,
+  ['data-font-family']: family,
+})
+
 export default {
   body: css(
     {
-      fontSize: pixel(bodyLookup.base),
+      fontSize: pixel(bodyFontSize.base),
       fontWeight: theme.typography.weight.normal,
 
-      ...Object.entries(bodyLookup).reduce<CSSObject>((acc, [size, fontSize]) => {
+      ...Object.entries(bodyFontSize).reduce<CSSObject>((acc, [size, fontSize]) => {
         acc[theme.attr.custom('font', 'size').eq(size)] = { fontSize: pixel(fontSize) }
         return acc
       }, {}),
@@ -104,10 +118,10 @@ export default {
   ),
   header: css(
     {
-      fontSize: pixel(headerLookup.base),
+      fontSize: pixel(headerFontSize.base),
       fontWeight: theme.typography.weight.strong,
 
-      ...Object.entries(headerLookup).reduce<CSSObject>((acc, [key, fontSize]) => {
+      ...Object.entries(headerFontSize).reduce<CSSObject>((acc, [key, fontSize]) => {
         acc[theme.attr.custom('font', 'size').eq(key)] = { fontSize: pixel(fontSize) }
         return acc
       }, {}),

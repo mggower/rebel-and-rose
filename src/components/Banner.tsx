@@ -1,6 +1,5 @@
 import { css } from '@emotion/react'
 import library from '@/styles/library'
-import palette from '@/styles/palette'
 import theme from '@/styles/theme'
 import texture from '@/assets/textures/boho-folk-E.jpg'
 
@@ -15,7 +14,7 @@ const styles = {
     display: 'flex',
     position: 'fixed',
     justifyContent: 'center',
-    backgroundColor: palette.transparent,
+    backgroundColor: theme.palette.transparent,
   }),
   banner: css({
     height: '1.5rem',

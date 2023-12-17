@@ -1,11 +1,11 @@
 import { FontAwesomeIcon, FontAwesomeIconProps as Props } from '@fortawesome/react-fontawesome'
 import { forwardRef } from 'react'
 import { css } from '@emotion/react'
-import palette from '@/styles/palette'
+import theme from '@/styles/theme'
 
 const styles = {
   icon: css({
-    color: palette.ink.main,
+    color: theme.palette.ink.main,
   }),
 }
 

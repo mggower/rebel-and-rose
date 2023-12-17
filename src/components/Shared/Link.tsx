@@ -1,21 +1,25 @@
 import { Link as RouterLink, LinkProps } from 'react-router-dom'
-import { TypographyProps } from '@/styles/typography'
+import { TypographyProps, applyTypographyProps } from '@/styles/typography'
 import { forwardRef } from 'react'
-import styles, { LinkStyleProps } from '@/styles/link'
+import styles, { LinkStyleProps, applyLinkStyleProps } from '@/styles/link'
 
-interface Props extends Omit<LinkProps, 'color'>, LinkStyleProps, TypographyProps<'body'> {
+interface Props extends LinkProps, LinkStyleProps, TypographyProps {
   external?: boolean
+  selected?: boolean
 }
 
 const Link = forwardRef<HTMLAnchorElement, Props>(function Link(
   {
     size,
-    color,
-    theme,
+    active,
     weight,
     family,
     italic,
     children,
+    selected,
+    uppercase,
+    linkColor,
+    linkTheme,
     tracking = 'wider',
     external = false,
     ...props
@@ -24,18 +28,13 @@ const Link = forwardRef<HTMLAnchorElement, Props>(function Link(
 ) {
   return (
     <RouterLink
-      {...props}
       ref={ref}
       css={styles.link}
-      data-font-size={size}
-      data-link-color={color}
-      data-link-theme={theme}
-      data-font-italic={italic}
-      data-font-family={family}
-      data-font-weight={weight}
-      data-font-tracking={tracking}
       target={external ? '_blank' : undefined}
-      rel={external ? 'noreferrer' : undefined}>
+      rel={external ? 'noreferrer' : undefined}
+      {...applyLinkStyleProps({ linkColor, linkTheme, selected, active, uppercase })}
+      {...applyTypographyProps({ size, weight, family, italic, tracking })}
+      {...props}>
       {children}
     </RouterLink>
   )
