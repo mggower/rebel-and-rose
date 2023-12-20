@@ -15,7 +15,6 @@ const Link = forwardRef<HTMLAnchorElement, Props>(function Link(
     weight,
     family,
     italic,
-    shadow,
     children,
     selected,
     uppercase,
@@ -33,7 +32,7 @@ const Link = forwardRef<HTMLAnchorElement, Props>(function Link(
   const attributes = {
     ...(variant === 'link'
       ? applyLinkStyleProps({ linkColor, linkTheme, selected, active, uppercase })
-      : applyButtonStyleProps({ buttonTheme, active, selected, shadow })),
+      : applyButtonStyleProps({ buttonTheme, active, selected })),
     ...applyTypographyProps({ fontSize, weight, family, italic, tracking }),
   }
 

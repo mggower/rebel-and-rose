@@ -30,8 +30,10 @@ const styles = {
     padding: theme.spacing[0],
     borderTopLeftRadius: theme.rounded.none,
     borderBottomLeftRadius: theme.rounded.none,
+    fontSize: theme.typography.size[100],
     [theme.screen.md]: {
       padding: `${theme.spacing[4]} 0`,
+      fontSize: theme.typography.size[200],
       width: theme.spacing[12],
       height: 'unset',
     },

@@ -118,6 +118,7 @@ export default function Navigation() {
                 {label}
               </animated.button>
             ))}
+
             <animated.a
               key='booker'
               target='_blank'
