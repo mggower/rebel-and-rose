@@ -18,12 +18,14 @@ interface ColorStyleBase {
 }
 
 interface ColorStyle extends ColorStyleBase {
+  focus: string
   selected: ColorStyleBase
   active: Omit<ColorStyleBase, 'hover'>
 }
 
 const lookup: Record<ButtonTheme, ColorStyle> = {
   primary: {
+    focus: theme.palette.russet[800],
     foreground: theme.palette.wheat[100],
     background: theme.palette.russet.main,
     hover: {
@@ -44,43 +46,45 @@ const lookup: Record<ButtonTheme, ColorStyle> = {
     },
   },
   secondary: {
-    foreground: theme.palette.earth.main,
-    background: theme.palette.wheat[100],
+    focus: theme.palette.earth[700],
+    foreground: theme.palette.wheat[100],
+    background: theme.palette.earth[600],
     hover: {
-      foreground: theme.palette.earth.main,
-      background: theme.palette.wheat[200],
+      foreground: theme.palette.ink.main,
+      background: theme.palette.earth[300],
     },
     selected: {
-      foreground: theme.palette.earth.main,
-      background: theme.palette.wheat[200],
+      foreground: theme.palette.ink.main,
+      background: theme.palette.earth[400],
       hover: {
-        foreground: theme.palette.earth[800],
-        background: theme.palette.wheat[300],
+        foreground: theme.palette.wheat[100],
+        background: theme.palette.earth[800],
       },
     },
     active: {
-      foreground: theme.palette.earth[800],
-      background: theme.palette.wheat[400],
+      foreground: theme.palette.wheat[100],
+      background: theme.palette.earth[700],
     },
   },
   tertiary: {
+    focus: theme.palette.ink[400],
     foreground: theme.palette.ink.main,
-    background: theme.palette.transparent,
+    background: theme.palette.wheat[100],
     hover: {
       foreground: theme.palette.ink.main,
-      background: theme.palette.ink[50],
+      background: theme.palette.ink[100],
     },
     selected: {
       foreground: theme.palette.ink.main,
-      background: theme.palette.ink[50],
+      background: theme.palette.ink[200],
       hover: {
         foreground: theme.palette.ink.main,
-        background: theme.palette.ink[100],
+        background: theme.palette.ink[300],
       },
     },
     active: {
       foreground: theme.palette.ink.main,
-      background: theme.palette.ink[200],
+      background: theme.palette.ink[400],
     },
   },
 }
@@ -90,6 +94,7 @@ const applyStyle = ({
   background,
   selected,
   active,
+  focus,
   hover,
 }: ColorStyle): CSSObject => ({
   color: foreground,
@@ -103,6 +108,11 @@ const applyStyle = ({
   ['&:active']: {
     color: active.foreground,
     backgroundColor: active.background,
+  },
+
+  [`&:focus, ${theme.attr.active.eq(true)}`]: {
+    borderColor: focus,
+    boxShadow: theme.shadow.lg,
   },
 
   [theme.attr.selected.eq(true)]: {
@@ -126,17 +136,18 @@ export const applyButtonStyleProps = ({ buttonTheme, active, selected }: ButtonS
 export default {
   button: css(
     typography.body,
-    library.hideOutline,
+    library.outlineNone,
+    library.shadow,
     {
-      padding: '1rem',
+      display: 'flex',
       cursor: 'pointer',
+      placeItems: 'center',
+      placeContent: 'center',
       textDecorationLine: 'none',
+      border: '1px solid transparent',
+      padding: theme.spacing[4],
+      boxShadow: theme.shadow.sm,
       borderRadius: theme.rounded.sm,
-      border: '2px solid transparent',
-
-      [`&:focus, ${theme.attr.active.eq(true)}`]: {
-        borderColor: theme.palette.ink[200],
-      },
     },
     {
       ...applyStyle(lookup.primary),

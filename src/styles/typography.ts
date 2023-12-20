@@ -10,7 +10,7 @@ export type Tracking = keyof typeof theme.typography.tracking
 export type FontFamily = keyof typeof theme.typography.family
 
 export interface TypographyProps<T extends 'body' | 'header' = 'body'> {
-  size?: T extends 'body' ? BodyFontSize : HeaderFontSize
+  fontSize?: T extends 'body' ? BodyFontSize : HeaderFontSize
   weight?: FontWeight
   italic?: boolean
   tracking?: Tracking
@@ -86,13 +86,13 @@ const FONT_FAMILY: CSSObject = {
 }
 
 export const applyTypographyProps = <T extends 'header' | 'body'>({
-  size,
   weight,
   italic,
+  fontSize,
   tracking,
   family,
 }: TypographyProps<T>) => ({
-  ['data-font-size']: size,
+  ['data-font-size']: fontSize,
   ['data-font-weight']: weight,
   ['data-font-italic']: italic,
   ['data-font-tracking']: tracking,

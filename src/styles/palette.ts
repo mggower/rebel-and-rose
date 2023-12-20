@@ -46,7 +46,8 @@ export default {
   },
   ink: {
     main: '#1B1B1B',
-    50: '#F4F4F4',
+    50: '#FFFFFF',
+    75: '#F4F4F4',
     100: '#E8E8E8',
     200: '#D2D2D2',
     300: '#B3B3B3',

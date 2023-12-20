@@ -58,7 +58,7 @@ const lookup: Record<LinkTheme, Record<LinkColor, LinkStyle>> = {
       visited: { foreground: theme.palette.russet[400] },
     },
     tertiary: {
-      foreground: theme.palette.ink[50],
+      foreground: theme.palette.ink['75'],
       hover: { foreground: theme.palette.ink[200] },
       active: { foreground: theme.palette.ink[300] },
       visited: { foreground: theme.palette.ink[100] },

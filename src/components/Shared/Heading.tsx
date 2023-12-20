@@ -4,10 +4,10 @@ import { forwardRef } from 'react'
 interface Props extends TypographyProps<'header'>, React.HTMLAttributes<HTMLHeadingElement> {}
 
 const Heading = forwardRef<HTMLHeadingElement, Props>(function Header(
-  { children, weight, italic, tracking, family, size, ...props },
+  { children, weight, italic, tracking, family, fontSize: size, ...props },
   ref,
 ) {
-  const attributes = applyTypographyProps({ size, weight, italic, tracking, family })
+  const attributes = applyTypographyProps({ fontSize: size, weight, italic, tracking, family })
 
   switch (size) {
     case 'min':

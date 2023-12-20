@@ -1,40 +1,50 @@
-import { Link as RouterLink, LinkProps } from 'react-router-dom'
 import { TypographyProps, applyTypographyProps } from '@/styles/typography'
+import { Link as RouterLink, LinkProps } from 'react-router-dom'
 import { forwardRef } from 'react'
-import styles, { LinkStyleProps, applyLinkStyleProps } from '@/styles/link'
+import buttons, { ButtonStyleProps, applyButtonStyleProps } from '@/styles/buttons'
+import links, { LinkStyleProps, applyLinkStyleProps } from '@/styles/links'
 
-interface Props extends LinkProps, LinkStyleProps, TypographyProps {
+interface Props extends LinkProps, LinkStyleProps, TypographyProps, ButtonStyleProps {
+  variant?: 'link' | 'button'
   external?: boolean
-  selected?: boolean
 }
 
 const Link = forwardRef<HTMLAnchorElement, Props>(function Link(
   {
-    size,
     active,
     weight,
     family,
     italic,
+    shadow,
     children,
     selected,
     uppercase,
+    fontSize,
     linkColor,
     linkTheme,
+    buttonTheme,
+    variant = 'link',
     tracking = 'wider',
     external = false,
     ...props
   },
   ref,
 ) {
+  const attributes = {
+    ...(variant === 'link'
+      ? applyLinkStyleProps({ linkColor, linkTheme, selected, active, uppercase })
+      : applyButtonStyleProps({ buttonTheme, active, selected, shadow })),
+    ...applyTypographyProps({ fontSize, weight, family, italic, tracking }),
+  }
+
   return (
     <RouterLink
       ref={ref}
-      css={styles.link}
+      {...props}
+      {...attributes}
       target={external ? '_blank' : undefined}
       rel={external ? 'noreferrer' : undefined}
-      {...applyLinkStyleProps({ linkColor, linkTheme, selected, active, uppercase })}
-      {...applyTypographyProps({ size, weight, family, italic, tracking })}
-      {...props}>
+      css={variant === 'link' ? links.link : buttons.button}>
       {children}
     </RouterLink>
   )

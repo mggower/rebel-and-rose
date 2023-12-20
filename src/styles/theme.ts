@@ -1,4 +1,4 @@
-import { em, pixel, stringify } from '@/utils'
+import { em, pixel, rem, stringify } from '@/utils'
 import { Primitive } from '@/types'
 import palette from './palette'
 
@@ -95,6 +95,27 @@ const rounded = {
   lg: pixel(8),
 }
 
+const spacing = {
+  [0]: 0,
+  [1]: rem(0.25),
+  [2]: rem(0.5),
+  [3]: rem(0.75),
+  [4]: rem(1),
+  [6]: rem(1.5),
+  [8]: rem(2),
+  [10]: rem(2.5),
+  [12]: rem(3),
+  [16]: rem(4),
+}
+
+const zIndex = {
+  base: 0,
+  layer: 20,
+  overlay: 40,
+  popover: 60,
+  modal: 80,
+}
+
 const attributeSelector = <T extends Primitive = Primitive>(...scope: string[]) => {
   const attribute = ['data', ...scope].join('-')
   return {
@@ -118,6 +139,8 @@ export default {
   screen,
   shadow,
   rounded,
+  spacing,
   typography,
+  zIndex,
   attr,
 }

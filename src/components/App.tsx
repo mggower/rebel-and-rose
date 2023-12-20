@@ -16,6 +16,7 @@ const styles = {
     display: 'grid',
     width: '100vw',
     minHeight: '100vh',
+    position: 'relative',
     gridTemplateRows: 'min-content auto',
   }),
   main: css({
@@ -48,9 +49,9 @@ export default function App() {
     <BrowserRouter>
       <div css={styles.container}>
         <SocialMedia />
+        <BookNow top={top} />
         <Header ref={ref} />
         <Banner top={top} />
-        <BookNow top={top} />
 
         <main css={styles.main}>
           <Routes>

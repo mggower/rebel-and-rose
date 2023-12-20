@@ -1,4 +1,4 @@
-import styles, { ButtonStyleProps, applyButtonStyleProps } from '@/styles/button'
+import styles, { ButtonStyleProps, applyButtonStyleProps } from '@/styles/buttons'
 import { TypographyProps, applyTypographyProps } from '@/styles/typography'
 import { forwardRef } from 'react'
 
@@ -8,14 +8,14 @@ interface Props
     ButtonStyleProps {}
 
 const Button = forwardRef<HTMLButtonElement, Props>(function Button(
-  { buttonTheme, active, selected, size, weight, family, italic, tracking, children, ...props },
+  { weight, active, family, italic, tracking, selected, fontSize, buttonTheme, children, ...props },
   ref,
 ) {
   return (
     <button
       ref={ref}
       css={styles.button}
-      {...applyTypographyProps({ size, weight, family, italic, tracking })}
+      {...applyTypographyProps({ fontSize, weight, family, italic, tracking })}
       {...applyButtonStyleProps({ buttonTheme, selected, active })}
       {...props}>
       {children}

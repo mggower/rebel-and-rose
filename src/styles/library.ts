@@ -1,6 +1,8 @@
 import { css } from '@emotion/react'
 import theme from './theme'
 
+const shadow = theme.attr.custom<'sm' | 'md' | 'lg' | 'none'>('shadow')
+
 export default {
   contain: css({
     width: '100vw',
@@ -10,32 +12,26 @@ export default {
     },
   }),
   shadow: css({
-    boxShadow: theme.shadow.sm,
-    [theme.attr.custom<boolean>('shadow', 'md').eq(true)]: {
+    [shadow.not('none')]: {
+      boxShadow: theme.shadow.sm,
+    },
+    [shadow.eq('md')]: {
       boxShadow: theme.shadow.md,
     },
-    [theme.attr.custom<boolean>('shadow', 'lg').eq(true)]: {
+    [shadow.eq('lg')]: {
       boxShadow: theme.shadow.lg,
     },
   }),
-  hideOutline: css({
+  outlineNone: css({
     outline: '2px solid transparent',
     outlineOffset: '2px',
   }),
-  button: css({
-    padding: '1rem',
-    textTransform: 'uppercase',
-    color: theme.palette.wheat[100],
-    textDecorationLine: 'none',
-    outline: '2px solid transparent',
-    borderRadius: theme.rounded.sm,
-    backgroundColor: theme.palette.russet.main,
-    outlineOffset: '2px',
-    '&:hover, &:focus': {
-      backgroundColor: theme.palette.russet[600],
-      '&:active': {
-        backgroundColor: theme.palette.russet[700],
-      },
-    },
+  roundedLeftNone: css({
+    borderTopLeftRadius: theme.rounded.none,
+    borderBottomLeftRadius: theme.rounded.none,
+  }),
+  roundedRightNone: css({
+    borderTopRightRadius: theme.rounded.none,
+    borderBottomRightRadius: theme.rounded.none,
   }),
 }
