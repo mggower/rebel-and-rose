@@ -16,16 +16,25 @@ const styles = {
   component: css({
     left: 0,
     position: 'fixed',
-    top: 'var(--top, 200px)',
+    top: 'calc(var(--top, 200px) + 2rem)',
+    [theme.screen.md]: {
+      top: 'var(--top, 200px)',
+    },
   }),
   link: css({
     writingMode: 'vertical-rl',
     textOrientation: 'upright',
     textTransform: 'uppercase',
-    width: theme.spacing[12],
-    padding: `${theme.spacing[4]} 0`,
+    width: theme.spacing[8],
+    height: theme.spacing[8],
+    padding: theme.spacing[0],
     borderTopLeftRadius: theme.rounded.none,
     borderBottomLeftRadius: theme.rounded.none,
+    [theme.screen.md]: {
+      padding: `${theme.spacing[4]} 0`,
+      width: theme.spacing[12],
+      height: 'unset',
+    },
   }),
 }
 

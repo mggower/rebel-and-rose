@@ -29,11 +29,15 @@ const styles = {
   }),
   tab: css(
     {
-      width: theme.spacing[12],
-      height: theme.spacing[12],
+      width: theme.spacing[8],
+      height: theme.spacing[8],
       padding: theme.spacing[0],
       marginTop: theme.spacing[3],
       borderLeftWidth: theme.spacing[0],
+      [theme.screen.md]: {
+        width: theme.spacing[12],
+        height: theme.spacing[12],
+      },
     },
     library.roundedLeftNone,
   ),
@@ -44,28 +48,29 @@ const styles = {
       flexDirection: 'column',
       justifyContent: 'flex-end',
       gap: theme.spacing[1],
+      padding: theme.spacing[2],
       borderRadius: theme.rounded.sm,
       backgroundColor: theme.palette.wheat[200],
       border: `1px solid ${theme.palette.earth[600]}`,
-      padding: theme.spacing[3],
       borderLeftColor: 'transparent',
+      [theme.screen.md]: {
+        padding: theme.spacing[3],
+      },
     },
     library.roundedLeftNone,
     library.shadow,
   ),
-  links: css({
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
-    padding: theme.spacing[2],
-    gap: theme.spacing[2],
-  }),
   social: css(buttons.button, {
     marginRight: '1px',
-    width: theme.spacing[10],
-    height: theme.spacing[10],
+    width: theme.spacing[8],
+    height: theme.spacing[8],
     padding: theme.spacing[0],
+    fontSize: theme.typography.size[100],
+    [theme.screen.md]: {
+      width: theme.spacing[10],
+      height: theme.spacing[10],
+      fontSize: theme.typography.size[200],
+    },
   }),
 }
 
@@ -86,7 +91,7 @@ export default function SocialMedia() {
     <FloatingPortal id='portal'>
       <div css={styles.component}>
         <animated.div css={styles.container} style={{ x }}>
-          <Button css={styles.tab} onPointerDown={onToggle} buttonTheme='secondary'>
+          <Button css={styles.tab} onClick={onToggle} buttonTheme='secondary'>
             <Icon icon={icons.plus} />
           </Button>
 

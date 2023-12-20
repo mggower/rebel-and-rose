@@ -2,6 +2,7 @@ import { animated, config, easings, useSpring } from '@react-spring/web'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { FloatingPortal } from '@floating-ui/react'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
+import { BOOKER_URL } from '@/utils/constants'
 import { useState } from 'react'
 import { bars } from '@/utils/icons'
 import { css } from '@emotion/react'
@@ -11,7 +12,6 @@ import buttons, { applyButtonStyleProps } from '@/styles/buttons'
 import library from '@/styles/library'
 import theme from '@/styles/theme'
 import routes from '@/utils/routes'
-import { BOOKER_URL } from '@/utils/constants'
 
 const MENU_WIDTH = 124
 
@@ -28,11 +28,15 @@ const styles = {
   }),
   tab: css(
     {
-      width: theme.spacing[12],
-      height: theme.spacing[12],
+      width: theme.spacing[8],
+      height: theme.spacing[8],
       padding: theme.spacing[0],
       marginTop: theme.spacing[3],
       borderRightWidth: theme.spacing[0],
+      [theme.screen.md]: {
+        width: theme.spacing[12],
+        height: theme.spacing[12],
+      },
     },
     library.roundedRightNone,
   ),
@@ -46,17 +50,23 @@ const styles = {
       borderRadius: theme.rounded.sm,
       backgroundColor: theme.palette.wheat[200],
       border: `1px solid ${theme.palette.earth[600]}`,
-      padding: theme.spacing[3],
+      padding: theme.spacing[2],
       borderRightColor: 'transparent',
+      [theme.screen.md]: {
+        padding: theme.spacing[3],
+      },
     },
     library.roundedRightNone,
     library.shadow,
   ),
   link: css(buttons.button, {
-    width: '140px',
     marginLeft: '1px',
+    width: theme.spacing[24],
     justifyContent: 'flex-start',
     padding: `${theme.spacing[1]} ${theme.spacing[2]}`,
+    [theme.screen.md]: {
+      width: theme.spacing[32],
+    },
   }),
   booker: css({
     marginTop: theme.spacing[6],
@@ -88,9 +98,9 @@ export default function Navigation() {
 
   return (
     <FloatingPortal id='portal'>
-      <div css={styles.component}>
+      <nav css={styles.component}>
         <animated.div css={styles.container} style={{ x }}>
-          <Button css={styles.tab} onPointerDown={onToggle} buttonTheme='secondary'>
+          <Button css={styles.tab} onClick={onToggle} buttonTheme='secondary'>
             <Icon icon={bars} />
           </Button>
 
@@ -120,7 +130,7 @@ export default function Navigation() {
             </animated.a>
           </div>
         </animated.div>
-      </div>
+      </nav>
     </FloatingPortal>
   )
 }

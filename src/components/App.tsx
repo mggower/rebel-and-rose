@@ -5,10 +5,10 @@ import { useResizeDetector } from 'react-resize-detector'
 import { css } from '@emotion/react'
 import Header from './Header'
 import BookNow from './BookNow'
-import paths from '../utils/routes'
+import Navigation from './Navigation'
 import SocialMedia from './SocialMedia'
 import Banner from './Banner'
-import NavigationMenu from './Navigation'
+import paths from '../utils/routes'
 
 const DEFAULT_CONTENT_TOP = 200
 
@@ -51,7 +51,7 @@ export default function App() {
       <div css={styles.container}>
         <SocialMedia />
         <BookNow top={top} />
-        <NavigationMenu />
+        <Navigation />
         <Header ref={ref} />
         <Banner top={top} />
 
