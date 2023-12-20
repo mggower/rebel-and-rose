@@ -32,16 +32,16 @@ const lookup: Record<LinkTheme, Record<LinkColor, LinkStyle>> = {
       visited: { foreground: theme.palette.earth[600] },
     },
     secondary: {
+      foreground: theme.palette.ink[950],
+      hover: { foreground: theme.palette.blush[500] },
+      active: { foreground: theme.palette.blush[600] },
+      visited: { foreground: theme.palette.blush[700] },
+    },
+    tertiary: {
       foreground: theme.palette.russet[500],
       hover: { foreground: theme.palette.russet[700] },
       active: { foreground: theme.palette.russet[800] },
       visited: { foreground: theme.palette.russet[600] },
-    },
-    tertiary: {
-      foreground: theme.palette.ink[950],
-      hover: { foreground: theme.palette.ink[600] },
-      active: { foreground: theme.palette.ink[700] },
-      visited: { foreground: theme.palette.ink[800] },
     },
   },
   dark: {
@@ -118,7 +118,7 @@ export default {
     },
     {
       cursor: 'pointer',
-      padding: '4px 12px',
+      padding: '4px 8px',
       outlineOffset: '2px',
       textDecorationLine: 'none',
       outline: '2px solid transparent',

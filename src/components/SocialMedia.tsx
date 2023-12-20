@@ -11,7 +11,7 @@ import buttons from '@/styles/buttons'
 import theme from '@/styles/theme'
 import * as icons from '@/utils/icons'
 
-const MENU_WIDTH = 200
+const MENU_WIDTH = 72
 const SOCIALS = ['facebook', 'instagram' /**, 'tiktok'  */] as const
 const urls = { facebook: FACEBOOK_URL, instagram: INSTAGRAM_URL }
 
@@ -32,7 +32,7 @@ const styles = {
       width: theme.spacing[12],
       height: theme.spacing[12],
       padding: theme.spacing[0],
-      marginTop: theme.spacing[2],
+      marginTop: theme.spacing[3],
       borderLeftWidth: theme.spacing[0],
     },
     library.roundedLeftNone,
@@ -43,11 +43,11 @@ const styles = {
       alignItems: 'center',
       flexDirection: 'column',
       justifyContent: 'flex-end',
-      gap: theme.spacing[3],
+      gap: theme.spacing[1],
       borderRadius: theme.rounded.sm,
-      backgroundColor: theme.palette.earth[100],
+      backgroundColor: theme.palette.wheat[200],
       border: `1px solid ${theme.palette.earth[600]}`,
-      padding: `${theme.spacing[3]} ${theme.spacing[2]}`,
+      padding: theme.spacing[3],
       borderLeftColor: 'transparent',
     },
     library.roundedLeftNone,

@@ -8,6 +8,7 @@ import BookNow from './BookNow'
 import paths from '../utils/routes'
 import SocialMedia from './SocialMedia'
 import Banner from './Banner'
+import NavigationMenu from './Navigation'
 
 const DEFAULT_CONTENT_TOP = 200
 
@@ -50,6 +51,7 @@ export default function App() {
       <div css={styles.container}>
         <SocialMedia />
         <BookNow top={top} />
+        <NavigationMenu />
         <Header ref={ref} />
         <Banner top={top} />
 
