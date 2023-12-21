@@ -22,16 +22,34 @@ export default {
       boxShadow: theme.shadow.lg,
     },
   }),
-  outlineNone: css({
-    outline: '2px solid transparent',
-    outlineOffset: '2px',
-  }),
-  roundedLeftNone: css({
-    borderTopLeftRadius: theme.rounded.none,
-    borderBottomLeftRadius: theme.rounded.none,
-  }),
-  roundedRightNone: css({
-    borderTopRightRadius: theme.rounded.none,
-    borderBottomRightRadius: theme.rounded.none,
-  }),
+  outline: {
+    none: css({
+      outline: '2px solid transparent',
+      outlineOffset: '2px',
+    }),
+  },
+  rounded: {
+    left: {
+      none: css({
+        borderTopLeftRadius: theme.rounded.none,
+        borderBottomLeftRadius: theme.rounded.none,
+      }),
+    },
+    right: {
+      none: css({
+        borderTopRightRadius: theme.rounded.none,
+        borderBottomRightRadius: theme.rounded.none,
+      }),
+    },
+  },
+  flex: {
+    column: css({
+      display: 'flex',
+      flexDirection: 'column',
+    }),
+    center: css({
+      alignItems: 'center',
+      justifyContent: 'center',
+    }),
+  },
 }

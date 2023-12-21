@@ -4,8 +4,8 @@ import { useMaxScreen } from '@/hooks'
 import { BOOKER_URL } from '@/utils/constants'
 import { book } from '@/utils/icons'
 import { css } from '@emotion/react'
-import Icon from './Shared/Icon'
-import Link from './Shared/Link'
+import Icon from '../Shared/Icon'
+import Link from '../Shared/Link'
 import theme from '@/styles/theme'
 
 interface Props {
@@ -30,6 +30,7 @@ const styles = {
     padding: theme.spacing[0],
     borderTopLeftRadius: theme.rounded.none,
     borderBottomLeftRadius: theme.rounded.none,
+    borderLeft: 'none',
     fontSize: theme.typography.size[100],
     [theme.screen.md]: {
       padding: `${theme.spacing[4]} 0`,

@@ -62,7 +62,7 @@ const typography = {
 }
 
 const shadow = {
-  min: [
+  xs: [
     '0 0 0 1px rgba(0, 0, 0, 0.02)',
     '0 1px 1px -0.5px rgba(0, 0, 0, 0.02)',
     '0 3px 3px -1.5px rgba(0, 0, 0, 0.02)',
@@ -121,6 +121,10 @@ const spacing = {
   [32]: rem(8),
 }
 
+const padding = (...values: (keyof typeof spacing)[]) => {
+  return values.map((value) => spacing[value]).join(' ')
+}
+
 const zIndex = {
   base: 0,
   layer: 20,
@@ -153,6 +157,7 @@ export default {
   shadow,
   rounded,
   spacing,
+  padding,
   typography,
   zIndex,
   attr,

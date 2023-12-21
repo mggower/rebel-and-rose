@@ -1,10 +1,9 @@
 import { animated, config, easings, useSpring } from '@react-spring/web'
 import { FACEBOOK_URL, INSTAGRAM_URL } from '@/utils/constants'
-import { FloatingPortal } from '@floating-ui/react'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
 import { useState } from 'react'
 import { css } from '@emotion/react'
-import Button from './Shared/Button'
+import Button from '../Shared/Button'
 import Icon from '@/components/Shared/Icon'
 import library from '@/styles/library'
 import buttons from '@/styles/buttons'
@@ -39,7 +38,7 @@ const styles = {
         height: theme.spacing[12],
       },
     },
-    library.roundedLeftNone,
+    library.rounded.left.none,
   ),
   content: css(
     {
@@ -48,16 +47,13 @@ const styles = {
       flexDirection: 'column',
       justifyContent: 'flex-end',
       gap: theme.spacing[1],
-      padding: theme.spacing[2],
+      padding: theme.spacing[1],
       borderRadius: theme.rounded.sm,
-      backgroundColor: theme.palette.wheat[200],
+      backgroundColor: theme.palette.earth[200],
       border: `1px solid ${theme.palette.earth[600]}`,
       borderLeftColor: 'transparent',
-      [theme.screen.md]: {
-        padding: theme.spacing[3],
-      },
     },
-    library.roundedLeftNone,
+    library.rounded.left.none,
     library.shadow,
   ),
   social: css(buttons.button, {
@@ -69,7 +65,7 @@ const styles = {
     [theme.screen.md]: {
       width: theme.spacing[10],
       height: theme.spacing[10],
-      fontSize: theme.typography.size[200],
+      fontSize: theme.typography.size[300],
     },
   }),
 }
@@ -88,29 +84,27 @@ export default function SocialMedia() {
   const onToggle = () => setClosed((prev) => !prev)
 
   return (
-    <FloatingPortal id='portal'>
-      <div css={styles.component}>
-        <animated.div css={styles.container} style={{ x }}>
-          <Button css={styles.tab} onClick={onToggle} buttonTheme='secondary'>
-            <Icon icon={icons.plus} />
-          </Button>
+    <div css={styles.component}>
+      <animated.div css={styles.container} style={{ x }}>
+        <Button css={styles.tab} onClick={onToggle} buttonTheme='secondary'>
+          <Icon icon={icons.plus} />
+        </Button>
 
-          <div ref={ref} css={styles.content}>
-            {SOCIALS.map((social) => (
-              <animated.a
-                key={social}
-                target='_blank'
-                rel='noreferrer'
-                style={{ opacity }}
-                href={urls[social]}
-                css={styles.social}
-                data-button-theme='tertiary'>
-                <Icon icon={icons[social]} />
-              </animated.a>
-            ))}
-          </div>
-        </animated.div>
-      </div>
-    </FloatingPortal>
+        <div ref={ref} css={styles.content}>
+          {SOCIALS.map((social) => (
+            <animated.a
+              key={social}
+              target='_blank'
+              rel='noreferrer'
+              style={{ opacity }}
+              href={urls[social]}
+              css={styles.social}
+              data-button-theme='tertiary'>
+              <Icon icon={icons[social]} />
+            </animated.a>
+          ))}
+        </div>
+      </animated.div>
+    </div>
   )
 }

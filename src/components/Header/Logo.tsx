@@ -2,9 +2,9 @@ import { useNavigate } from 'react-router-dom'
 import { forwardRef } from 'react'
 import { css } from '@emotion/react'
 import LogoBanner from '@/assets/logos/banner.svg?react'
-import Heading from './Shared/Heading'
 import routes from '@/utils/routes'
 import theme from '@/styles/theme'
+import HeaderCaption from './HeaderCaption'
 
 const styles = {
   component: css({
@@ -34,7 +34,7 @@ const styles = {
     textTransform: 'uppercase',
     padding: `${theme.spacing[1]} ${theme.spacing[2]}`,
     border: `1px solid ${theme.palette.ink.main}`,
-    boxShadow: theme.shadow.min,
+    boxShadow: theme.shadow.xs,
     display: 'none',
     borderLeft: 'none',
     borderRight: 'none',
@@ -58,23 +58,19 @@ const styles = {
   }),
 }
 
-const Header = forwardRef<HTMLHeadingElement>(function Header(_, ref) {
+const Logo = forwardRef<HTMLHeadingElement>(function Header(_, ref) {
   const navigate = useNavigate()
 
   return (
     <header ref={ref} css={styles.component}>
       <div css={styles.content}>
-        <Heading tracking='extreme' weight='normal' fontSize='min' css={styles.heading}>
-          in historic
-        </Heading>
+        <HeaderCaption>in historic</HeaderCaption>
 
         <LogoBanner css={styles.logo} onClick={() => navigate(routes.home)} />
 
-        <Heading tracking='extreme' weight='normal' fontSize='min' css={styles.heading}>
-          concord, ma
-        </Heading>
+        <HeaderCaption>concord, ma</HeaderCaption>
       </div>
     </header>
   )
 })
-export default Header
+export default Logo

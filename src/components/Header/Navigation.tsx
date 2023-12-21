@@ -1,6 +1,5 @@
 import { animated, config, easings, useSpring } from '@react-spring/web'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { FloatingPortal } from '@floating-ui/react'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
 import { BOOKER_URL } from '@/utils/constants'
 import { useState } from 'react'
@@ -8,7 +7,7 @@ import { bars } from '@/utils/icons'
 import { css } from '@emotion/react'
 import Button from '@/components/Shared/Button'
 import Icon from '@/components/Shared/Icon'
-import buttons, { applyButtonStyleProps } from '@/styles/buttons'
+import buttons from '@/styles/buttons'
 import library from '@/styles/library'
 import theme from '@/styles/theme'
 import routes from '@/utils/routes'
@@ -38,7 +37,7 @@ const styles = {
         height: theme.spacing[12],
       },
     },
-    library.roundedRightNone,
+    library.rounded.right.none,
   ),
   content: css(
     {
@@ -48,20 +47,18 @@ const styles = {
       justifyContent: 'flex-end',
       gap: theme.spacing[1],
       borderRadius: theme.rounded.sm,
-      backgroundColor: theme.palette.wheat[200],
+      backgroundColor: theme.palette.earth[300],
       border: `1px solid ${theme.palette.earth[600]}`,
-      padding: theme.spacing[2],
       borderRightColor: 'transparent',
-      [theme.screen.md]: {
-        padding: theme.spacing[3],
-      },
+      padding: theme.spacing[1],
     },
-    library.roundedRightNone,
+    library.rounded.right.none,
     library.shadow,
   ),
   link: css(buttons.button, {
     marginLeft: '1px',
     width: theme.spacing[24],
+    textTransform: 'uppercase',
     justifyContent: 'flex-start',
     padding: `${theme.spacing[1]} ${theme.spacing[2]}`,
     [theme.screen.md]: {
@@ -69,7 +66,7 @@ const styles = {
     },
   }),
   booker: css({
-    marginTop: theme.spacing[6],
+    marginTop: theme.spacing[3],
   }),
 }
 
@@ -97,41 +94,39 @@ export default function Navigation() {
   }
 
   return (
-    <FloatingPortal id='portal'>
-      <nav css={styles.component}>
-        <animated.div css={styles.container} style={{ x }}>
-          <Button css={styles.tab} onClick={onToggle} buttonTheme='secondary'>
-            <Icon icon={bars} />
-          </Button>
+    <div css={styles.component}>
+      <animated.div css={styles.container} style={{ x }}>
+        <Button css={styles.tab} onClick={onToggle} buttonTheme='secondary'>
+          <Icon icon={bars} />
+        </Button>
 
-          <div ref={ref} css={styles.content}>
-            {routes.list.map(({ route, label }) => (
-              <animated.button
-                key={label}
-                css={styles.link}
-                style={{ opacity }}
-                onClick={onNavigate(route)}
-                {...applyButtonStyleProps({
-                  buttonTheme: 'tertiary',
-                  selected: routes.match(route, pathname),
-                })}>
-                {label}
-              </animated.button>
-            ))}
-
-            <animated.a
-              key='booker'
-              target='_blank'
-              rel='noreferrer'
+        <div ref={ref} css={styles.content}>
+          {routes.list.map(({ route, label }) => (
+            <animated.button
+              key={label}
+              css={styles.link}
               style={{ opacity }}
-              href={BOOKER_URL}
-              data-button-theme='primary'
-              css={[styles.link, styles.booker]}>
-              Book Now
-            </animated.a>
-          </div>
-        </animated.div>
-      </nav>
-    </FloatingPortal>
+              onClick={onNavigate(route)}
+              data-font-tracking='widest'
+              data-button-theme='tertiary'
+              data-selected={routes.match(route, pathname)}>
+              {label}
+            </animated.button>
+          ))}
+
+          <animated.a
+            key='booker'
+            target='_blank'
+            rel='noreferrer'
+            style={{ opacity }}
+            href={BOOKER_URL}
+            data-button-theme='primary'
+            data-font-tracking='widest'
+            css={[styles.link, styles.booker]}>
+            Book Now
+          </animated.a>
+        </div>
+      </animated.div>
+    </div>
   )
 }

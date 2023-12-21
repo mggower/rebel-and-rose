@@ -1,22 +1,17 @@
 import { css } from '@emotion/react'
+import texture from '@/assets/textures/boho-folk-E.jpg'
 import library from '@/styles/library'
 import theme from '@/styles/theme'
-import texture from '@/assets/textures/boho-folk-E.jpg'
-
-interface Props {
-  top: number
-}
 
 const styles = {
-  container: css({
+  component: css({
     zIndex: 20,
     width: '100%',
     display: 'flex',
-    position: 'fixed',
     justifyContent: 'center',
     backgroundColor: theme.palette.transparent,
   }),
-  banner: css({
+  banner: css(library.shadow, library.contain, {
     height: '1.5rem',
     borderRadius: theme.rounded.sm,
     backgroundImage: `url(${texture})`,
@@ -28,10 +23,10 @@ const styles = {
   }),
 }
 
-export default function Banner({ top }: Props) {
+export default function Banner() {
   return (
-    <div css={styles.container} style={{ top }}>
-      <div css={[library.shadow, library.contain, styles.banner]} />
+    <div css={styles.component}>
+      <div css={styles.banner} />
     </div>
   )
 }
