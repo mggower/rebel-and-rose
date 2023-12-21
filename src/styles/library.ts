@@ -51,5 +51,8 @@ export default {
       alignItems: 'center',
       justifyContent: 'center',
     }),
+    itemsCenter: css({
+      alignItems: 'center',
+    }),
   },
 }
