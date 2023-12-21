@@ -27,7 +27,7 @@ const styles = {
     zIndex: theme.zIndex.layer,
     backgroundColor: theme.palette.wheat[100],
     padding: theme.padding(4, 0),
-    [theme.screen.lg]: {
+    [theme.screen.md]: {
       flexDirection: 'row',
       gap: theme.spacing[16],
       padding: theme.padding(8, 0),
@@ -36,9 +36,9 @@ const styles = {
   logo: css({
     width: 'auto',
     fill: theme.palette.ink.main,
-    height: theme.spacing[12],
+    height: theme.spacing[16],
     [theme.screen.md]: {
-      height: theme.spacing[14],
+      height: theme.spacing[24],
     },
     [theme.screen.lg]: {
       height: theme.spacing[24],
@@ -56,7 +56,7 @@ export default function Header() {
     <header css={styles.component}>
       <div>
         <SocialMedia />
-        <BookNow top={200} />
+        <BookNow />
       </div>
 
       <div css={styles.banner}>
@@ -71,9 +71,7 @@ export default function Header() {
         <Banner />
       </div>
 
-      <nav>
-        <Navigation />
-      </nav>
+      <Navigation />
     </header>
   )
 }

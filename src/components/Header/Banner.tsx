@@ -12,13 +12,13 @@ const styles = {
     backgroundColor: theme.palette.transparent,
   }),
   banner: css(library.shadow, library.contain, {
-    height: '1.5rem',
+    height: theme.spacing[4],
     borderRadius: theme.rounded.sm,
     backgroundImage: `url(${texture})`,
     backgroundSize: 'auto 300px',
     backgroundRepeat: 'repeat',
     [theme.screen.md]: {
-      height: '2rem',
+      height: theme.spacing[8],
     },
   }),
 }

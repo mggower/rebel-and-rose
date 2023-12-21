@@ -22,7 +22,7 @@ const tabBorderStyle: CSSObject = {
 export default {
   wrapper: css({
     position: 'fixed',
-    top: theme.spacing[4],
+    top: theme.spacing[8],
     zIndex: theme.zIndex.popover,
 
     [left.eq(true)]: {

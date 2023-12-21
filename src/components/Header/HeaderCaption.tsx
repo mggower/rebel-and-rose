@@ -9,7 +9,7 @@ interface Props {
 const styles = {
   component: css({
     display: 'none',
-    [theme.screen.md]: {
+    [theme.screen.lg]: {
       display: 'grid',
       alignItems: 'center',
       justifyContent: 'center',
