@@ -1,5 +1,3 @@
-import { FloatingPortal } from '@floating-ui/react'
-import { cssVars, pixel } from '@/utils'
 import { useMaxScreen } from '@/hooks'
 import { BOOKER_URL } from '@/utils/constants'
 import { book } from '@/utils/icons'
@@ -8,17 +6,13 @@ import Icon from '../Shared/Icon'
 import Link from '../Shared/Link'
 import theme from '@/styles/theme'
 
-interface Props {
-  top: number
-}
-
 const styles = {
   component: css({
     left: 0,
     position: 'fixed',
-    top: 'calc(var(--top, 200px) + 2rem)',
+    top: theme.spacing[16],
     [theme.screen.md]: {
-      top: 'var(--top, 200px)',
+      top: theme.spacing[20],
     },
   }),
   link: css({
@@ -41,16 +35,14 @@ const styles = {
   }),
 }
 
-export default function BookNow({ top }: Props) {
+export default function BookNow() {
   const mobile = useMaxScreen('md')
 
   return (
-    <FloatingPortal id='portal'>
-      <div css={styles.component} style={cssVars({ top: pixel(top) })}>
-        <Link external variant='button' to={BOOKER_URL} css={styles.link}>
-          {mobile ? <Icon icon={book} /> : <>Book Now</>}
-        </Link>
-      </div>
-    </FloatingPortal>
+    <div css={styles.component}>
+      <Link external variant='button' to={BOOKER_URL} css={styles.link}>
+        {mobile ? <Icon icon={book} /> : <>Book Now</>}
+      </Link>
+    </div>
   )
 }

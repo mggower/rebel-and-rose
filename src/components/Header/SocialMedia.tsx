@@ -10,7 +10,7 @@ import styles from './styles'
 import * as icons from '@/utils/icons'
 
 const MENU_WIDTH = 72
-const SOCIALS = ['facebook', 'instagram' /**, 'tiktok'  */] as const
+const SOCIALS = ['facebook', 'instagram'] as const
 const urls = { facebook: FACEBOOK_URL, instagram: INSTAGRAM_URL }
 
 const classes = {
@@ -28,13 +28,13 @@ const classes = {
 }
 
 export default function SocialMedia() {
-  const [closed, setClosed] = useState(true)
+  const [isOpen, setOpen] = useState(false)
 
   const [ref, { width = MENU_WIDTH }] = useBoxSizing<HTMLDivElement>({ handleHeight: false })
 
   const { x, opacity } = useSpring({
     from: { opacity: 0, x: -width },
-    to: { opacity: closed ? 0 : 1, x: closed ? -width : 0 },
+    to: isOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -width },
     config: { ...config.stiff, easing: easings.easeOutCubic, duration: 300 },
   })
 
@@ -42,13 +42,14 @@ export default function SocialMedia() {
     <div data-left css={styles.wrapper}>
       <animated.div data-left css={styles.container} style={{ x }}>
         <Button
-          css={styles.tab.left}
+          data-left
+          css={styles.tab}
           buttonTheme='secondary'
-          onClick={() => setClosed((prev) => !prev)}>
+          onClick={() => setOpen((prev) => !prev)}>
           <Icon icon={icons.plus} />
         </Button>
 
-        <div ref={ref} css={styles.content.left}>
+        <div data-left ref={ref} css={styles.content}>
           {SOCIALS.map((social) => (
             <animated.a
               key={social}
@@ -57,6 +58,7 @@ export default function SocialMedia() {
               style={{ opacity }}
               href={urls[social]}
               css={classes.link}
+              tabIndex={isOpen ? 0 : -1}
               data-button-theme='tertiary'>
               <Icon icon={icons[social]} />
             </animated.a>

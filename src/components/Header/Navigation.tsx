@@ -28,65 +28,65 @@ const classes = {
   }),
 }
 
-/**
- * TODO -> use floating ui to manage focus state and list navigation
- * TODO -> merge styles with social media component
- */
 export default function Navigation() {
   const navigate = useNavigate()
   const pathname = useLocation().pathname
-  const [closed, setClosed] = useState(true)
+  const [isOpen, setOpen] = useState(false)
 
   const [ref, { width = MENU_WIDTH }] = useBoxSizing<HTMLDivElement>({ handleHeight: false })
 
   const { x, opacity } = useSpring({
     from: { opacity: 0, x: width },
-    to: { opacity: closed ? 0 : 1, x: closed ? width : 0 },
+    to: isOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: width },
     config: { ...config.stiff, easing: easings.easeOutCubic, duration: 300 },
   })
 
-  const onNavigate = (route: string) => () => {
-    navigate(route)
-    setClosed(true)
-  }
-
   return (
-    <div data-right css={styles.wrapper}>
-      <animated.div data-right css={styles.container} style={{ x }}>
-        <Button
-          css={styles.tab.right}
-          buttonTheme='secondary'
-          onClick={() => setClosed((prev) => !prev)}>
-          <Icon icon={bars} />
-        </Button>
+    <nav>
+      <div data-right css={styles.wrapper}>
+        <animated.div data-right css={styles.container} style={{ x }}>
+          <Button
+            data-right
+            css={styles.tab}
+            buttonTheme='secondary'
+            onClick={() => setOpen((prev) => !prev)}>
+            <Icon icon={bars} />
+          </Button>
 
-        <div ref={ref} css={styles.content.right}>
-          {routes.list.map(({ route, label }) => (
-            <animated.button
-              key={label}
-              css={classes.link}
+          <div data-right ref={ref} css={styles.content}>
+            {routes.list.map(({ route, label }) => (
+              <animated.button
+                key={label}
+                css={classes.link}
+                style={{ opacity }}
+                tabIndex={isOpen ? 0 : -1}
+                data-font-tracking='widest'
+                data-button-theme='tertiary'
+                data-selected={routes.match(route, pathname)}
+                onClick={() => {
+                  navigate(route)
+                  setOpen(false)
+                }}>
+                {label}
+              </animated.button>
+            ))}
+
+            <animated.a
+              key='booker'
+              target='_blank'
+              rel='noreferrer'
               style={{ opacity }}
-              onClick={onNavigate(route)}
+              href={BOOKER_URL}
+              tabIndex={isOpen ? 0 : -1}
+              data-button-theme='primary'
               data-font-tracking='widest'
-              data-button-theme='tertiary'
-              data-selected={routes.match(route, pathname)}>
-              {label}
-            </animated.button>
-          ))}
-
-          <animated.a
-            key='booker'
-            target='_blank'
-            rel='noreferrer'
-            style={{ opacity }}
-            href={BOOKER_URL}
-            data-button-theme='primary'
-            data-font-tracking='widest'
-            css={[classes.link, classes.booker]}>
-            Book Now
-          </animated.a>
-        </div>
-      </animated.div>
-    </div>
+              css={[classes.link, classes.booker]}
+              onClick={() => setOpen(false)}>
+              Book Now
+            </animated.a>
+          </div>
+        </animated.div>
+      </div>
+    </nav>
   )
 }
