@@ -7,56 +7,14 @@ import { bars } from '@/utils/icons'
 import { css } from '@emotion/react'
 import Button from '@/components/Shared/Button'
 import Icon from '@/components/Shared/Icon'
-import buttons from '@/styles/buttons'
-import library from '@/styles/library'
 import theme from '@/styles/theme'
 import routes from '@/utils/routes'
+import styles from './styles'
 
 const MENU_WIDTH = 124
 
-const styles = {
-  component: css({
-    right: 0,
-    position: 'fixed',
-    top: theme.spacing[4],
-  }),
-  container: css({
-    display: 'flex',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-end',
-  }),
-  tab: css(
-    {
-      width: theme.spacing[8],
-      height: theme.spacing[8],
-      padding: theme.spacing[0],
-      marginTop: theme.spacing[3],
-      borderRightWidth: theme.spacing[0],
-      [theme.screen.md]: {
-        width: theme.spacing[12],
-        height: theme.spacing[12],
-      },
-    },
-    library.rounded.right.none,
-  ),
-  content: css(
-    {
-      display: 'flex',
-      alignItems: 'center',
-      flexDirection: 'column',
-      justifyContent: 'flex-end',
-      gap: theme.spacing[1],
-      borderRadius: theme.rounded.sm,
-      backgroundColor: theme.palette.earth[300],
-      border: `1px solid ${theme.palette.earth[600]}`,
-      borderRightColor: 'transparent',
-      padding: theme.spacing[1],
-    },
-    library.rounded.right.none,
-    library.shadow,
-  ),
-  link: css(buttons.button, {
-    marginLeft: '1px',
+const classes = {
+  link: css(styles.link, {
     width: theme.spacing[24],
     textTransform: 'uppercase',
     justifyContent: 'flex-start',
@@ -87,24 +45,26 @@ export default function Navigation() {
     config: { ...config.stiff, easing: easings.easeOutCubic, duration: 300 },
   })
 
-  const onToggle = () => setClosed((prev) => !prev)
   const onNavigate = (route: string) => () => {
     navigate(route)
     setClosed(true)
   }
 
   return (
-    <div css={styles.component}>
-      <animated.div css={styles.container} style={{ x }}>
-        <Button css={styles.tab} onClick={onToggle} buttonTheme='secondary'>
+    <div data-right css={styles.wrapper}>
+      <animated.div data-right css={styles.container} style={{ x }}>
+        <Button
+          css={styles.tab.right}
+          buttonTheme='secondary'
+          onClick={() => setClosed((prev) => !prev)}>
           <Icon icon={bars} />
         </Button>
 
-        <div ref={ref} css={styles.content}>
+        <div ref={ref} css={styles.content.right}>
           {routes.list.map(({ route, label }) => (
             <animated.button
               key={label}
-              css={styles.link}
+              css={classes.link}
               style={{ opacity }}
               onClick={onNavigate(route)}
               data-font-tracking='widest'
@@ -122,7 +82,7 @@ export default function Navigation() {
             href={BOOKER_URL}
             data-button-theme='primary'
             data-font-tracking='widest'
-            css={[styles.link, styles.booker]}>
+            css={[classes.link, classes.booker]}>
             Book Now
           </animated.a>
         </div>

@@ -1,7 +1,7 @@
+import { useLayoutEffect, useState } from 'react'
 import { UseResizeDetectorReturn } from 'react-resize-detector/build/types/types'
 import { useResizeDetector } from 'react-resize-detector'
 import { isNumber } from '@/utils'
-import { useRef } from 'react'
 
 export type BoxSizing = 'content-box' | 'border-box'
 
@@ -37,7 +37,7 @@ export const useBoxSizing = <T extends HTMLElement = HTMLElement>({
   handleWidth = true,
   handleHeight = true,
 }: BoxSizingProps): UseBoxSizingReturn<T> => {
-  const size = useRef<BoxSize>({})
+  const [size, setSize] = useState<BoxSize>({})
 
   const { ref } = useResizeDetector<T>({
     handleWidth,
@@ -54,14 +54,29 @@ export const useBoxSizing = <T extends HTMLElement = HTMLElement>({
         box.height = height
       }
 
+      let dirty = false
       if (isNumber(box.width)) {
-        size.current.width = Math.round(box.width)
+        dirty = true
+        box.width = Math.round(box.width)
       }
       if (isNumber(box.height)) {
-        size.current.height = Math.round(box.height)
+        dirty = true
+        box.height = Math.round(box.height)
+      }
+
+      if (dirty) {
+        setSize(box)
       }
     },
   })
 
-  return [ref, size.current]
+  useLayoutEffect(() => {
+    if (ref.current && boxSizing === BORDER_BOX) {
+      const rect = ref.current.getBoundingClientRect()
+      setSize({ width: Math.round(rect.width), height: Math.round(rect.height) })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return [ref, size]
 }

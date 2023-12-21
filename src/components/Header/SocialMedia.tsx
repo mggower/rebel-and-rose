@@ -5,59 +5,16 @@ import { useState } from 'react'
 import { css } from '@emotion/react'
 import Button from '../Shared/Button'
 import Icon from '@/components/Shared/Icon'
-import library from '@/styles/library'
-import buttons from '@/styles/buttons'
 import theme from '@/styles/theme'
+import styles from './styles'
 import * as icons from '@/utils/icons'
 
 const MENU_WIDTH = 72
 const SOCIALS = ['facebook', 'instagram' /**, 'tiktok'  */] as const
 const urls = { facebook: FACEBOOK_URL, instagram: INSTAGRAM_URL }
 
-const styles = {
-  component: css({
-    left: 0,
-    position: 'fixed',
-    top: theme.spacing[4],
-  }),
-  container: css({
-    display: 'flex',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-end',
-    flexDirection: 'row-reverse',
-  }),
-  tab: css(
-    {
-      width: theme.spacing[8],
-      height: theme.spacing[8],
-      padding: theme.spacing[0],
-      marginTop: theme.spacing[3],
-      borderLeftWidth: theme.spacing[0],
-      [theme.screen.md]: {
-        width: theme.spacing[12],
-        height: theme.spacing[12],
-      },
-    },
-    library.rounded.left.none,
-  ),
-  content: css(
-    {
-      display: 'flex',
-      alignItems: 'center',
-      flexDirection: 'column',
-      justifyContent: 'flex-end',
-      gap: theme.spacing[1],
-      padding: theme.spacing[1],
-      borderRadius: theme.rounded.sm,
-      backgroundColor: theme.palette.earth[200],
-      border: `1px solid ${theme.palette.earth[600]}`,
-      borderLeftColor: 'transparent',
-    },
-    library.rounded.left.none,
-    library.shadow,
-  ),
-  social: css(buttons.button, {
-    marginRight: '1px',
+const classes = {
+  link: css(styles.link, {
     width: theme.spacing[8],
     height: theme.spacing[8],
     padding: theme.spacing[0],
@@ -81,16 +38,17 @@ export default function SocialMedia() {
     config: { ...config.stiff, easing: easings.easeOutCubic, duration: 300 },
   })
 
-  const onToggle = () => setClosed((prev) => !prev)
-
   return (
-    <div css={styles.component}>
-      <animated.div css={styles.container} style={{ x }}>
-        <Button css={styles.tab} onClick={onToggle} buttonTheme='secondary'>
+    <div data-left css={styles.wrapper}>
+      <animated.div data-left css={styles.container} style={{ x }}>
+        <Button
+          css={styles.tab.left}
+          buttonTheme='secondary'
+          onClick={() => setClosed((prev) => !prev)}>
           <Icon icon={icons.plus} />
         </Button>
 
-        <div ref={ref} css={styles.content}>
+        <div ref={ref} css={styles.content.left}>
           {SOCIALS.map((social) => (
             <animated.a
               key={social}
@@ -98,7 +56,7 @@ export default function SocialMedia() {
               rel='noreferrer'
               style={{ opacity }}
               href={urls[social]}
-              css={styles.social}
+              css={classes.link}
               data-button-theme='tertiary'>
               <Icon icon={icons[social]} />
             </animated.a>
