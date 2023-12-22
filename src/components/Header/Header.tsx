@@ -16,7 +16,7 @@ const styles = {
     gridTemplateColumns: 'min-content auto min-content',
     justifyContent: 'space-between',
   }),
-  banner: css(library.flex.column, {
+  banner: css(library.contain, library.flex.column, {
     alignItems: 'center',
     justifyContent: 'flex-start',
   }),
@@ -26,11 +26,11 @@ const styles = {
     position: 'sticky',
     zIndex: theme.zIndex.layer,
     backgroundColor: theme.palette.wheat[100],
-    padding: theme.padding(4, 0),
+    padding: theme.box(4, 0),
     [theme.screen.md]: {
       flexDirection: 'row',
       gap: theme.spacing[16],
-      padding: theme.padding(8, 0),
+      padding: theme.box(8, 0),
     },
   }),
   logo: css({

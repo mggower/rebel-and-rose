@@ -14,4 +14,3 @@ export const SCHEDULE = [
   ['Friday', '9am – 4pm'],
   ['Saturday', '9am – 4pm'],
 ]
-export const ONE_REM = 16

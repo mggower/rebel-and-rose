@@ -23,8 +23,12 @@ const tabBorderStyle: CSSObject = {
 export default {
   wrapper: css({
     position: 'fixed',
-    top: theme.spacing[8],
+    top: theme.spacing[4],
     zIndex: theme.zIndex.popover,
+
+    [theme.screen.md]: {
+      top: theme.spacing[8],
+    },
 
     [left.eq(true)]: {
       left: 0,
@@ -63,7 +67,7 @@ export default {
       alignItems: 'center',
       justifyContent: 'flex-end',
       gap: theme.spacing[1],
-      padding: theme.padding(2, 3),
+      padding: theme.box(2, 3),
       borderRadius: theme.rounded.sm,
       border: `1px solid ${theme.palette.earth[600]}`,
       backgroundColor: theme.palette.earth[200],

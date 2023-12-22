@@ -24,7 +24,7 @@ const styles = {
   caption: css({
     whiteSpace: 'nowrap',
     textTransform: 'uppercase',
-    padding: theme.padding(1, 2),
+    padding: theme.box(1, 2),
   }),
 }
 

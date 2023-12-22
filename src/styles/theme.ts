@@ -113,9 +113,7 @@ const spacing = {
   [40]: rem(10),
 }
 
-const padding = (...values: (keyof typeof spacing)[]) => {
-  return values.map((value) => spacing[value]).join(' ')
-}
+const box = (...values: (keyof typeof spacing)[]) => values.map((value) => spacing[value]).join(' ')
 
 const attributeSelector = <T extends Primitive = Primitive>(...scope: string[]) => {
   const attribute = ['data', ...scope].join('-')
@@ -141,7 +139,7 @@ export default {
   shadow,
   rounded,
   spacing,
-  padding,
+  box,
   typography,
   zIndex,
   attr,

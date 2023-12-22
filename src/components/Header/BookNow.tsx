@@ -10,7 +10,7 @@ const styles = {
   component: css({
     left: 0,
     position: 'fixed',
-    top: theme.spacing[20],
+    top: theme.spacing[14],
     zIndex: theme.zIndex.overlay,
     [theme.screen.md]: {
       top: theme.spacing[28],

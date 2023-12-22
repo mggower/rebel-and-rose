@@ -8,7 +8,7 @@ const styles = {
     borderRadius: theme.rounded.sm,
     backgroundImage: `url(${assets.images.breezeWarm})`,
     backgroundSize: 'cover',
-    height: '60vh',
+    height: '32vh',
     [theme.screen.md]: {
       height: '70vh',
     },

@@ -6,9 +6,10 @@ import theme from '@/styles/theme'
 
 const styles = {
   component: css(library.contain, library.flex.column, library.flex.center, {
-    padding: theme.spacing[2],
-    [theme.screen.md]: {
-      padding: theme.spacing[4],
+    padding: theme.box(4, 0),
+    '& > img': {
+      width: '90%',
+      height: 'auto',
     },
   }),
 }

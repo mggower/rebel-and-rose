@@ -3,19 +3,19 @@ import { forwardRef } from 'react'
 
 interface Props extends React.HTMLAttributes<HTMLSpanElement>, TypographyProps {}
 
-const Body = forwardRef<HTMLSpanElement, Props>(function Body(
-  { children, fontSize: size, weight, italic, tracking, family, ...props },
+const Paragraph = forwardRef<HTMLParagraphElement, Props>(function Body(
+  { children, fontSize, weight, italic, tracking, family, prose, ...props },
   ref,
 ) {
   return (
-    <span
+    <p
       ref={ref}
       {...props}
-      {...applyTypographyProps({ fontSize: size, weight, italic, tracking, family })}
+      {...applyTypographyProps({ fontSize, weight, italic, tracking, family, prose })}
       css={typography.body}>
       {children}
-    </span>
+    </p>
   )
 })
 
-export default Body
+export default Paragraph

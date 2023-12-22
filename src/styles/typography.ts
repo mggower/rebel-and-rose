@@ -15,6 +15,7 @@ export interface TypographyProps<T extends 'body' | 'header' = 'body'> {
   italic?: boolean
   tracking?: Tracking
   family?: FontFamily
+  prose?: boolean
 }
 
 /** body font size */
@@ -91,12 +92,14 @@ export const applyTypographyProps = <T extends 'header' | 'body'>({
   fontSize,
   tracking,
   family,
+  prose,
 }: TypographyProps<T>) => ({
   ['data-font-size']: fontSize,
   ['data-font-weight']: weight,
   ['data-font-italic']: italic,
   ['data-font-tracking']: tracking,
   ['data-font-family']: family,
+  ['data-font-prose']: prose,
 })
 
 export default {
@@ -109,6 +112,10 @@ export default {
         acc[theme.attr.custom('font', 'size').eq(size)] = { fontSize: pixel(fontSize) }
         return acc
       }, {}),
+
+      [theme.attr.custom<boolean>('font', 'prose').eq(true)]: {
+        maxWidth: '65ch',
+      },
     },
     FONT_WEIGHT,
     FONT_FAMILY,

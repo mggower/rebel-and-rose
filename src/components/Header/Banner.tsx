@@ -5,7 +5,7 @@ import theme from '@/styles/theme'
 
 const styles = {
   component: css({
-    zIndex: 20,
+    zIndex: theme.zIndex.overlay,
     width: '100%',
     display: 'flex',
     justifyContent: 'center',

@@ -1,6 +1,7 @@
 import { CSSObject, css } from '@emotion/react'
 import typography from './typography'
 import theme from './theme'
+import library from './library'
 
 export type LinkColor = 'primary' | 'secondary' | 'tertiary'
 export type LinkTheme = 'light' | 'dark'
@@ -11,6 +12,7 @@ export interface LinkStyleProps {
   active?: boolean
   selected?: boolean
   uppercase?: boolean
+  underline?: boolean
 }
 
 interface ColorStyle {
@@ -26,13 +28,13 @@ interface LinkStyle extends ColorStyle {
 const lookup: Record<LinkTheme, Record<LinkColor, LinkStyle>> = {
   light: {
     primary: {
-      foreground: theme.palette.earth[700],
+      foreground: theme.palette.earth.main,
       hover: { foreground: theme.palette.earth[400] },
       active: { foreground: theme.palette.earth[500] },
       visited: { foreground: theme.palette.earth[600] },
     },
     secondary: {
-      foreground: theme.palette.ink[950],
+      foreground: theme.palette.ink.main,
       hover: { foreground: theme.palette.blush[500] },
       active: { foreground: theme.palette.blush[600] },
       visited: { foreground: theme.palette.blush[700] },
@@ -70,13 +72,19 @@ const applyStyle = (linkColor: LinkColor, linkTheme: LinkTheme): CSSObject => {
   const { foreground, hover, active, visited } = lookup[linkTheme][linkColor]
   return {
     color: foreground,
-    ['&:hover']: {
+    '&:hover': {
       color: hover.foreground,
+      textDecorationThickness: '2px',
+      textDecorationLine: 'underline',
+      textDecorationColor: hover.foreground,
+      '&:active': {
+        color: active.foreground,
+      },
     },
-    ['&:active']: {
+    '&:active': {
       color: active.foreground,
     },
-    ['&:visited']: {
+    '&:visited:not(:hover)': {
       color: visited.foreground,
     },
   }
@@ -91,9 +99,11 @@ export const applyLinkStyleProps = ({
   active = false,
   selected = false,
   uppercase = false,
+  underline = false,
 }: LinkStyleProps) => ({
   ['data-link-color']: linkColor,
   ['data-link-theme']: linkTheme,
+  ['data-underline']: underline,
   ['data-uppercase']: uppercase,
   ['data-selected']: selected,
   ['data-active']: active,
@@ -102,6 +112,7 @@ export const applyLinkStyleProps = ({
 export default {
   link: css(
     typography.body,
+    library.outline.none,
     {
       ...applyStyle('primary', 'light'),
       [linkThemeAttr.eq('dark')]: applyStyle('primary', 'dark'),
@@ -118,10 +129,8 @@ export default {
     },
     {
       cursor: 'pointer',
-      padding: '4px 8px',
-      outlineOffset: '2px',
+      padding: theme.box(1, 2),
       textDecorationLine: 'none',
-      outline: '2px solid transparent',
       borderRadius: theme.rounded.sm,
 
       [theme.attr.selected.eq(true)]: {
@@ -130,6 +139,10 @@ export default {
 
       [theme.attr.custom<boolean>('uppercase').not(false)]: {
         textTransform: 'uppercase',
+      },
+
+      [theme.attr.custom<boolean>('underline').eq(true)]: {
+        textDecorationLine: 'underline',
       },
 
       [`&:focus, ${theme.attr.active.eq(true)}`]: {
