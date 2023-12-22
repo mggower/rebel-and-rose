@@ -18,11 +18,11 @@ const classes = {
     width: theme.spacing[8],
     height: theme.spacing[8],
     padding: theme.spacing[0],
-    fontSize: theme.typography.size[100],
+    fontSize: theme.typography.fontSize[100],
     [theme.screen.md]: {
       width: theme.spacing[10],
       height: theme.spacing[10],
-      fontSize: theme.typography.size[300],
+      fontSize: theme.typography.fontSize[300],
     },
   }),
 }
@@ -43,6 +43,7 @@ export default function SocialMedia() {
       <animated.div data-left css={styles.container} style={{ x }}>
         <Button
           data-left
+          fontSize='lg'
           css={styles.tab}
           buttonTheme='secondary'
           onClick={() => setOpen((prev) => !prev)}>

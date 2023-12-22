@@ -19,28 +19,28 @@ export interface TypographyProps<T extends 'body' | 'header' = 'body'> {
 
 /** body font size */
 const bodyFontSize = {
-  base: theme.typography.size[200],
-  xxs: theme.typography.size[50],
-  xs: theme.typography.size[75],
-  sm: theme.typography.size[100],
-  md: theme.typography.size[200],
-  lg: theme.typography.size[300],
-  xl: theme.typography.size[400],
-  xxl: theme.typography.size[500],
+  base: theme.typography.fontSize[200],
+  xxs: theme.typography.fontSize[50],
+  xs: theme.typography.fontSize[75],
+  sm: theme.typography.fontSize[100],
+  md: theme.typography.fontSize[200],
+  lg: theme.typography.fontSize[300],
+  xl: theme.typography.fontSize[400],
+  xxl: theme.typography.fontSize[500],
 }
 
 /** header font size */
 const headerFontSize = {
-  base: theme.typography.size[500],
-  min: theme.typography.size[200],
-  xs: theme.typography.size[300],
-  sm: theme.typography.size[400],
-  md: theme.typography.size[500],
-  lg: theme.typography.size[600],
-  xl: theme.typography.size[700],
-  xxl: theme.typography.size[800],
-  xxxl: theme.typography.size[900],
-  max: theme.typography.size[950],
+  base: theme.typography.fontSize[500],
+  min: theme.typography.fontSize[200],
+  xs: theme.typography.fontSize[300],
+  sm: theme.typography.fontSize[400],
+  md: theme.typography.fontSize[500],
+  lg: theme.typography.fontSize[600],
+  xl: theme.typography.fontSize[700],
+  xxl: theme.typography.fontSize[800],
+  xxxl: theme.typography.fontSize[900],
+  max: theme.typography.fontSize[950],
 }
 
 const TRACKING: CSSObject = {

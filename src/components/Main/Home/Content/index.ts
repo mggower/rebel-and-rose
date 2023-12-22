@@ -1,5 +1,5 @@
 export { default as OurStory } from './OurStory'
-export { default as Splash } from './Splash'
+export { default as Splash } from './SplashImage'
 export { default as CelebrateYou } from './CelebrateYou'
 export { default as Garden } from './Garden'
 export { default as UniquelyBeautiful } from './UniquelyBeautiful'

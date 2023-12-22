@@ -1,7 +1,8 @@
+import { CSSObject, css } from '@emotion/react'
+import texture from '@/assets/textures/boho-folk-A.jpg'
 import buttons from '@/styles/buttons'
 import library from '@/styles/library'
 import theme from '@/styles/theme'
-import { CSSObject, css } from '@emotion/react'
 
 const left = theme.attr.custom<boolean>('left')
 const right = theme.attr.custom<boolean>('right')
@@ -62,10 +63,12 @@ export default {
       alignItems: 'center',
       justifyContent: 'flex-end',
       gap: theme.spacing[1],
-      padding: theme.spacing[1],
+      padding: theme.padding(2, 3),
       borderRadius: theme.rounded.sm,
-      backgroundColor: theme.palette.earth[200],
       border: `1px solid ${theme.palette.earth[600]}`,
+      backgroundColor: theme.palette.earth[200],
+      backgroundImage: `url(${texture})`,
+      backgroundSize: 'cover',
 
       [left.eq(true)]: {
         borderTopRightRadius: theme.rounded.none,

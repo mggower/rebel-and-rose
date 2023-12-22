@@ -5,6 +5,9 @@ import { calcHeightFromWindow } from '@/utils'
 import { ONE_REM } from '@/utils/constants'
 import Footer from '@/components/Footer'
 import { useMinScreen } from '@/hooks'
+import theme from '@/styles/theme'
+import { css } from '@emotion/react'
+import library from '@/styles/library'
 
 const TWO_REM = ONE_REM * 2
 
@@ -14,6 +17,20 @@ enum Speed {
   QUARTER = 0.25,
   HALF = 0.5,
   FULL = 1,
+}
+
+const styles = {
+  component: css(library.flex.column, library.flex.itemsCenter, {
+    height: '100%',
+    width: '100vw',
+  }),
+  parallax: css({
+    padding: theme.padding(2, 0),
+    [theme.screen.md]: {
+      padding: theme.padding(4, 0),
+    },
+  }),
+  layer: css(library.flex.column, library.flex.itemsCenter),
 }
 
 export default function Home() {
@@ -54,10 +71,12 @@ export default function Home() {
   }, [])
 
   return (
-    <div className='mt-8 flex h-full w-screen flex-col items-center'>
-      <Parallax ref={parallax} pages={3} className='pt-2 md:pt-4'>
+    <div css={styles.component}>
+      <Parallax ref={parallax} pages={3} css={styles.parallax}>
         <ParallaxLayer offset={offset.splash} speed={Speed.NEUTRAL} factor={factor('splash')}>
-          <Splash />
+          <div css={styles.layer}>
+            <Splash />
+          </div>
         </ParallaxLayer>
 
         <ParallaxLayer offset={offset.celebrate} speed={Speed.HALF} factor={factor('celebrate')}>
@@ -69,10 +88,12 @@ export default function Home() {
         </ParallaxLayer>
 
         <ParallaxLayer offset={offset.beauty} speed={Speed.MINUS} factor={factor('beauty')}>
-          <UniquelyBeautiful ref={beautyRef} />
+          <div css={styles.layer}>
+            <UniquelyBeautiful ref={beautyRef} />
+          </div>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={offset.story} className='bg-wheat-100'>
+        <ParallaxLayer offset={offset.story}>
           <OurStory />
         </ParallaxLayer>
 

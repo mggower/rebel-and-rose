@@ -19,7 +19,7 @@ const screen = {
 }
 
 const typography = {
-  size: {
+  fontSize: {
     [50]: 11,
     [75]: 12,
     [100]: 14,
@@ -49,16 +49,8 @@ const typography = {
     widest: em(0.1),
     extreme: em(0.3),
   },
-  line: {
-    tight: 1.3,
-    base: 1.5,
-    max: 1.7,
-  },
-  weight: {
-    normal: 400,
-    semibold: 600,
-    strong: 700,
-  },
+  line: { tight: 1.3, base: 1.5, max: 1.7 },
+  weight: { normal: 400, semibold: 600, strong: 700 },
 }
 
 const shadow = {
@@ -96,12 +88,9 @@ const shadow = {
   ].join(', '),
 }
 
-const rounded = {
-  none: 0,
-  sm: pixel(2),
-  md: pixel(6),
-  lg: pixel(8),
-}
+const rounded = { none: 0, sm: pixel(2), md: pixel(6), lg: pixel(8) }
+
+const zIndex = { base: 0, layer: 20, overlay: 40, popover: 60, modal: 80 }
 
 const spacing = {
   [0]: 0,
@@ -120,18 +109,12 @@ const spacing = {
   [24]: rem(6),
   [28]: rem(7),
   [32]: rem(8),
+  [36]: rem(9),
+  [40]: rem(10),
 }
 
 const padding = (...values: (keyof typeof spacing)[]) => {
   return values.map((value) => spacing[value]).join(' ')
-}
-
-const zIndex = {
-  base: 0,
-  layer: 20,
-  overlay: 40,
-  popover: 60,
-  modal: 80,
 }
 
 const attributeSelector = <T extends Primitive = Primitive>(...scope: string[]) => {

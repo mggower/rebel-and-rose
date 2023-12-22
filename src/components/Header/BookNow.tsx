@@ -26,10 +26,10 @@ const styles = {
     borderTopLeftRadius: theme.rounded.none,
     borderBottomLeftRadius: theme.rounded.none,
     borderLeft: 'none',
-    fontSize: theme.typography.size[100],
+    fontSize: theme.typography.fontSize[100],
     [theme.screen.md]: {
       padding: `${theme.spacing[4]} 0`,
-      fontSize: theme.typography.size[200],
+      fontSize: theme.typography.fontSize[200],
       width: theme.spacing[12],
       height: 'unset',
     },

@@ -15,12 +15,12 @@ const MENU_WIDTH = 124
 
 const classes = {
   link: css(styles.link, {
-    width: theme.spacing[24],
+    width: theme.spacing[28],
     textTransform: 'uppercase',
     justifyContent: 'flex-start',
     padding: `${theme.spacing[1]} ${theme.spacing[2]}`,
     [theme.screen.md]: {
-      width: theme.spacing[32],
+      width: theme.spacing[36],
     },
   }),
   booker: css({
@@ -47,8 +47,9 @@ export default function Navigation() {
         <animated.div data-right css={styles.container} style={{ x }}>
           <Button
             data-right
-            css={styles.tab}
+            fontSize='lg'
             buttonTheme='secondary'
+            css={styles.tab}
             onClick={() => setOpen((prev) => !prev)}>
             <Icon icon={bars} />
           </Button>

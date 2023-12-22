@@ -40,7 +40,7 @@ const styles = {
     alignItems: 'start',
     justifyContent: 'start',
     alignSelf: 'start',
-    fontSize: theme.typography.size[100],
+    fontSize: theme.typography.fontSize[100],
     textTransform: 'uppercase',
     letterSpacing: theme.typography.tracking.wide,
     lineHeight: 1.3,
@@ -57,7 +57,7 @@ const styles = {
     letterSpacing: theme.typography.tracking.widest,
   }),
   text: css({
-    fontSize: theme.typography.size[100],
+    fontSize: theme.typography.fontSize[100],
     letterSpacing: '0.025rem',
   }),
   schedule: css({
@@ -71,7 +71,7 @@ const styles = {
     gridColumn: 'span 2',
     padding: '16px 32px 16px 0',
     borderTop: `1px solid ${theme.palette.wheat[100]}`,
-    fontSize: theme.typography.size[75],
+    fontSize: theme.typography.fontSize[75],
     letterSpacing: theme.typography.tracking.widest,
     color: theme.palette.ink[200],
   }),
