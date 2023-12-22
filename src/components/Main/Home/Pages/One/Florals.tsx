@@ -18,7 +18,7 @@ const styles = {
     transform: 'rotate(35deg)',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    backgroundImage: `url(${assets.scrapbook.leaves1})`,
+    backgroundImage: `url(${assets.florals.leaves[1]})`,
   }),
   flower1: css({
     position: 'absolute',
@@ -29,7 +29,7 @@ const styles = {
     backgroundSize: 'contain',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    backgroundImage: `url(${assets.scrapbook.flower1})`,
+    backgroundImage: `url(${assets.florals.flower[1]})`,
   }),
   flower2: css({
     position: 'absolute',
@@ -40,7 +40,7 @@ const styles = {
     backgroundSize: 'contain',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    backgroundImage: `url(${assets.scrapbook.flower2})`,
+    backgroundImage: `url(${assets.florals.flower[2]})`,
     transform: 'rotate(45deg)',
   }),
 }

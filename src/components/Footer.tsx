@@ -10,12 +10,12 @@ import Link from './Shared/Link'
 
 const styles = {
   footer: css({
-    zIndex: 20,
     width: '100%',
     padding: '32px',
     display: 'flex',
     placeItems: 'center',
     justifyContent: 'center',
+    zIndex: theme.zIndex.layer,
     backgroundColor: theme.palette.ink[800],
     color: theme.palette.wheat[100],
   }),

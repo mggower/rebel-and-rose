@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import texture from '@/assets/textures/boho-folk-E.jpg'
+import assets from '@/utils/assets'
 import library from '@/styles/library'
 import theme from '@/styles/theme'
 
@@ -14,7 +14,7 @@ const styles = {
   banner: css(library.shadow, library.contain, {
     height: theme.spacing[4],
     borderRadius: theme.rounded.sm,
-    backgroundImage: `url(${texture})`,
+    backgroundImage: `url(${assets.boho.E})`,
     backgroundSize: 'auto 300px',
     backgroundRepeat: 'repeat',
     [theme.screen.md]: {
