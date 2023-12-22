@@ -5,6 +5,7 @@ import theme from '@/styles/theme'
 import Heading from '@/components/Shared/Heading'
 import Paragraph from '@/components/Shared/Paragraph'
 import Link from '@/components/Shared/Link'
+import { forwardRef } from 'react'
 
 const styles = {
   wrapper: css(library.contain, {
@@ -38,9 +39,9 @@ const styles = {
   }),
 }
 
-export default function OurStory() {
+const OurStory = forwardRef<HTMLDivElement>(function OurStory(_, ref) {
   return (
-    <div css={styles.wrapper}>
+    <div ref={ref} css={styles.wrapper}>
       <div css={styles.component}>
         <Heading element='h2' family='dark' tracking='wider' css={styles.header}>
           Welcome to Rebel & Rose
@@ -58,4 +59,6 @@ export default function OurStory() {
       </div>
     </div>
   )
-}
+})
+
+export default OurStory
