@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { UseResizeDetectorReturn } from 'react-resize-detector/build/types/types'
 import { useResizeDetector } from 'react-resize-detector'
 import { isNumber } from '@/utils'
@@ -70,7 +70,7 @@ export const useBoxSizing = <T extends HTMLElement = HTMLElement>({
     },
   })
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (ref.current && boxSizing === BORDER_BOX) {
       const rect = ref.current.getBoundingClientRect()
       setSize({ width: Math.round(rect.width), height: Math.round(rect.height) })

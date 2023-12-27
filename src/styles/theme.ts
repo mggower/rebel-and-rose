@@ -134,12 +134,12 @@ const attr = {
 
 export default {
   palette,
-  breakpoints,
   screen,
+  breakpoints,
+  box,
   shadow,
   rounded,
   spacing,
-  box,
   typography,
   zIndex,
   attr,
