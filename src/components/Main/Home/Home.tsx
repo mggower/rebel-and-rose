@@ -44,14 +44,17 @@ export default function Home() {
   return (
     <div ref={ref} css={styles.component}>
       <Parallax pages={4} css={styles.parallax}>
-        <PageOne space={height} />
-        <PageTwo space={height} />
+        <PageOne.Decorations space={height} />
+        <PageTwo.Decorations space={height} />
 
         <ParallaxLayer offset={desktop ? 1.2 : 1.5} speed={accelerate(1)}>
           <Florals />
         </ParallaxLayer>
 
         <ParallaxLayer offset={2.9} factor={0.6}></ParallaxLayer>
+
+        <PageOne.Content />
+        <PageTwo.Content />
         <ParallaxLayer offset={3.5} factor={0.5}>
           <Footer />
         </ParallaxLayer>

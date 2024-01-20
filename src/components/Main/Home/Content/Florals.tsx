@@ -5,63 +5,56 @@ import theme from '@/styles/theme'
 const styles = {
   component: css({
     position: 'relative',
-    transform: 'translateX(-24vw)',
+    transform: 'translateX(-16vw)',
+    [theme.screen.md]: {
+      transform: 'translateX(-12vw)',
+    },
+  }),
+  image: css({
+    pointerEvents: 'none',
+    height: 'auto',
   }),
   leaves: css({
-    backgroundSize: 'contain',
+    width: '54vw',
     transform: 'rotate(35deg)',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundImage: `url(${assets.florals.leaves[1]})`,
-    width: '72vw',
-    height: '64vh',
     [theme.screen.md]: {
-      width: '58vw',
+      width: '36vw',
     },
   }),
   flower1: css({
     position: 'absolute',
-    top: '16vh',
-    left: '24vw',
-    height: '20vh',
-    width: '32vw',
+    top: '8vh',
+    left: '16vw',
+    width: '24vw',
     [theme.screen.md]: {
-      top: '12vh',
-      left: '19vw',
-      height: '20vh',
-      width: '20vw',
+      top: '14vh',
+      left: '10vw',
+      width: '18vw',
     },
-    backgroundSize: 'contain',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundImage: `url(${assets.florals.flower[1]})`,
   }),
   flower2: css({
     position: 'absolute',
-    left: '32vw',
-    bottom: '18vh',
-    height: '14vh',
-    width: '24vw',
+    transform: 'rotate(45deg)',
+    left: '28vw',
+    bottom: '9vh',
+    width: '20vw',
     [theme.screen.md]: {
-      bottom: '16vh',
-      left: '25vw',
-      height: '15vh',
+      bottom: '21vh',
+      left: '18vw',
       width: '15vw',
     },
-    backgroundSize: 'contain',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundImage: `url(${assets.florals.flower[2]})`,
-    transform: 'rotate(45deg)',
   }),
 }
 
 export default function Florals() {
   return (
     <div css={styles.component}>
-      <div css={styles.leaves}></div>
-      <div css={styles.flower1}></div>
-      <div css={styles.flower2}></div>
+      <img src={assets.florals.leaves[1]} alt='leaves' css={[styles.leaves, styles.image]} />
+      <img src={assets.florals.flower[1]} alt='flower-1' css={[styles.flower1, styles.image]} />
+      <img src={assets.florals.flower[2]} alt='flower-2' css={[styles.flower2, styles.image]} />
+      {/* <div css={styles.leaves}></div> */}
+      {/* <div css={styles.flower1}></div>
+      <div css={styles.flower2}></div> */}
     </div>
   )
 }

@@ -1,10 +1,10 @@
-import { css } from '@emotion/react'
 import { IParallaxLayer, ParallaxLayer } from '@react-spring/parallax'
+import { calcHeightFromWindow } from '@/utils'
+import { useEffect, useRef } from 'react'
+import { accelerate } from '@/utils/parallax'
+import { css } from '@emotion/react'
 import library from '@/styles/library'
 import assets from '@/utils/assets'
-import { accelerate } from '@/utils/parallax'
-import { useEffect, useRef } from 'react'
-import { calcHeightFromWindow } from '@/utils'
 import theme from '@/styles/theme'
 
 const styles = {
@@ -17,9 +17,11 @@ const styles = {
     },
   }),
   image: css({
-    backgroundImage: `url(${assets.images.hairCut})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
+    backgroundImage: `url(${assets.images.hairCut})`,
+    boxShadow: theme.shadow.sm,
+    borderRadius: theme.rounded.sm,
     width: '40vw',
     height: '60vw',
     [theme.screen.md]: {
