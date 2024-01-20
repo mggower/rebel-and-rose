@@ -1,14 +1,14 @@
 import { ParallaxLayer } from '@react-spring/parallax'
 import { BOOKER_URL } from '@/utils/constants'
+import { accelerate } from '@/utils/parallax'
 import { css } from '@emotion/react'
 import Paragraph from '@/components/Shared/Paragraph'
-import Heading from '@/components/Shared/Heading'
+import Scrapbook from '@/components/Shared/Scrapbook'
 import Link from '@/components/Shared/Link'
 import library from '@/styles/library'
 import routes from '@/utils/routes'
 import theme from '@/styles/theme'
 import classes from '../styles'
-import { accelerate } from '@/utils/parallax'
 
 const styles = {
   wrapper: css(library.contain, {
@@ -42,7 +42,7 @@ export default function Salon() {
       <div css={classes.layer}>
         <div css={styles.wrapper}>
           <div css={styles.component}>
-            <Heading>the SALON</Heading>
+            <Scrapbook variant='two'>Salon</Scrapbook>
 
             <Paragraph prose family='serif' tracking='wider' css={styles.paragraph}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse perspiciatis fuga

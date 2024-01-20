@@ -31,7 +31,7 @@ const styles = {
     backgroundColor: theme.palette.ink[800],
     color: theme.palette.wheat[100],
     [theme.screen.md]: {
-      padding: theme.spacing[8],
+      padding: theme.box(12, 8),
     },
   }),
   content: css(library.contain, {

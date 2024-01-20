@@ -28,6 +28,8 @@ import text1 from '@/assets/textures/transparent-text-1.png'
 import text2 from '@/assets/textures/transparent-text-2.png'
 import text3 from '@/assets/textures/transparent-text-3.png'
 import text4 from '@/assets/textures/transparent-text-4.png'
+import paper1 from '@/assets/textures/paper-1.png'
+import paper2 from '@/assets/textures/paper-2.png'
 
 export const scrapbook = {
   wanted,
@@ -37,6 +39,10 @@ export const scrapbook = {
     [2]: text2,
     [3]: text3,
     [4]: text4,
+  },
+  paper: {
+    [1]: paper1,
+    [2]: paper2,
   },
 }
 
