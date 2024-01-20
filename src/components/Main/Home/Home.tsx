@@ -8,6 +8,7 @@ import PageTwo from './Content/PageTwo'
 import Florals from './Content/Florals'
 import library from '@/styles/library'
 import theme from '@/styles/theme'
+import { useMinScreen } from '@/hooks'
 
 const styles = {
   component: css(library.flex.column, library.flex.itemsCenter, {
@@ -37,6 +38,7 @@ const styles = {
 }
 
 export default function Home() {
+  const desktop = useMinScreen('md')
   const [ref, { height = window.innerHeight - 200 }] = useBoxSizing({ handleWidth: false })
 
   return (
@@ -45,15 +47,13 @@ export default function Home() {
         <PageOne space={height} />
         <PageTwo space={height} />
 
-        <ParallaxLayer offset={1} speed={accelerate(1)}>
+        <ParallaxLayer offset={desktop ? 1.2 : 1.5} speed={accelerate(1)}>
           <Florals />
         </ParallaxLayer>
 
         <ParallaxLayer offset={2.9} factor={0.6}></ParallaxLayer>
         <ParallaxLayer offset={3.5} factor={0.5}>
-          <div className='flex h-full flex-col justify-end'>
-            <Footer />
-          </div>
+          <Footer />
         </ParallaxLayer>
       </Parallax>
     </div>

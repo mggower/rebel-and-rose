@@ -17,9 +17,13 @@ const data = [
 ]
 
 const styles = {
+  component: css(library.flex.column, {
+    height: '100%',
+    justifyContent: 'flex-end',
+  }),
   footer: css({
     width: '100%',
-    padding: theme.spacing[4],
+    padding: theme.box(8, 4),
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -112,67 +116,69 @@ function Footer() {
   const { pathname } = useLocation()
 
   return (
-    <footer css={styles.footer}>
-      <div css={styles.content}>
-        <Pendant css={styles.pendant} />
+    <div css={styles.component}>
+      <footer css={styles.footer}>
+        <div css={styles.content}>
+          <Pendant css={styles.pendant} />
 
-        <table css={styles.info}>
-          <tbody>
-            {data.map(({ address, schedule }, i) => (
-              <tr key={`row:${i}`}>
-                <td>
-                  <Typography fontSize='sm' tracking='widest'>
-                    {address}
-                  </Typography>
-                </td>
-                <td>
-                  <Typography fontSize='sm' tracking='widest'>
-                    {schedule}
+          <table css={styles.info}>
+            <tbody>
+              {data.map(({ address, schedule }, i) => (
+                <tr key={`row:${i}`}>
+                  <td>
+                    <Typography fontSize='sm' tracking='widest'>
+                      {address}
+                    </Typography>
+                  </td>
+                  <td>
+                    <Typography fontSize='sm' tracking='widest'>
+                      {schedule}
+                    </Typography>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colSpan={2}>
+                  <Typography fontSize='sm' tracking='widest' css={styles.trademark}>
+                    {TRADEMARK}
                   </Typography>
                 </td>
               </tr>
-            ))}
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colSpan={2}>
-                <Typography fontSize='sm' tracking='widest' css={styles.trademark}>
-                  {TRADEMARK}
-                </Typography>
-              </td>
-            </tr>
-          </tfoot>
-        </table>
+            </tfoot>
+          </table>
 
-        <nav css={styles.routes}>
-          {routes.list.map(({ route, label }) => (
+          <nav css={styles.routes}>
+            {routes.list.map(({ route, label }) => (
+              <Link
+                to={route}
+                key={label}
+                linkTheme='dark'
+                linkColor='tertiary'
+                tracking='widest'
+                fontSize='sm'
+                css={styles.link}
+                selected={routes.match(route, pathname)}>
+                {label}
+              </Link>
+            ))}
+
             <Link
-              to={route}
-              key={label}
+              external
+              key='booker'
               linkTheme='dark'
-              linkColor='tertiary'
+              linkColor='secondary'
               tracking='widest'
               fontSize='sm'
               css={styles.link}
-              selected={routes.match(route, pathname)}>
-              {label}
+              to={BOOKER_URL}>
+              Book Now
             </Link>
-          ))}
-
-          <Link
-            external
-            key='booker'
-            linkTheme='dark'
-            linkColor='secondary'
-            tracking='widest'
-            fontSize='sm'
-            css={styles.link}
-            to={BOOKER_URL}>
-            Book Now
-          </Link>
-        </nav>
-      </div>
-    </footer>
+          </nav>
+        </div>
+      </footer>
+    </div>
   )
 }
 
