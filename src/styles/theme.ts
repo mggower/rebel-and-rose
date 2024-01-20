@@ -1,4 +1,5 @@
 import { em, pixel, rem, stringify } from '@/utils'
+import { DataType, Properties } from 'csstype'
 import { Primitive } from '@/types'
 import palette from './palette'
 
@@ -113,7 +114,8 @@ const spacing = {
   [40]: rem(10),
 }
 
-const box = (...values: (keyof typeof spacing)[]) => values.map((value) => spacing[value]).join(' ')
+const createBoxSpacing = (...values: (keyof typeof spacing)[]) =>
+  values.map((value) => spacing[value]).join(' ')
 
 const attributeSelector = <T extends Primitive = Primitive>(...scope: string[]) => {
   const attribute = ['data', ...scope].join('-')
@@ -132,15 +134,62 @@ const attr = {
   selected: attributeSelector<boolean>('selected'),
 }
 
+const createBorderStyle = (
+  borderStyle: DataType.LineStyle,
+  borderWidth: DataType.LineWidth<`${number}px`>,
+  borderColor: DataType.Color,
+  scope?: 'top' | 'right' | 'bottom' | 'left' | 'x' | 'y' | null,
+): Properties => {
+  switch (scope) {
+    case 'top':
+      return {
+        borderTopStyle: borderStyle,
+        borderTopWidth: borderWidth,
+        borderTopColor: borderColor,
+      }
+    case 'right':
+      return {
+        borderRightStyle: borderStyle,
+        borderRightWidth: borderWidth,
+        borderRightColor: borderColor,
+      }
+    case 'bottom':
+      return {
+        borderBottomStyle: borderStyle,
+        borderBottomWidth: borderWidth,
+        borderBottomColor: borderColor,
+      }
+    case 'left':
+      return {
+        borderLeftStyle: borderStyle,
+        borderLeftWidth: borderWidth,
+        borderLeftColor: borderColor,
+      }
+    case 'x':
+      return {
+        ...createBorderStyle(borderStyle, borderWidth, borderColor, 'left'),
+        ...createBorderStyle(borderStyle, borderWidth, borderColor, 'right'),
+      }
+    case 'y':
+      return {
+        ...createBorderStyle(borderStyle, borderWidth, borderColor, 'top'),
+        ...createBorderStyle(borderStyle, borderWidth, borderColor, 'bottom'),
+      }
+    default:
+      return { borderStyle, borderWidth, borderColor }
+  }
+}
+
 export default {
   palette,
   screen,
   breakpoints,
-  box,
   shadow,
   rounded,
   spacing,
   typography,
   zIndex,
   attr,
+  box: createBoxSpacing,
+  border: createBorderStyle,
 }

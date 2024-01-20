@@ -1,4 +1,5 @@
 import { CSSObject, css } from '@emotion/react'
+import { CustomCSS } from '@/types'
 import { pixel } from '@/utils'
 import theme from './theme'
 
@@ -47,7 +48,7 @@ const headerFontSize = {
 const TRACKING: CSSObject = {
   letterSpacing: theme.typography.tracking.normal,
 
-  ...Object.entries(theme.typography.tracking).reduce<CSSObject>((acc, [key, letterSpacing]) => {
+  ...Object.entries(theme.typography.tracking).reduce<CustomCSS>((acc, [key, letterSpacing]) => {
     acc[theme.attr.custom('font', 'tracking').eq(key)] = { letterSpacing }
     return acc
   }, {}),
@@ -56,7 +57,7 @@ const TRACKING: CSSObject = {
 const LINE_HEIGHT: CSSObject = {
   lineHeight: theme.typography.line.base,
 
-  ...Object.entries(theme.typography.line).reduce<CSSObject>((acc, [key, lineHeight]) => {
+  ...Object.entries(theme.typography.line).reduce<CustomCSS>((acc, [key, lineHeight]) => {
     acc[theme.attr.custom('font', 'line').eq(key)] = { lineHeight }
     return acc
   }, {}),
@@ -80,7 +81,7 @@ const FONT_WEIGHT = Object.entries(theme.typography.weight).reduce<CSSObject>(
 
 const FONT_FAMILY: CSSObject = {
   fontFamily: theme.typography.family.sans,
-  ...Object.entries(theme.typography.family).reduce<CSSObject>((acc, [key, fontFamily]) => {
+  ...Object.entries(theme.typography.family).reduce<CustomCSS>((acc, [key, fontFamily]) => {
     acc[theme.attr.custom('font', 'family').eq(key)] = { fontFamily }
     return acc
   }, {}),
@@ -108,7 +109,7 @@ export default {
       fontSize: pixel(bodyFontSize.base),
       fontWeight: theme.typography.weight.normal,
 
-      ...Object.entries(bodyFontSize).reduce<CSSObject>((acc, [size, fontSize]) => {
+      ...Object.entries(bodyFontSize).reduce<CustomCSS>((acc, [size, fontSize]) => {
         acc[theme.attr.custom('font', 'size').eq(size)] = { fontSize: pixel(fontSize) }
         return acc
       }, {}),
@@ -128,7 +129,7 @@ export default {
       fontSize: pixel(headerFontSize.base),
       fontWeight: theme.typography.weight.strong,
 
-      ...Object.entries(headerFontSize).reduce<CSSObject>((acc, [key, fontSize]) => {
+      ...Object.entries(headerFontSize).reduce<CustomCSS>((acc, [key, fontSize]) => {
         acc[theme.attr.custom('font', 'size').eq(key)] = { fontSize: pixel(fontSize) }
         return acc
       }, {}),
