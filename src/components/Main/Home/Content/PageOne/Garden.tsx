@@ -11,7 +11,7 @@ import classes from '../styles'
 
 const styles = {
   component: css(library.contain, {
-    opacity: 0.1,
+    opacity: 0.33,
     [theme.screen.md]: {
       paddingLeft: '4vw',
       opacity: 1,

@@ -14,7 +14,7 @@ interface Props {
 }
 
 const DESKTOP_HEIGHT = 72
-const MOBILE_HEIGHT = 64
+const MOBILE_HEIGHT = 50
 
 const styles = {
   component: css(library.contain, library.shadow, {
@@ -48,9 +48,9 @@ export default function SplashImage({ space }: Props) {
         </div>
       </ParallaxLayer>
 
-      <CelebrateYou midpoint={midpoint} space={space} />
+      <CelebrateYou offset={(midpoint - (desktop ? calcRem(2) : 0)) / space} />
 
-      <UniquelyBeautiful offset={(midpoint + calcRem(desktop ? 2 : -1)) / space} />
+      <UniquelyBeautiful offset={(midpoint + calcRem(desktop ? 2 : 1)) / space} />
     </>
   )
 }

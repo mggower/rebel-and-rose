@@ -9,5 +9,5 @@ const styles = {
 }
 
 export default function Background() {
-  return <ParallaxLayer offset={2} factor={0.9} css={styles.component} />
+  return <ParallaxLayer offset={2} factor={1} css={styles.component} />
 }

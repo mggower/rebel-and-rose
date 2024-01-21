@@ -8,6 +8,7 @@ import routes from '@/utils/routes'
 import theme from '@/styles/theme'
 import classes from '../styles'
 import { accelerate } from '@/utils/parallax'
+import { useMinScreen } from '@/hooks'
 
 const styles = {
   wrapper: css(library.contain, {
@@ -42,8 +43,9 @@ const styles = {
 }
 
 export default function OurStory() {
+  const md = useMinScreen('md')
   return (
-    <ParallaxLayer offset={1.1} factor={0.9} speed={accelerate(2)}>
+    <ParallaxLayer offset={md ? 1.1 : 0.95} factor={md ? 0.9 : 1.05} speed={accelerate(2)}>
       <div css={classes.layer}>
         <div css={styles.wrapper}>
           <div css={styles.component}>

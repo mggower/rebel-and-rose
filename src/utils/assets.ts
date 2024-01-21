@@ -48,6 +48,7 @@ export const scrapbook = {
 
 import boquet1 from '@/assets/textures/tapestry-boquet-1.png'
 import boquet2 from '@/assets/textures/tapestry-boquet-2.png'
+import boquet3 from '@/assets/textures/tapestry-boquet-3.png'
 import flower1 from '@/assets/textures/tapestry-flower-1.png'
 import flower2 from '@/assets/textures/tapestry-flower-2.png'
 import flower3 from '@/assets/textures/tapestry-flower-3.png'
@@ -66,6 +67,7 @@ export const florals = {
   boquet: {
     [1]: boquet1,
     [2]: boquet2,
+    [3]: boquet3,
   },
   leaves: {
     [1]: leaves1,

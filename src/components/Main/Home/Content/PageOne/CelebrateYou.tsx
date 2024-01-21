@@ -9,8 +9,7 @@ import theme from '@/styles/theme'
 import classes from '../styles'
 
 interface Props {
-  midpoint: number
-  space: number
+  offset: number
 }
 
 const styles = {
@@ -36,7 +35,7 @@ const styles = {
   }),
 }
 
-export default function CelebrateYou({ midpoint, space }: Props) {
+export default function CelebrateYou({ offset }: Props) {
   const layer = useRef<IParallaxLayer>(null)
 
   useEffect(() => {
@@ -44,7 +43,7 @@ export default function CelebrateYou({ midpoint, space }: Props) {
   }, [])
 
   return (
-    <ParallaxLayer ref={layer} offset={(midpoint - calcRem(2)) / space} speed={accelerate(4)}>
+    <ParallaxLayer ref={layer} offset={offset} speed={accelerate(4)}>
       <div css={classes.layer}>
         <div css={styles.component}>
           <Heading family='calder' tracking='widest' css={styles.caption}>
