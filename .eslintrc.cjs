@@ -20,6 +20,7 @@ module.exports = {
       'error',
       { varsIgnorePattern: '^_', argsIgnorePattern: '^_' },
     ],
+    'react-hooks/exhaustive-deps': ['warn', { additionalHooks: '(useScreen)' }],
   },
   parserOptions: {
     ecmaVersion: 'latest',
