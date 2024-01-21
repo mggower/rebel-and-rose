@@ -1,16 +1,11 @@
-import { IParallaxLayer, ParallaxLayer } from '@react-spring/parallax'
+import { IParallaxLayer, ParallaxLayer, ParallaxLayerProps } from '@react-spring/parallax'
 import { useEffect, useRef } from 'react'
-import { accelerate } from '@/utils/parallax'
 import { calcRem } from '@/utils'
 import { css } from '@emotion/react'
 import Heading from '@/components/Shared/Heading'
 import library from '@/styles/library'
 import theme from '@/styles/theme'
 import classes from '../styles'
-
-interface Props {
-  offset: number
-}
 
 const styles = {
   component: css(library.contain, library.flex.column, {
@@ -24,9 +19,10 @@ const styles = {
   }),
   caption: css({
     textTransform: 'uppercase',
-    color: theme.palette.wheat[100],
+    color: theme.palette.ink.main,
     fontSize: theme.typography.fontSize[200],
     [theme.screen.md]: {
+      color: theme.palette.wheat[100],
       fontSize: theme.typography.fontSize[500],
     },
     [theme.screen.lg]: {
@@ -35,7 +31,7 @@ const styles = {
   }),
 }
 
-export default function CelebrateYou({ offset }: Props) {
+export default function CelebrateYou(props: ParallaxLayerProps) {
   const layer = useRef<IParallaxLayer>(null)
 
   useEffect(() => {
@@ -43,7 +39,7 @@ export default function CelebrateYou({ offset }: Props) {
   }, [])
 
   return (
-    <ParallaxLayer ref={layer} offset={offset} speed={accelerate(4)}>
+    <ParallaxLayer ref={layer} {...props}>
       <div css={classes.layer}>
         <div css={styles.component}>
           <Heading family='calder' tracking='widest' css={styles.caption}>

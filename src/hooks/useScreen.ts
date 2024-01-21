@@ -25,10 +25,10 @@ export interface UseScreenOptions {
 
 export const useScreen = <T>(
   factory: (state: boolean) => Exclude<T, void>,
-  deps: React.DependencyList | undefined,
+  deps: React.DependencyList,
   breakpoint: Breakpoint = 'md',
 ): T => {
   const screen = useMediaQuery(`(min-width: ${theme.breakpoints[breakpoint]}px)`)
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  return useMemo(() => factory(screen), [screen, ...(deps ?? [])])
+  return useMemo(() => factory(screen), [screen, ...deps])
 }

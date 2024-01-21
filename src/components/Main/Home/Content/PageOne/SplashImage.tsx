@@ -1,6 +1,6 @@
 import { calcHeightFromWindow, calcRem } from '@/utils'
-import { ParallaxLayer } from '@react-spring/parallax'
-import { useMinScreen } from '@/hooks'
+import { ParallaxLayer, ParallaxLayerProps } from '@react-spring/parallax'
+import { useScreen } from '@/hooks'
 import { css } from '@emotion/react'
 import UniquelyBeautiful from './UniquelyBeautiful'
 import CelebrateYou from './CelebrateYou'
@@ -8,20 +8,21 @@ import library from '@/styles/library'
 import classes from '../styles'
 import assets from '@/utils/assets'
 import theme from '@/styles/theme'
+import { accelerate, decelerate } from '@/utils/parallax'
 
 interface Props {
   space: number
 }
 
 const DESKTOP_HEIGHT = 72
-const MOBILE_HEIGHT = 50
+const MOBILE_HEIGHT = 32
 
 const styles = {
   component: css(library.contain, library.shadow, {
     borderRadius: theme.rounded.sm,
     backgroundImage: `url(${assets.images.breezeWarm})`,
     backgroundSize: 'cover',
-    backgroundPosition: 'center 75%',
+    backgroundPosition: 'left top',
     height: `${MOBILE_HEIGHT}vh`,
     [theme.screen.md]: {
       height: `${DESKTOP_HEIGHT}vh`,
@@ -30,13 +31,26 @@ const styles = {
 }
 
 export default function SplashImage({ space }: Props) {
-  const desktop = useMinScreen('md')
-
-  const height = desktop
-    ? calcHeightFromWindow(DESKTOP_HEIGHT)
-    : calcHeightFromWindow(MOBILE_HEIGHT)
-
-  const midpoint = height / 2
+  const [celebrate, beautiful] = useScreen<
+    [celebrate: ParallaxLayerProps, beautiful: ParallaxLayerProps]
+  >(
+    (desktop) => {
+      if (desktop) {
+        const midpoint = calcHeightFromWindow(DESKTOP_HEIGHT) / 2
+        return [
+          { offset: (midpoint - calcRem(2)) / space, speed: accelerate(4) },
+          { offset: (midpoint + calcRem(2)) / space, speed: decelerate(2) },
+        ]
+      } else {
+        const height = calcHeightFromWindow(MOBILE_HEIGHT)
+        return [
+          { offset: (height + calcRem(2)) / space, speed: accelerate(2) },
+          { offset: (height + calcRem(3.5)) / space, speed: accelerate(1) },
+        ]
+      }
+    },
+    [space],
+  )
 
   return (
     <>
@@ -48,9 +62,9 @@ export default function SplashImage({ space }: Props) {
         </div>
       </ParallaxLayer>
 
-      <CelebrateYou offset={(midpoint - (desktop ? calcRem(2) : 0)) / space} />
+      <CelebrateYou {...celebrate} />
 
-      <UniquelyBeautiful offset={(midpoint + calcRem(desktop ? 2 : 1)) / space} />
+      <UniquelyBeautiful {...beautiful} />
     </>
   )
 }

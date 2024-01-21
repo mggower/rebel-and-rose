@@ -1,4 +1,6 @@
 import { ParallaxLayer } from '@react-spring/parallax'
+import { useMinScreen } from '@/hooks'
+import { accelerate } from '@/utils/parallax'
 import { css } from '@emotion/react'
 import Paragraph from '@/components/Shared/Paragraph'
 import Heading from '@/components/Shared/Heading'
@@ -7,8 +9,6 @@ import library from '@/styles/library'
 import routes from '@/utils/routes'
 import theme from '@/styles/theme'
 import classes from '../styles'
-import { accelerate } from '@/utils/parallax'
-import { useMinScreen } from '@/hooks'
 
 const styles = {
   wrapper: css(library.contain, {
