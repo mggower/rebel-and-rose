@@ -1,5 +1,6 @@
-import { calcHeightFromWindow, calcRem } from '@/utils'
 import { ParallaxLayer, ParallaxLayerProps } from '@react-spring/parallax'
+import { calcHeightFromWindow, calcRem } from '@/utils'
+import { accelerate, decelerate } from '@/utils/parallax'
 import { useScreen } from '@/hooks'
 import { css } from '@emotion/react'
 import UniquelyBeautiful from './UniquelyBeautiful'
@@ -8,7 +9,6 @@ import library from '@/styles/library'
 import classes from '../styles'
 import assets from '@/utils/assets'
 import theme from '@/styles/theme'
-import { accelerate, decelerate } from '@/utils/parallax'
 
 interface Props {
   space: number
@@ -31,9 +31,7 @@ const styles = {
 }
 
 export default function SplashImage({ space }: Props) {
-  const [celebrate, beautiful] = useScreen<
-    [celebrate: ParallaxLayerProps, beautiful: ParallaxLayerProps]
-  >(
+  const [celebrate, beautiful] = useScreen<[ParallaxLayerProps, ParallaxLayerProps]>(
     (desktop) => {
       if (desktop) {
         const midpoint = calcHeightFromWindow(DESKTOP_HEIGHT) / 2

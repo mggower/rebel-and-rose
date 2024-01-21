@@ -5,10 +5,11 @@ import { css } from '@emotion/react'
 import Footer from '@/components/Footer/Footer'
 import PageOne from './Content/PageOne'
 import PageTwo from './Content/PageTwo'
-import Florals from './Content/Florals'
+import PinkBoquet from './Content/PinkBoquet'
 import library from '@/styles/library'
 import theme from '@/styles/theme'
 import { useMinScreen } from '@/hooks'
+import RedBoquet from './Content/RedBoquet'
 
 const styles = {
   component: css(library.flex.column, library.flex.itemsCenter, {
@@ -48,7 +49,11 @@ export default function Home() {
         <PageTwo.Decorations space={height} />
 
         <ParallaxLayer offset={desktop ? 1.2 : 1.5} speed={accelerate(1)}>
-          <Florals />
+          <PinkBoquet />
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={desktop ? 2.25 : 2.8} speed={accelerate(1)}>
+          <RedBoquet />
         </ParallaxLayer>
 
         <ParallaxLayer offset={2.9} factor={0.6}></ParallaxLayer>
