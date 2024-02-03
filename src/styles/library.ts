@@ -51,6 +51,14 @@ export default {
       alignItems: 'center',
       justifyContent: 'center',
     }),
+    end: css({
+      alignItems: 'flex-end',
+      justifyContent: 'flex-end',
+    }),
+    start: css({
+      alignItems: 'flex-start',
+      justifyContent: 'flex-start',
+    }),
     itemsCenter: css({
       alignItems: 'center',
     }),

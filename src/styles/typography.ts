@@ -17,6 +17,7 @@ export interface TypographyProps<T extends 'body' | 'header' = 'body'> {
   tracking?: Tracking
   family?: FontFamily
   prose?: boolean
+  uppercase?: boolean
 }
 
 /** body font size */
@@ -94,6 +95,7 @@ export const applyTypographyProps = <T extends 'header' | 'body'>({
   tracking,
   family,
   prose,
+  uppercase,
 }: TypographyProps<T>) => ({
   ['data-font-size']: fontSize,
   ['data-font-weight']: weight,
@@ -101,6 +103,7 @@ export const applyTypographyProps = <T extends 'header' | 'body'>({
   ['data-font-tracking']: tracking,
   ['data-font-family']: family,
   ['data-font-prose']: prose,
+  ['data-font-uppercase']: uppercase,
 })
 
 export default {
@@ -116,6 +119,9 @@ export default {
 
       [theme.attr.custom<boolean>('font', 'prose').eq(true)]: {
         maxWidth: '65ch',
+      },
+      [theme.attr.custom<boolean>('font', 'uppercase').eq(true)]: {
+        textTransform: 'uppercase',
       },
     },
     FONT_WEIGHT,

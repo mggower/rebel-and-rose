@@ -1,7 +1,9 @@
 import uniquelyBeautiful from '@/assets/logos/uniquely-beautiful.png'
+import rebelAndRoseGold from '@/assets/logos/rebel-and-rose-gold-logo.png'
 
 export const logos = {
   uniquelyBeautiful,
+  rebelAndRoseGold,
 }
 
 import lipGloss from '@/assets/images/image-1.jpg'

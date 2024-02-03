@@ -55,7 +55,7 @@ export default function Scrapbook({ variant = 'one', children }: Props) {
         <Heading family='serif' tracking='extreme' weight='normal' fontSize='min'>
           {HEADER_PREFIX}
         </Heading>
-        <Heading family='serif' fontSize='lg' tracking='widest' weight='semibold'>
+        <Heading family='serif' fontSize='lg' tracking='widest' weight='normal'>
           {children}
         </Heading>
       </hgroup>

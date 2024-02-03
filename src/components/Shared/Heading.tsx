@@ -36,10 +36,10 @@ const isH3 = elementGuard('h3')
 const isH2 = elementGuard('h2')
 
 const Heading = forwardRef<HTMLHeadingElement, Props>(function Header(
-  { children, element, weight, italic, tracking, family, fontSize, ...props },
+  { children, element, weight, italic, tracking, family, fontSize, uppercase, ...props },
   ref,
 ) {
-  const attributes = applyTypographyProps({ fontSize, weight, italic, tracking, family })
+  const attributes = applyTypographyProps({ fontSize, weight, italic, tracking, family, uppercase })
 
   if (isH5(fontSize, element)) {
     return (

@@ -4,14 +4,14 @@ import { forwardRef } from 'react'
 interface Props extends React.HTMLAttributes<HTMLSpanElement>, TypographyProps {}
 
 const Paragraph = forwardRef<HTMLParagraphElement, Props>(function Body(
-  { children, fontSize, weight, italic, tracking, family, prose, ...props },
+  { children, fontSize, weight, italic, tracking, family, prose, uppercase, ...props },
   ref,
 ) {
   return (
     <p
       ref={ref}
       {...props}
-      {...applyTypographyProps({ fontSize, weight, italic, tracking, family, prose })}
+      {...applyTypographyProps({ fontSize, weight, italic, tracking, family, prose, uppercase })}
       css={typography.body}>
       {children}
     </p>

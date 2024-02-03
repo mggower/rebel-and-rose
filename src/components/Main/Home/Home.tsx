@@ -1,15 +1,17 @@
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import { accelerate } from '@/utils/parallax'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
+import { useMinScreen } from '@/hooks'
+import { accelerate } from '@/utils/parallax'
 import { css } from '@emotion/react'
 import Footer from '@/components/Footer/Footer'
-import PageOne from './Content/PageOne'
-import PageTwo from './Content/PageTwo'
 import PinkBoquet from './Content/PinkBoquet'
+import RedBoquet from './Content/RedBoquet'
+import PageOne from './Content/Page1'
+import PageTwo from './Content/Page2'
+import PageThree from './Content/Page3'
+import PageFour from './Content/Page4'
 import library from '@/styles/library'
 import theme from '@/styles/theme'
-import { useMinScreen } from '@/hooks'
-import RedBoquet from './Content/RedBoquet'
 
 const styles = {
   component: css(library.flex.column, library.flex.itemsCenter, {
@@ -32,9 +34,9 @@ const styles = {
       padding: theme.box(4, 0),
     },
   }),
-  layer: css(library.flex.column, library.flex.itemsCenter),
-  salon: css({
-    backgroundColor: `${theme.palette.earth[800]}8F`,
+  footer: css({
+    // TODO: fit layer to footer height
+    backgroundColor: theme.palette.ink[800],
   }),
 }
 
@@ -44,9 +46,11 @@ export default function Home() {
 
   return (
     <div ref={ref} css={styles.component}>
-      <Parallax pages={4} css={styles.parallax}>
+      <Parallax pages={5.1} css={styles.parallax}>
         <PageOne.Decorations space={height} />
         <PageTwo.Decorations space={height} />
+        <PageThree.Decorations />
+        <PageFour.Decorations />
 
         <ParallaxLayer offset={desktop ? 1.2 : 1.5} speed={accelerate(1)}>
           <PinkBoquet />
@@ -60,7 +64,9 @@ export default function Home() {
 
         <PageOne.Content />
         <PageTwo.Content />
-        <ParallaxLayer offset={3.5} factor={0.5}>
+        <PageThree.Content />
+        <PageFour.Content />
+        <ParallaxLayer offset={4.6} factor={0.5} css={styles.footer}>
           <Footer />
         </ParallaxLayer>
       </Parallax>

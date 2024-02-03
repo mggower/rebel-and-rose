@@ -8,14 +8,26 @@ interface Props
     ButtonStyleProps {}
 
 const Button = forwardRef<HTMLButtonElement, Props>(function Button(
-  { weight, active, family, italic, tracking, selected, fontSize, buttonTheme, children, ...props },
+  {
+    weight,
+    active,
+    uppercase,
+    family,
+    italic,
+    tracking,
+    selected,
+    fontSize,
+    buttonTheme,
+    children,
+    ...props
+  },
   ref,
 ) {
   return (
     <button
       ref={ref}
       css={styles.button}
-      {...applyTypographyProps({ fontSize, weight, family, italic, tracking })}
+      {...applyTypographyProps({ fontSize, weight, family, italic, tracking, uppercase })}
       {...applyButtonStyleProps({ buttonTheme, selected, active })}
       {...props}>
       {children}
