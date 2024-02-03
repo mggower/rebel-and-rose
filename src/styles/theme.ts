@@ -91,7 +91,7 @@ const shadow = {
 
 const rounded = { none: 0, sm: pixel(2), md: pixel(6), lg: pixel(8) }
 
-const zIndex = { base: 0, layer: 20, overlay: 40, popover: 60, modal: 80 }
+const zIndex = { below: -20, base: 0, layer: 20, overlay: 40, popover: 60, modal: 80 }
 
 const spacing = {
   [0]: 0,

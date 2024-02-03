@@ -20,6 +20,7 @@ const styles = {
   component: css(library.flex.column, {
     height: '100%',
     justifyContent: 'flex-end',
+    flexGrow: 1,
   }),
   footer: css({
     width: '100%',
