@@ -21,9 +21,11 @@ const styles = {
     textTransform: 'uppercase',
     color: theme.palette.ink.main,
     fontSize: theme.typography.fontSize[200],
+    letterSpacing: theme.typography.tracking.wide,
     [theme.screen.md]: {
       color: theme.palette.wheat[100],
       fontSize: theme.typography.fontSize[500],
+      letterSpacing: theme.typography.tracking.widest,
     },
     [theme.screen.lg]: {
       fontSize: theme.typography.fontSize[600],
@@ -42,7 +44,7 @@ export default function CelebrateYou(props: ParallaxLayerProps) {
     <ParallaxLayer ref={layer} {...props}>
       <div css={classes.layer}>
         <div css={styles.component}>
-          <Heading family='calder' tracking='widest' css={styles.caption}>
+          <Heading family='calder' css={styles.caption}>
             celebrate what makes you
           </Heading>
         </div>

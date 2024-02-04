@@ -16,10 +16,7 @@ export default function Salon() {
             <Paragraph prose family='serif' tracking='wider' css={classes.content.paragraph}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse perspiciatis fuga
               commodi cupiditate praesentium maiores. Pariatur, est numquam reprehenderit commodi
-              quas, ipsam voluptates velit, doloremque explicabo ut quos saepe officiis.lorem. Lorem
-              ipsum dolor sit amet, consectetur adipisicing elit. Autem quod iusto iure suscipit.
-              Hic mollitia illum delectus harum nihil consequuntur eos sed, fugiat laboriosam
-              adipisci suscipit! Consequatur delectus dolor ex?
+              quas, ipsam voluptates velit, doloremque explicabo ut quos saepe officiis.lorem.
             </Paragraph>
 
             <PageLinks />
