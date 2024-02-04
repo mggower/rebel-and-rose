@@ -32,21 +32,30 @@ const styles = {
     }),
   },
   container: css(library.flex.column, library.flex.center, {
-    padding: theme.style.box(8, 4),
     position: 'relative',
+    padding: theme.spacing(4),
+    [theme.screen.md]: {
+      padding: theme.style.box(8, 4),
+    },
   }),
   component: css(library.contain, {
     zIndex: theme.zIndex.layer,
     display: 'grid',
-    gap: theme.spacing(8),
+    gap: theme.spacing(6),
     [theme.screen.md]: {
       gap: theme.spacing(16),
       gridTemplateColumns: '1fr 1fr',
     },
   }),
   details: {
-    container: css(library.flex.column, library.flex.start, {
+    container: css(library.flex.column, {
       gap: theme.spacing(6),
+      alignItems: 'center',
+      justifyContent: 'center',
+      [theme.screen.md]: {
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+      },
     }),
     paragraph: css({
       color: theme.palette.wheat[100],

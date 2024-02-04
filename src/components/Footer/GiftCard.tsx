@@ -7,10 +7,12 @@ import theme from '@/styles/theme'
 const styles = {
   component: css({
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
+    [theme.screen.md]: {
+      justifyContent: 'flex-end',
+    },
   }),
   container: css({
-    maxWidth: '400px',
     display: 'flex',
     justifyContent: 'flex-end',
     borderRadius: theme.rounded.lg,
@@ -20,30 +22,39 @@ const styles = {
     position: 'relative',
     overflow: 'hidden',
     flexGrow: 1,
+    maxWidth: '200px',
+    [theme.screen.md]: {
+      maxWidth: '400px',
+    },
   }),
   florals: css({
-    left: '-84px',
+    left: '-28%',
     top: '-30%',
-    width: '240px',
+    width: '140px',
     height: 'auto',
     position: 'absolute',
     transform: 'rotate(27deg)',
     [theme.screen.md]: {
-      left: '-96px',
-      top: '-28%',
       width: '300px',
     },
   }),
   logo: css({
-    width: '200px',
+    width: '100px',
     height: 'auto',
     filter: `drop-shadow(0 1px 2px ${theme.palette.ink[600]})`,
+    [theme.screen.md]: {
+      width: '200px',
+    },
   }),
   header: css({
     color: theme.palette.wheat[100],
-    WebkitTextFillColor: theme.palette.ink[800],
     WebkitTextStrokeWidth: '1px',
+    WebkitTextFillColor: theme.palette.ink[800],
     WebkitTextStrokeColor: theme.palette.wheat[200],
+    fontSize: theme.typography.fontSize[100],
+    [theme.screen.md]: {
+      fontSize: theme.typography.fontSize[400],
+    },
   }),
 }
 
@@ -58,7 +69,7 @@ export default function GiftCard() {
             alt='rebels and roses gold logo'
             css={styles.logo}
           />
-          <Heading uppercase fontSize='sm' family='dark' tracking='extreme' css={styles.header}>
+          <Heading uppercase family='dark' tracking='extreme' css={styles.header}>
             Gift Card
           </Heading>
         </div>
