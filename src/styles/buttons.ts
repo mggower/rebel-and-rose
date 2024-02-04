@@ -4,11 +4,13 @@ import theme from './theme'
 import library from './library'
 
 export type ButtonTheme = 'primary' | 'secondary' | 'tertiary'
+export type ButtonSize = 'normal' | 'narrow'
 
 export interface ButtonStyleProps {
   buttonTheme?: ButtonTheme
   active?: boolean
   selected?: boolean
+  buttonSize?: ButtonSize
 }
 
 interface ColorStyleBase {
@@ -126,9 +128,16 @@ const applyStyle = ({
   },
 })
 
-const buttonThemeAttr = theme.attr.custom<ButtonTheme>('button', 'theme')
+const buttonThemeAttr = theme.attr.create<ButtonTheme>('button', 'theme')
+const buttonSizeAttr = theme.attr.create<ButtonSize>('button', 'size')
 
-export const applyButtonStyleProps = ({ buttonTheme, active, selected }: ButtonStyleProps) => ({
+export const applyButtonStyleProps = ({
+  buttonTheme,
+  buttonSize,
+  active,
+  selected,
+}: ButtonStyleProps) => ({
+  ['data-button-size']: buttonSize,
   ['data-button-theme']: buttonTheme,
   ['data-selected']: selected,
   ['data-active']: active,
@@ -146,9 +155,12 @@ export default {
       placeContent: 'center',
       textDecorationLine: 'none',
       border: '1px solid transparent',
-      padding: theme.spacing(4),
       boxShadow: theme.shadow.sm,
       borderRadius: theme.rounded.sm,
+      padding: theme.spacing(4),
+      [buttonSizeAttr.eq('narrow')]: {
+        padding: theme.style.box(2, 4),
+      },
     },
     {
       ...applyStyle(lookup.primary),

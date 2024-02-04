@@ -4,8 +4,8 @@ import buttons from '@/styles/buttons'
 import library from '@/styles/library'
 import theme from '@/styles/theme'
 
-const left = theme.attr.custom<boolean>('left')
-const right = theme.attr.custom<boolean>('right')
+const left = theme.attr.create<boolean>('left')
+const right = theme.attr.create<boolean>('right')
 
 const tabBorderStyle: CSSObject = {
   [left.eq(true)]: {

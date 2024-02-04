@@ -33,7 +33,7 @@ export default function App() {
           <Route path={paths.policies} element={<Policies />} />
           <Route path={paths.salon} element={<Salon />} />
           <Route path={paths.spa} element={<Spa />} />
-          <Route path={paths.team} element={<Team />} />
+          <Route path={paths.talent} element={<Team />} />
         </Routes>
       </main>
     </div>

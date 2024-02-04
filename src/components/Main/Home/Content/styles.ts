@@ -29,7 +29,7 @@ export default {
     links: css({
       display: 'flex',
       alignItems: 'center',
-      marginLeft: theme.spacing(-2),
+      gap: theme.spacing(2),
     }),
   },
 }

@@ -26,7 +26,7 @@ const styles = {
     position: 'sticky',
     zIndex: theme.zIndex.layer,
     backgroundColor: theme.palette.wheat[100],
-    padding: theme.style.box(4, 0),
+    padding: theme.style.box(6, 0),
     [theme.screen.md]: {
       flexDirection: 'row',
       gap: theme.spacing(16),

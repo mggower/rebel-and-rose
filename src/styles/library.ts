@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import theme from './theme'
 
-const shadow = theme.attr.custom<'sm' | 'md' | 'lg' | 'none'>('shadow')
+const shadow = theme.attr.create<'sm' | 'md' | 'lg' | 'none'>('shadow')
 
 export default {
   contain: css({

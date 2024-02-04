@@ -1,10 +1,10 @@
 import { useMaxScreen } from '@/hooks'
-import { BOOKER_URL } from '@/utils/constants'
 import { book } from '@/utils/icons'
 import { css } from '@emotion/react'
 import Icon from '../Shared/Icon'
 import Link from '../Shared/Link'
 import theme from '@/styles/theme'
+import routes from '@/utils/routes'
 
 const styles = {
   component: css({
@@ -41,7 +41,7 @@ export default function BookNow() {
 
   return (
     <div css={styles.component}>
-      <Link external variant='button' to={BOOKER_URL} css={styles.link}>
+      <Link external variant='button' to={routes.booker} css={styles.link}>
         {mobile ? <Icon icon={book} /> : <>Book Now</>}
       </Link>
     </div>

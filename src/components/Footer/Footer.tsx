@@ -1,4 +1,4 @@
-import { ADDRESS, BOOKER_URL, SCHEDULE, TRADEMARK } from '@/utils/constants'
+import { ADDRESS, SCHEDULE, TRADEMARK } from '@/utils/constants'
 import { useLocation } from 'react-router-dom'
 import { css } from '@emotion/react'
 import Typography from '../Shared/Typography'
@@ -173,7 +173,7 @@ function Footer() {
               tracking='widest'
               fontSize='sm'
               css={styles.link}
-              to={BOOKER_URL}>
+              to={routes.booker}>
               Book Now
             </Link>
           </nav>

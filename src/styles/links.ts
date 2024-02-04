@@ -11,7 +11,6 @@ export interface LinkStyleProps {
   linkTheme?: LinkTheme
   active?: boolean
   selected?: boolean
-  uppercase?: boolean
   underline?: boolean
 }
 
@@ -40,10 +39,10 @@ const lookup: Record<LinkTheme, Record<LinkColor, LinkStyle>> = {
       visited: { foreground: theme.palette.blush[700] },
     },
     tertiary: {
-      foreground: theme.palette.russet[500],
-      hover: { foreground: theme.palette.russet[700] },
-      active: { foreground: theme.palette.russet[800] },
-      visited: { foreground: theme.palette.russet[600] },
+      foreground: theme.palette.ink[800],
+      hover: { foreground: theme.palette.ink[900] },
+      active: { foreground: theme.palette.ink[950] },
+      visited: { foreground: theme.palette.ink[700] },
     },
   },
   dark: {
@@ -90,21 +89,19 @@ const applyStyle = (linkColor: LinkColor, linkTheme: LinkTheme): CSSObject => {
   }
 }
 
-const linkColorAttr = theme.attr.custom<LinkColor>('link', 'color')
-const linkThemeAttr = theme.attr.custom<LinkTheme>('link', 'theme')
+const linkColorAttr = theme.attr.create<LinkColor>('link', 'color')
+const linkThemeAttr = theme.attr.create<LinkTheme>('link', 'theme')
 
 export const applyLinkStyleProps = ({
   linkColor,
   linkTheme,
   active = false,
   selected = false,
-  uppercase = false,
   underline = false,
 }: LinkStyleProps) => ({
   ['data-link-color']: linkColor,
   ['data-link-theme']: linkTheme,
   ['data-underline']: underline,
-  ['data-uppercase']: uppercase,
   ['data-selected']: selected,
   ['data-active']: active,
 })
@@ -137,11 +134,7 @@ export default {
         textDecorationLine: 'underline',
       },
 
-      [theme.attr.custom<boolean>('uppercase').not(false)]: {
-        textTransform: 'uppercase',
-      },
-
-      [theme.attr.custom<boolean>('underline').eq(true)]: {
+      [theme.attr.create<boolean>('underline').eq(true)]: {
         textDecorationLine: 'underline',
       },
 

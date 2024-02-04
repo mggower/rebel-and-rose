@@ -1,11 +1,9 @@
 import { ParallaxLayer } from '@react-spring/parallax'
-import { BOOKER_URL } from '@/utils/constants'
 import { accelerate } from '@/utils/parallax'
 import Paragraph from '@/components/Shared/Paragraph'
 import Scrapbook from '@/components/Shared/Scrapbook'
-import Link from '@/components/Shared/Link'
-import routes from '@/utils/routes'
 import classes from '../styles'
+import PageLinks from '../PageLinks'
 
 export default function Salon() {
   return (
@@ -24,20 +22,7 @@ export default function Salon() {
               adipisci suscipit! Consequatur delectus dolor ex?
             </Paragraph>
 
-            <div css={classes.content.links}>
-              <Link uppercase underline linkColor='tertiary' family='serif' to={routes.spa}>
-                Our Talent
-              </Link>
-              <Link
-                external
-                uppercase
-                underline
-                linkColor='secondary'
-                family='serif'
-                to={BOOKER_URL}>
-                Book Now
-              </Link>
-            </div>
+            <PageLinks />
           </div>
         </div>
       </div>

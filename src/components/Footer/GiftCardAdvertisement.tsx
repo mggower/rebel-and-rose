@@ -1,14 +1,15 @@
-import { GIFT_CARD_URL } from '@/utils/constants'
-import { useMinScreen } from '@/hooks'
+import { TypographyProps } from '@/styles/typography'
+import { useScreen } from '@/hooks'
 import { css } from '@emotion/react'
 import Scrapbook from '@/components/Shared/Scrapbook'
 import Paragraph from '@/components/Shared/Paragraph'
+import GiftCard from './GiftCard'
 import Link from '../Shared/Link'
 import library from '@/styles/library'
 import classes from '../Main/Home/Content/styles'
 import theme from '@/styles/theme'
 import assets from '@/utils/assets'
-import GiftCard from './GiftCard'
+import routes from '@/utils/routes'
 
 const styles = {
   background: {
@@ -27,7 +28,7 @@ const styles = {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'repeat-y',
-      opacity: 0.125,
+      opacity: 0.08,
     }),
   },
   container: css(library.flex.column, library.flex.center, {
@@ -53,8 +54,18 @@ const styles = {
   },
 }
 
-export default function GiftCardBanner() {
-  const desktop = useMinScreen()
+export default function GiftCardAdvertisement() {
+  const [desktop, style] = useScreen<[desktop: boolean, style: TypographyProps]>(
+    (desktop) => [
+      desktop,
+      {
+        family: 'serif',
+        fontSize: desktop ? 'lg' : 'sm',
+        tracking: desktop ? 'wider' : 'normal',
+      },
+    ],
+    [],
+  )
 
   return (
     <div css={styles.container}>
@@ -69,28 +80,22 @@ export default function GiftCardBanner() {
             {desktop && <Scrapbook variant='one'>Perfect Gift</Scrapbook>}
 
             <div css={[library.flex.column, library.flex.start]}>
-              <Paragraph
-                family='serif'
-                fontSize={desktop ? 'lg' : 'sm'}
-                tracking={desktop ? 'wider' : 'normal'}
-                css={styles.details.paragraph}>
+              <Paragraph {...style} css={styles.details.paragraph}>
                 Give them the gift you know they will love.
               </Paragraph>
-              <Paragraph
-                family='serif'
-                fontSize={desktop ? 'lg' : 'sm'}
-                tracking={desktop ? 'wider' : 'normal'}
-                css={styles.details.paragraph}>
+              <Paragraph {...style} css={styles.details.paragraph}>
                 Purchase your Rebel & Rose Gift Card today!
               </Paragraph>
             </div>
             <Link
               external
               uppercase
-              variant='button'
-              buttonTheme='secondary'
               family='serif'
-              to={GIFT_CARD_URL}>
+              variant='button'
+              tracking='wider'
+              buttonTheme='secondary'
+              buttonSize='narrow'
+              to={routes.giftCard}>
               Buy Now
             </Link>
           </div>

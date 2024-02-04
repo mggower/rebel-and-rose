@@ -87,7 +87,7 @@ const rounded = { none: 0, sm: utils.pixel(2), md: utils.pixel(6), lg: utils.pix
 const zIndex = { below: -20, base: 0, layer: 20, overlay: 40, popover: 60, modal: 80 }
 
 const attr = {
-  custom: attributeSelector,
+  create: attributeSelector,
   active: attributeSelector<boolean>('active'),
   theme: attributeSelector<'light' | 'dark'>('theme'),
   color: attributeSelector<'primary' | 'secondary' | 'tertiary'>('color'),

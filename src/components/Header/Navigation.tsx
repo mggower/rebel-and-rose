@@ -1,7 +1,6 @@
 import { animated, config, easings, useSpring } from '@react-spring/web'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
-import { BOOKER_URL } from '@/utils/constants'
 import { useState } from 'react'
 import { bars } from '@/utils/icons'
 import { css } from '@emotion/react'
@@ -77,7 +76,7 @@ export default function Navigation() {
               target='_blank'
               rel='noreferrer'
               style={{ opacity }}
-              href={BOOKER_URL}
+              href={routes.booker}
               tabIndex={isOpen ? 0 : -1}
               data-button-theme='primary'
               data-font-tracking='widest'

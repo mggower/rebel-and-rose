@@ -15,7 +15,7 @@ interface Props {
 }
 
 const HEADER_PREFIX = '[the]'
-const paper = theme.attr.custom<'one' | 'two'>('paper')
+const paper = theme.attr.create<'one' | 'two'>('paper')
 
 const styles = {
   component: css({

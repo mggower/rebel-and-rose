@@ -50,7 +50,7 @@ const TRACKING: CSSObject = {
   letterSpacing: theme.typography.tracking.normal,
 
   ...Object.entries(theme.typography.tracking).reduce<CustomCSS>((acc, [key, letterSpacing]) => {
-    acc[theme.attr.custom('font', 'tracking').eq(key)] = { letterSpacing }
+    acc[theme.attr.create('font', 'tracking').eq(key)] = { letterSpacing }
     return acc
   }, {}),
 }
@@ -59,7 +59,7 @@ const LINE_HEIGHT: CSSObject = {
   lineHeight: theme.typography.line.base,
 
   ...Object.entries(theme.typography.line).reduce<CustomCSS>((acc, [key, lineHeight]) => {
-    acc[theme.attr.custom('font', 'line').eq(key)] = { lineHeight }
+    acc[theme.attr.create('font', 'line').eq(key)] = { lineHeight }
     return acc
   }, {}),
 }
@@ -67,14 +67,14 @@ const LINE_HEIGHT: CSSObject = {
 const FONT_STYLE: CSSObject = {
   fontStyle: 'normal',
 
-  [theme.attr.custom<boolean>('font', 'italic').eq(true)]: {
+  [theme.attr.create<boolean>('font', 'italic').eq(true)]: {
     fontStyle: 'italic',
   },
 }
 
 const FONT_WEIGHT = Object.entries(theme.typography.weight).reduce<CSSObject>(
   (acc, [key, fontWeight]) => {
-    acc[theme.attr.custom('font', 'weight').eq(key)] = { fontWeight }
+    acc[theme.attr.create('font', 'weight').eq(key)] = { fontWeight }
     return acc
   },
   {},
@@ -83,7 +83,7 @@ const FONT_WEIGHT = Object.entries(theme.typography.weight).reduce<CSSObject>(
 const FONT_FAMILY: CSSObject = {
   fontFamily: theme.typography.family.sans,
   ...Object.entries(theme.typography.family).reduce<CustomCSS>((acc, [key, fontFamily]) => {
-    acc[theme.attr.custom('font', 'family').eq(key)] = { fontFamily }
+    acc[theme.attr.create('font', 'family').eq(key)] = { fontFamily }
     return acc
   }, {}),
 }
@@ -113,14 +113,14 @@ export default {
       fontWeight: theme.typography.weight.normal,
 
       ...Object.entries(bodyFontSize).reduce<CustomCSS>((acc, [size, fontSize]) => {
-        acc[theme.attr.custom('font', 'size').eq(size)] = { fontSize: pixel(fontSize) }
+        acc[theme.attr.create('font', 'size').eq(size)] = { fontSize: pixel(fontSize) }
         return acc
       }, {}),
 
-      [theme.attr.custom<boolean>('font', 'prose').eq(true)]: {
+      [theme.attr.create<boolean>('font', 'prose').eq(true)]: {
         maxWidth: '65ch',
       },
-      [theme.attr.custom<boolean>('font', 'uppercase').eq(true)]: {
+      [theme.attr.create<boolean>('font', 'uppercase').eq(true)]: {
         textTransform: 'uppercase',
       },
     },
@@ -136,7 +136,7 @@ export default {
       fontWeight: theme.typography.weight.strong,
 
       ...Object.entries(headerFontSize).reduce<CustomCSS>((acc, [key, fontSize]) => {
-        acc[theme.attr.custom('font', 'size').eq(key)] = { fontSize: pixel(fontSize) }
+        acc[theme.attr.create('font', 'size').eq(key)] = { fontSize: pixel(fontSize) }
         return acc
       }, {}),
     },
