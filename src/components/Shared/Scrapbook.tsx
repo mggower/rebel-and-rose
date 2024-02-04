@@ -6,7 +6,8 @@ import library from '@/styles/library'
 import assets from '@/utils/assets'
 import Heading from './Heading'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
-import { cssVars, pixel } from '@/utils'
+import { pixel } from '@/utils'
+// import { cssVars } from '@/utils'
 
 interface Props {
   variant?: 'one' | 'two'
@@ -41,16 +42,19 @@ const styles = {
     display: 'inline-flex',
     alignItems: 'baseline',
     textTransform: 'uppercase',
-    padding: theme.box(8, 12),
+    padding: theme.style.box(8, 12),
     boxSizing: 'border-box',
-    gap: theme.spacing[2],
+    gap: theme.spacing(2),
   }),
 }
 
 export default function Scrapbook({ variant = 'one', children }: Props) {
   const [ref, { width = 200 }] = useBoxSizing({ handleHeight: false })
   return (
-    <div css={styles.component} data-paper={variant} style={cssVars({ size: pixel(width) })}>
+    <div
+      css={styles.component}
+      data-paper={variant}
+      style={theme.style.vars({ size: theme.utils.pixel(width) })}>
       <hgroup ref={ref} css={styles.header}>
         <Heading family='serif' tracking='extreme' weight='normal' fontSize='min'>
           {HEADER_PREFIX}

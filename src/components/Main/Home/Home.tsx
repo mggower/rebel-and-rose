@@ -20,7 +20,7 @@ const styles = {
       content: '" "',
       position: 'absolute',
       background: `linear-gradient(${theme.palette.wheat[100]} 5%, transparent)`,
-      height: theme.spacing[4],
+      height: theme.spacing(4),
       zIndex: theme.zIndex.layer,
       width: '100vw',
       left: 0,
@@ -28,9 +28,9 @@ const styles = {
     },
   }),
   parallax: css({
-    padding: theme.box(2, 0),
+    padding: theme.style.box(2, 0),
     [theme.screen.md]: {
-      padding: theme.box(4, 0),
+      padding: theme.style.box(4, 0),
     },
   }),
 }

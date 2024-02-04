@@ -24,7 +24,7 @@ const styles = {
   }),
   footer: css({
     width: '100%',
-    padding: theme.box(8, 4),
+    padding: theme.style.box(8, 4),
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -32,7 +32,7 @@ const styles = {
     backgroundColor: theme.palette.ink[800],
     color: theme.palette.wheat[100],
     [theme.screen.md]: {
-      padding: theme.box(12, 8),
+      padding: theme.style.box(12, 8),
     },
   }),
   content: css(library.contain, {
@@ -42,13 +42,13 @@ const styles = {
     display: 'grid',
     alignItems: 'start',
     justifyItems: 'center',
-    gap: theme.spacing[8],
+    gap: theme.spacing(8),
     gridTemplateColumns: '25% auto',
     gridTemplateAreas: `
       "pendant routes"
       "info info"`,
     [theme.screen.md]: {
-      gap: theme.spacing[16],
+      gap: theme.spacing(16),
       gridTemplateColumns: '1fr 4fr 1fr',
       gridTemplateAreas: `
         "pendant info routes"`,
@@ -61,9 +61,9 @@ const styles = {
     width: 'auto',
     gridArea: 'pendant',
     fill: theme.palette.wheat[100],
-    height: theme.spacing[20],
+    height: theme.spacing(20),
     [theme.screen.md]: {
-      height: theme.spacing[36],
+      height: theme.spacing(36),
     },
   }),
   info: css({
@@ -71,25 +71,25 @@ const styles = {
     textAlign: 'left',
     gridArea: 'info',
     '& > tbody': {
-      ...theme.border('solid', '1px', theme.palette.wheat[100], 'bottom'),
+      ...theme.style.border('solid', '1px', theme.palette.wheat[100], 'bottom'),
       '& > tr > td': {
-        paddingLeft: theme.spacing[2],
+        paddingLeft: theme.spacing(2),
         [theme.screen.md]: {
-          paddingLeft: theme.spacing[8],
+          paddingLeft: theme.spacing(8),
         },
       },
       '& > tr:last-of-type > td': {
-        paddingBottom: theme.spacing[4],
+        paddingBottom: theme.spacing(4),
       },
     },
     '& > tfoot > tr > td': {
-      padding: theme.spacing[2],
+      padding: theme.spacing(2),
       [theme.screen.md]: {
-        padding: theme.box(4, 8),
+        padding: theme.style.box(4, 8),
       },
     },
     '& * > tr > td': {
-      ...theme.border('solid', '1px', theme.palette.wheat[100], 'right'),
+      ...theme.style.border('solid', '1px', theme.palette.wheat[100], 'right'),
     },
   }),
   routes: css({
@@ -104,10 +104,10 @@ const styles = {
     },
   }),
   link: css({
-    padding: theme.box(0, 2),
+    padding: theme.style.box(0, 2),
     [theme.screen.md]: {
       '&:last-of-type': {
-        marginTop: theme.spacing[4],
+        marginTop: theme.spacing(4),
       },
     },
   }),

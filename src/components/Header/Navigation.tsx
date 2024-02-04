@@ -15,16 +15,16 @@ const MENU_WIDTH = 124
 
 const classes = {
   link: css(styles.link, {
-    width: theme.spacing[28],
+    width: theme.spacing(28),
     textTransform: 'uppercase',
     justifyContent: 'flex-start',
-    padding: `${theme.spacing[1]} ${theme.spacing[2]}`,
+    padding: theme.style.box(1, 2),
     [theme.screen.md]: {
-      width: theme.spacing[36],
+      width: theme.spacing(36),
     },
   }),
   booker: css({
-    marginTop: theme.spacing[3],
+    marginTop: theme.spacing(3),
   }),
 }
 

@@ -12,13 +12,13 @@ const styles = {
     backgroundColor: theme.palette.transparent,
   }),
   banner: css(library.shadow, library.contain, {
-    height: theme.spacing[4],
+    height: theme.spacing(4),
     borderRadius: theme.rounded.sm,
     backgroundImage: `url(${assets.boho.E})`,
     backgroundSize: 'auto 300px',
     backgroundRepeat: 'repeat',
     [theme.screen.md]: {
-      height: theme.spacing[8],
+      height: theme.spacing(8),
     },
   }),
 }

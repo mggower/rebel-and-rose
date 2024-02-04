@@ -5,7 +5,7 @@ const shadow = theme.attr.custom<'sm' | 'md' | 'lg' | 'none'>('shadow')
 
 export default {
   contain: css({
-    width: `calc(100vw - ${theme.spacing[18]})`,
+    width: `calc(100vw - ${theme.spacing(18)})`,
     [theme.screen.md]: {
       width: '80vw',
       maxWidth: '1200px',

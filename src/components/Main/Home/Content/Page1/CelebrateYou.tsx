@@ -9,12 +9,12 @@ import classes from '../styles'
 
 const styles = {
   component: css(library.contain, library.flex.column, {
-    paddingLeft: theme.spacing[4],
+    paddingLeft: theme.spacing(4),
     [theme.screen.md]: {
-      paddingLeft: theme.spacing[16],
+      paddingLeft: theme.spacing(16),
     },
     [theme.screen.lg]: {
-      paddingLeft: theme.spacing[20],
+      paddingLeft: theme.spacing(20),
     },
   }),
   caption: css({

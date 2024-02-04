@@ -9,9 +9,9 @@ const styles = {
   component: css({
     display: 'flex',
     justifyContent: 'flex-end',
-    width: `calc(100vw - ${theme.spacing[18]})`,
+    width: `calc(100vw - ${theme.spacing(18)})`,
     [theme.screen.md]: {
-      width: `calc(100vw - ${theme.spacing[32]})`,
+      width: `calc(100vw - ${theme.spacing(32)})`,
     },
   }),
   texture: css({

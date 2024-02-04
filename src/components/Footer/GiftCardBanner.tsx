@@ -31,21 +31,21 @@ const styles = {
     }),
   },
   container: css(library.flex.column, library.flex.center, {
-    padding: theme.box(8, 4),
+    padding: theme.style.box(8, 4),
     position: 'relative',
   }),
   component: css(library.contain, {
     zIndex: theme.zIndex.layer,
     display: 'grid',
-    gap: theme.spacing[8],
+    gap: theme.spacing(8),
     [theme.screen.md]: {
-      gap: theme.spacing[16],
+      gap: theme.spacing(16),
       gridTemplateColumns: '1fr 1fr',
     },
   }),
   details: {
     container: css(library.flex.column, library.flex.start, {
-      gap: theme.spacing[6],
+      gap: theme.spacing(6),
     }),
     paragraph: css({
       color: theme.palette.wheat[100],

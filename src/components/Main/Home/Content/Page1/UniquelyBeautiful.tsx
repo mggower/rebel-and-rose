@@ -9,7 +9,7 @@ import theme from '@/styles/theme'
 
 const styles = {
   component: css(library.contain, library.flex.column, library.flex.center, {
-    padding: theme.box(4, 0),
+    padding: theme.style.box(4, 0),
     [theme.screen.md]: {
       '& > img': {
         width: '90%',

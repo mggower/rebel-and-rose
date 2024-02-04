@@ -16,7 +16,7 @@ const styles = {
   }),
   component: css({
     display: 'grid',
-    height: theme.spacing[4],
+    height: theme.spacing(4),
     gridTemplateColumns: '1fr 2fr 3fr',
     width: '75vw',
     [theme.screen.md]: {

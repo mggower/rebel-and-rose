@@ -15,13 +15,13 @@ const urls = { facebook: FACEBOOK_URL, instagram: INSTAGRAM_URL }
 
 const classes = {
   link: css(styles.link, {
-    width: theme.spacing[8],
-    height: theme.spacing[8],
-    padding: theme.spacing[0],
+    width: theme.spacing(8),
+    height: theme.spacing(8),
+    padding: theme.spacing(0),
     fontSize: theme.typography.fontSize[100],
     [theme.screen.md]: {
-      width: theme.spacing[10],
-      height: theme.spacing[10],
+      width: theme.spacing(10),
+      height: theme.spacing(10),
       fontSize: theme.typography.fontSize[300],
     },
   }),

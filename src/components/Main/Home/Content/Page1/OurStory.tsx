@@ -19,10 +19,10 @@ const styles = {
   component: css(library.flex.column, {
     boxSizing: 'border-box',
     alignItems: 'flex-start',
-    margin: theme.box(8, 4),
-    gap: theme.spacing[8],
+    margin: theme.style.box(8, 4),
+    gap: theme.spacing(8),
     [theme.screen.md]: {
-      margin: theme.box(12, 8),
+      margin: theme.style.box(12, 8),
     },
   }),
   header: css({
@@ -38,7 +38,7 @@ const styles = {
     },
   }),
   link: css({
-    marginLeft: `-${theme.spacing[2]}`,
+    marginLeft: theme.spacing(-2),
   }),
 }
 

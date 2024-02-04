@@ -21,18 +21,18 @@ const styles = {
     alignItems: 'center',
     flexDirection: 'column',
     justifyContent: 'center',
-    padding: `${theme.spacing[4]} 0`,
+    padding: `${theme.spacing(4)} 0`,
     [theme.screen.lg]: {
       flexGrow: 1,
       flexDirection: 'row',
-      gap: theme.spacing[16],
-      padding: `${theme.spacing[8]} 0`,
+      gap: theme.spacing(16),
+      padding: `${theme.spacing(8)} 0`,
     },
   }),
   heading: css({
     whiteSpace: 'nowrap',
     textTransform: 'uppercase',
-    padding: `${theme.spacing[1]} ${theme.spacing[2]}`,
+    padding: theme.style.box(1, 2),
     border: `1px solid ${theme.palette.ink.main}`,
     boxShadow: theme.shadow.xs,
     display: 'none',
@@ -45,15 +45,15 @@ const styles = {
   logo: css({
     width: 'auto',
     fill: theme.palette.ink.main,
-    height: theme.spacing[12],
+    height: theme.spacing(12),
     [theme.screen.md]: {
-      height: theme.spacing[14],
+      height: theme.spacing(14),
     },
     [theme.screen.lg]: {
-      height: theme.spacing[24],
+      height: theme.spacing(24),
     },
     [theme.screen.xl]: {
-      height: theme.spacing[28],
+      height: theme.spacing(28),
     },
   }),
 }

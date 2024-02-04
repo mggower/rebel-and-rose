@@ -13,10 +13,10 @@ export default {
     component: css(library.flex.column, {
       alignItems: 'flex-start',
       boxSizing: 'border-box',
-      padding: theme.box(8, 4),
-      gap: theme.spacing[8],
+      padding: theme.style.box(8, 4),
+      gap: theme.spacing(8),
       [theme.screen.md]: {
-        padding: theme.box(12, 8),
+        padding: theme.style.box(12, 8),
       },
     }),
     paragraph: css({
@@ -29,7 +29,7 @@ export default {
     links: css({
       display: 'flex',
       alignItems: 'center',
-      marginLeft: `-${theme.spacing[2]}`,
+      marginLeft: theme.spacing(-2),
     }),
   },
 }

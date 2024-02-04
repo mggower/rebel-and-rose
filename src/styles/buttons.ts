@@ -146,7 +146,7 @@ export default {
       placeContent: 'center',
       textDecorationLine: 'none',
       border: '1px solid transparent',
-      padding: theme.spacing[4],
+      padding: theme.spacing(4),
       boxShadow: theme.shadow.sm,
       borderRadius: theme.rounded.sm,
     },

@@ -129,7 +129,7 @@ export default {
     },
     {
       cursor: 'pointer',
-      padding: theme.box(1, 2),
+      padding: theme.style.box(1, 2),
       textDecorationLine: 'none',
       borderRadius: theme.rounded.sm,
 

@@ -26,26 +26,26 @@ const styles = {
     position: 'sticky',
     zIndex: theme.zIndex.layer,
     backgroundColor: theme.palette.wheat[100],
-    padding: theme.box(4, 0),
+    padding: theme.style.box(4, 0),
     [theme.screen.md]: {
       flexDirection: 'row',
-      gap: theme.spacing[16],
-      padding: theme.box(8, 0),
+      gap: theme.spacing(16),
+      padding: theme.style.box(8, 0),
     },
   }),
   logo: css({
     width: 'auto',
     fill: theme.palette.ink.main,
-    height: theme.spacing[16],
+    height: theme.spacing(16),
     filter: `drop-shadow(0 4px 8px ${theme.palette.ink[800]}5F)`,
     [theme.screen.md]: {
-      height: theme.spacing[24],
+      height: theme.spacing(24),
     },
     [theme.screen.lg]: {
-      height: theme.spacing[24],
+      height: theme.spacing(24),
     },
     [theme.screen.xl]: {
-      height: theme.spacing[28],
+      height: theme.spacing(28),
     },
   }),
 }

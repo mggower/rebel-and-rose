@@ -16,7 +16,7 @@ const styles = {
     borderRadius: theme.rounded.lg,
     backgroundColor: theme.palette.ink[800],
     boxShadow: theme.shadow.lg,
-    padding: theme.spacing[2],
+    padding: theme.spacing(2),
     position: 'relative',
     overflow: 'hidden',
     flexGrow: 1,
