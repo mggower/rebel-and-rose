@@ -7,6 +7,8 @@ import Link from '../Shared/Link'
 import library from '@/styles/library'
 import routes from '@/utils/routes'
 import theme from '@/styles/theme'
+import { useScreen } from '@/hooks'
+import { Tracking } from '@/styles/typography'
 
 const data = [
   { address: 'Contact Us:', schedule: SCHEDULE[0] },
@@ -115,6 +117,7 @@ const styles = {
 
 function Footer() {
   const { pathname } = useLocation()
+  const tracking = useScreen<Tracking>((desktop) => (desktop ? 'widest' : 'wide'), [])
 
   return (
     <div css={styles.component}>
@@ -127,12 +130,12 @@ function Footer() {
               {data.map(({ address, schedule }, i) => (
                 <tr key={`row:${i}`}>
                   <td>
-                    <Typography fontSize='sm' tracking='widest'>
+                    <Typography fontSize='sm' tracking={tracking}>
                       {address}
                     </Typography>
                   </td>
                   <td>
-                    <Typography fontSize='sm' tracking='widest'>
+                    <Typography fontSize='sm' tracking={tracking}>
                       {schedule}
                     </Typography>
                   </td>
@@ -142,7 +145,7 @@ function Footer() {
             <tfoot>
               <tr>
                 <td colSpan={2}>
-                  <Typography fontSize='sm' tracking='widest' css={styles.trademark}>
+                  <Typography fontSize='sm' tracking={tracking} css={styles.trademark}>
                     {TRADEMARK}
                   </Typography>
                 </td>
@@ -157,7 +160,7 @@ function Footer() {
                 key={label}
                 linkTheme='dark'
                 linkColor='tertiary'
-                tracking='widest'
+                tracking={tracking}
                 fontSize='sm'
                 css={styles.link}
                 selected={routes.match(route, pathname)}>
@@ -170,7 +173,7 @@ function Footer() {
               key='booker'
               linkTheme='dark'
               linkColor='secondary'
-              tracking='widest'
+              tracking={tracking}
               fontSize='sm'
               css={styles.link}
               to={routes.booker}>

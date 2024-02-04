@@ -50,12 +50,8 @@ const styles = {
   details: {
     container: css(library.flex.column, {
       gap: theme.spacing(6),
-      alignItems: 'center',
-      justifyContent: 'center',
-      [theme.screen.md]: {
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
-      },
+      alignItems: 'flex-start',
+      justifyContent: 'flex-start',
     }),
     paragraph: css({
       color: theme.palette.wheat[100],

@@ -1,6 +1,7 @@
 import { ParallaxLayer } from '@react-spring/parallax'
-import { useMinScreen } from '@/hooks'
 import { accelerate } from '@/utils/parallax'
+import { useScreen } from '@/hooks'
+import { Tracking } from '@/styles/typography'
 import { css } from '@emotion/react'
 import Paragraph from '@/components/Shared/Paragraph'
 import Heading from '@/components/Shared/Heading'
@@ -25,6 +26,14 @@ const styles = {
       margin: theme.style.box(12, 8),
     },
   }),
+  headerContainer: css({
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    [theme.screen.md]: {
+      justifyContent: 'flex-start',
+    },
+  }),
   header: css({
     fontSize: theme.typography.fontSize[300],
     [theme.screen.md]: {
@@ -40,17 +49,33 @@ const styles = {
 }
 
 export default function OurStory() {
-  const md = useMinScreen('md')
+  const { offset, factor, tracking } = useScreen<{
+    offset: number
+    factor: number
+    tracking: Tracking
+  }>(
+    (desktop) => ({
+      offset: desktop ? 1.1 : 0.85,
+      factor: desktop ? 0.9 : 1.15,
+      tracking: desktop ? 'wider' : 'wide',
+    }),
+    [],
+  )
   return (
-    <ParallaxLayer offset={md ? 1.1 : 0.95} factor={md ? 0.9 : 1.05} speed={accelerate(2)}>
+    <ParallaxLayer offset={offset} factor={factor} speed={accelerate(2)}>
       <div css={classes.layer}>
         <div css={styles.wrapper}>
           <div css={styles.component}>
-            <Heading element='h2' family='dark' tracking='wider' css={styles.header}>
-              Welcome to Rebel & Rose
-            </Heading>
+            <div css={styles.headerContainer}>
+              <Heading element='h2' family='dark' tracking={tracking} css={styles.header}>
+                Welcome to&nbsp;
+              </Heading>
+              <Heading element='h2' family='dark' tracking={tracking} css={styles.header}>
+                Rebel & Rose
+              </Heading>
+            </div>
 
-            <Paragraph prose family='serif' tracking='wider' css={styles.paragraph}>
+            <Paragraph prose family='serif' tracking={tracking} css={styles.paragraph}>
               We are a full service hair studio and spa featuring luxury services for all of your
               beauty needs. We strive to create an atmosphere where all are welcome and encouraged
               to celebrate what makes them uniquely beautiful.
@@ -62,8 +87,8 @@ export default function OurStory() {
               variant='button'
               buttonTheme='secondary'
               buttonSize='narrow'
-              tracking='wide'
               family='serif'
+              tracking={tracking}
               to={routes.about}>
               Our Story
             </Link>

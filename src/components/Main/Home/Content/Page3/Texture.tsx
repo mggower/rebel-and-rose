@@ -15,7 +15,7 @@ const styles = {
     },
   }),
   texture: css({
-    width: '40vw',
+    width: '60vw',
     height: '70vh',
     overflow: 'hidden',
     backgroundImage: `url(${assets.scrapbook.text[4]})`,
@@ -24,6 +24,7 @@ const styles = {
     backgroundRepeat: 'no-repeat',
     opacity: 0.125,
     [theme.screen.md]: {
+      width: '40vw',
       opacity: 0.25,
     },
   }),

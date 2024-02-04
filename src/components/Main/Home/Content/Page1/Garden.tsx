@@ -12,7 +12,10 @@ import classes from '../styles'
 const styles = {
   component: css(library.contain, {
     opacity: 0.33,
+    display: 'flex',
+    justifyContent: 'flex-end',
     [theme.screen.md]: {
+      justifyContent: 'flex-start',
       paddingLeft: '4vw',
       opacity: 1,
     },
