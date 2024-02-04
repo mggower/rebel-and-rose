@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import GiftCard from './GiftCard'
+import GiftCardBanner from './GiftCardBanner'
 import Footer from './Footer'
 
 interface Props {
@@ -16,7 +16,7 @@ const styles = {
 export default function FooterContainer({ height }: Props) {
   return (
     <div css={styles.component} style={{ height }}>
-      <GiftCard />
+      <GiftCardBanner />
       <Footer />
     </div>
   )

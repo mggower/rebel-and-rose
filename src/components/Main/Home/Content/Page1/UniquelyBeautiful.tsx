@@ -18,7 +18,7 @@ const styles = {
     },
   }),
   banner: css({
-    filter: `drop-shadow(3px 3px 6px var(--shadow, ${theme.palette.ink[600]}3F))`,
+    filter: `drop-shadow(0 3px 6px var(--shadow, ${theme.palette.ink[600]}3F))`,
     [theme.screen.md]: {
       '--shadow': `${theme.palette.wheat[100]}3F`,
     },

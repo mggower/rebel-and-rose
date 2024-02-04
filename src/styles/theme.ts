@@ -19,6 +19,15 @@ const screen = {
   max: `@media(min-width: ${pixel(breakpoints.max)})`,
 }
 
+/**
+ * @param color hex value
+ * @param opacity value between 0-1
+ * @returns 8-digit hex value with alpha
+ */
+const hexColorOpacity = (color: string, opacity: number) => {
+  return color.concat((opacity * 255).toString(16).padStart(2, '0'))
+}
+
 const typography = {
   fontSize: {
     [50]: 11,
@@ -54,6 +63,7 @@ const typography = {
   weight: { normal: 400, semibold: 600, strong: 700 },
 }
 
+// TODO use ink variations
 const shadow = {
   xs: [
     '0 0 0 1px rgba(0, 0, 0, 0.02)',
@@ -192,4 +202,5 @@ export default {
   attr,
   box: createBoxSpacing,
   border: createBorderStyle,
+  alpha: hexColorOpacity,
 }
