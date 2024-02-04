@@ -37,9 +37,6 @@ const styles = {
       fontSize: theme.typography.fontSize[300],
     },
   }),
-  link: css({
-    marginLeft: theme.spacing(-2),
-  }),
 }
 
 export default function OurStory() {
@@ -59,7 +56,15 @@ export default function OurStory() {
               to celebrate what makes them uniquely beautiful.
             </Paragraph>
 
-            <Link uppercase underline family='serif' to={routes.about} css={styles.link}>
+            <Link
+              uppercase
+              underline
+              variant='button'
+              buttonTheme='secondary'
+              buttonSize='narrow'
+              tracking='wide'
+              family='serif'
+              to={routes.about}>
               Our Story
             </Link>
           </div>
