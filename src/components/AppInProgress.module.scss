@@ -1,0 +1,60 @@
+@use '@/styles/fonts';
+@use '@/styles/palette';
+
+.app {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 20vh;
+  place-items: center;
+}
+
+.booknow {
+  font-family: fonts.$american-typewriter;
+  font-size: 3em;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  letter-spacing: 2px;
+  color: palette.$ink;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  outline: none;
+  transition: 100ms ease;
+
+  @media (max-width: 600px) {
+    font-size: 1.8rem;
+  }
+
+  &:visited {
+    color: palette.$earth;
+  }
+  &:hover,
+  &:focus {
+    background-color: palette.$tertiary-200;
+    &:active {
+      color: palette.$off-white;
+      background-color: palette.$tertiary-300;
+    }
+  }
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  & > a {
+    font-size: 2.5rem;
+    transition: 300ms ease;
+
+    &:hover,
+    &:focus {
+      font-size: 3rem;
+      & > svg {
+        color: palette.$russet;
+      }
+    }
+  }
+}
