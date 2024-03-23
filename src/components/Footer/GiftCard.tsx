@@ -17,7 +17,7 @@ const styles = {
     justifyContent: 'flex-end',
     borderRadius: theme.rounded.lg,
     backgroundColor: theme.palette.ink[800],
-    boxShadow: theme.shadow.lg,
+    boxShadow: theme.shadow.max,
     padding: theme.spacing(2),
     position: 'relative',
     overflow: 'hidden',
@@ -41,7 +41,7 @@ const styles = {
   logo: css({
     width: '100px',
     height: 'auto',
-    filter: `drop-shadow(0 1px 2px ${theme.palette.ink[600]})`,
+    filter: `drop-shadow(1px 1px 2px ${theme.palette.ink[600]})`,
     [theme.screen.md]: {
       width: '200px',
     },

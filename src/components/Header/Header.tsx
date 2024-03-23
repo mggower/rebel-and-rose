@@ -37,7 +37,7 @@ const styles = {
     width: 'auto',
     fill: theme.palette.ink.main,
     height: theme.spacing(16),
-    filter: `drop-shadow(0 4px 8px ${theme.palette.ink[800]}5F)`,
+    filter: `drop-shadow(4px 4px 8px ${theme.style.alpha(theme.palette.ink[800], 0.2)})`,
     [theme.screen.md]: {
       height: theme.spacing(24),
     },

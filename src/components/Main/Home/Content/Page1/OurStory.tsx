@@ -26,20 +26,22 @@ const styles = {
       margin: theme.style.box(12, 8),
     },
   }),
-  headerContainer: css({
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    [theme.screen.md]: {
-      justifyContent: 'flex-start',
-    },
-  }),
-  header: css({
-    fontSize: theme.typography.fontSize[300],
-    [theme.screen.md]: {
-      fontSize: theme.typography.fontSize[400],
-    },
-  }),
+  header: {
+    group: css({
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      [theme.screen.md]: {
+        justifyContent: 'flex-start',
+      },
+    }),
+    typography: css({
+      fontSize: theme.typography.fontSize[300],
+      [theme.screen.md]: {
+        fontSize: theme.typography.fontSize[400],
+      },
+    }),
+  },
   paragraph: css({
     fontSize: theme.typography.fontSize[200],
     [theme.screen.md]: {
@@ -66,11 +68,19 @@ export default function OurStory() {
       <div css={classes.layer}>
         <div css={styles.wrapper}>
           <div css={styles.component}>
-            <div css={styles.headerContainer}>
-              <Heading element='h2' family='dark' tracking={tracking} css={styles.header}>
+            <div css={styles.header.group}>
+              <Heading
+                element='h2'
+                family='dark'
+                tracking={tracking}
+                css={styles.header.typography}>
                 Welcome to&nbsp;
               </Heading>
-              <Heading element='h2' family='dark' tracking={tracking} css={styles.header}>
+              <Heading
+                element='h2'
+                family='dark'
+                tracking={tracking}
+                css={styles.header.typography}>
                 Rebel & Rose
               </Heading>
             </div>

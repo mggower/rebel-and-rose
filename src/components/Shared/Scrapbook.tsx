@@ -26,6 +26,7 @@ const styles = {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
     backgroundSize: 'var(--size, 200px)',
+    filter: `drop-shadow(3px 3px 6px ${theme.style.alpha(theme.palette.ink[800], 0.12)})`,
     [paper.eq('one')]: {
       '--paper': `url("${assets.scrapbook.paper[1]}")`,
       '& > hgroup': {

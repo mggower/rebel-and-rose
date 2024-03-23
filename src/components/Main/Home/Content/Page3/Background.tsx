@@ -4,7 +4,7 @@ import theme from '@/styles/theme'
 
 const styles = {
   component: css({
-    backgroundColor: `${theme.palette.blush[100]}6F`,
+    backgroundColor: theme.style.alpha(theme.palette.blush[100], 0.6),
   }),
 }
 
