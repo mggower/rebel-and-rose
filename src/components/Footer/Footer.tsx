@@ -1,5 +1,7 @@
 import { ADDRESS, SCHEDULE, TRADEMARK } from '@/utils/constants'
-import { useLocation } from 'react-router-dom'
+// import { useLocation } from 'react-router-dom'
+import { useScreen } from '@/hooks'
+import { Tracking } from '@/styles/typography'
 import { css } from '@emotion/react'
 import Typography from '../Shared/Typography'
 import Pendant from '@/assets/logos/pendant.svg?react'
@@ -7,8 +9,6 @@ import Link from '../Shared/Link'
 import library from '@/styles/library'
 import routes from '@/utils/routes'
 import theme from '@/styles/theme'
-import { useScreen } from '@/hooks'
-import { Tracking } from '@/styles/typography'
 
 const data = [
   { address: 'Contact Us:', schedule: SCHEDULE[0] },
@@ -109,14 +109,14 @@ const styles = {
     padding: theme.style.box(0, 2),
     [theme.screen.md]: {
       '&:last-of-type': {
-        marginTop: theme.spacing(4),
+        // marginTop: theme.spacing(4),
       },
     },
   }),
 }
 
 function Footer() {
-  const { pathname } = useLocation()
+  // const { pathname } = useLocation()
   const tracking = useScreen<Tracking>((desktop) => (desktop ? 'widest' : 'wide'), [])
 
   return (
@@ -154,7 +154,7 @@ function Footer() {
           </table>
 
           <nav css={styles.routes}>
-            {routes.list.map(({ route, label }) => (
+            {/* {routes.list.map(({ route, label }) => (
               <Link
                 to={route}
                 key={label}
@@ -166,7 +166,7 @@ function Footer() {
                 selected={routes.match(route, pathname)}>
                 {label}
               </Link>
-            ))}
+            ))} */}
 
             <Link
               external

@@ -114,7 +114,7 @@ const applyStyle = ({
   [`&:focus, ${theme.attr.active.eq(true)}`]: {
     backgroundColor: focus,
     borderColor: theme.palette.ink[200],
-    boxShadow: theme.shadow.lg,
+    boxShadow: theme.shadow.md,
   },
 
   [theme.attr.selected.eq(true)]: {
