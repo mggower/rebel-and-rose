@@ -18,7 +18,7 @@ const styles = {
 export default function PageLinks(_: Props) {
   return (
     <div css={styles.component}>
-      {/* <Link
+      <Link
         uppercase
         underline
         variant='button'
@@ -28,7 +28,7 @@ export default function PageLinks(_: Props) {
         family='serif'
         to={routes.talent}>
         Our Talent
-      </Link> */}
+      </Link>
       <Link
         external
         uppercase

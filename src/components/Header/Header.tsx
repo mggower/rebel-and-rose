@@ -3,7 +3,7 @@ import { css } from '@emotion/react'
 import HeaderCaption from './HeaderCaption'
 import SocialMedia from './SocialMedia'
 import LogoBanner from '@/assets/logos/banner.svg?react'
-// import Navigation from './Navigation'
+import Navigation from './Navigation'
 import BookNow from './BookNow'
 import Banner from './Banner'
 import library from '@/styles/library'
@@ -72,7 +72,7 @@ export default function Header() {
         <Banner />
       </div>
 
-      {/* <Navigation /> */}
+      <Navigation />
     </header>
   )
 }
