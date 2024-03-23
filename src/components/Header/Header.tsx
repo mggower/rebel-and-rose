@@ -1,54 +1,78 @@
 import { useNavigate } from 'react-router-dom'
-import SocialMediaLinks from './SocialMedia'
-import NavigationMenu from './Navigation'
+import { css } from '@emotion/react'
+import HeaderCaption from './HeaderCaption'
+import SocialMedia from './SocialMedia'
 import LogoBanner from '@/assets/logos/banner.svg?react'
-import styles from './Header.module.scss'
+// import Navigation from './Navigation'
+import BookNow from './BookNow'
+import Banner from './Banner'
+import library from '@/styles/library'
 import routes from '@/utils/routes'
-import { useEffect, useState } from 'react'
+import theme from '@/styles/theme'
 
-function addCssVars(...vars: [name: string, value: string | number][]) {
-  return vars.reduce(
-    (acc, [name, value]) => {
-      acc[name] = value
-      return acc
+const styles = {
+  component: css({
+    display: 'grid',
+    gridTemplateColumns: 'min-content auto min-content',
+    justifyContent: 'space-between',
+  }),
+  banner: css(library.contain, library.flex.column, {
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+  }),
+  content: css(library.flex.column, library.flex.center, {
+    top: 0,
+    flexGrow: 1,
+    position: 'sticky',
+    zIndex: theme.zIndex.layer,
+    backgroundColor: theme.palette.wheat[100],
+    padding: theme.style.box(6, 0),
+    [theme.screen.md]: {
+      flexDirection: 'row',
+      gap: theme.spacing(16),
+      padding: theme.style.box(8, 0),
     },
-    {} as Record<string, string | number>,
-  ) as React.CSSProperties
+  }),
+  logo: css({
+    width: 'auto',
+    fill: theme.palette.ink.main,
+    height: theme.spacing(16),
+    filter: `drop-shadow(4px 4px 8px ${theme.style.alpha(theme.palette.ink[800], 0.2)})`,
+    [theme.screen.md]: {
+      height: theme.spacing(24),
+    },
+    [theme.screen.lg]: {
+      height: theme.spacing(24),
+    },
+    [theme.screen.xl]: {
+      height: theme.spacing(28),
+    },
+  }),
 }
 
-function Header() {
+export default function Header() {
   const navigate = useNavigate()
-  const [position, setPosition] = useState(0)
-
-  useEffect(() => {
-    function scrollEvent() {
-      setPosition(Math.ceil(window.scrollY / 10))
-    }
-
-    window.addEventListener('scroll', scrollEvent)
-
-    return () => {
-      window.removeEventListener('scroll', scrollEvent)
-    }
-  }, [])
 
   return (
-    <header>
-      <div className={styles.primary}>
-        <SocialMediaLinks />
-
-        <div className={styles.banner} onClick={() => navigate(routes.home)}>
-          <h5>in historic</h5>
-          <LogoBanner className={styles.logo} />
-          <h5>concord, ma</h5>
-        </div>
-
-        <NavigationMenu />
+    <header css={styles.component}>
+      <div>
+        <SocialMedia />
+        <BookNow />
       </div>
 
-      <div className={styles.texture} style={addCssVars(['--pos', `${position}px`])} />
+      <div css={styles.banner}>
+        <div css={styles.content}>
+          <HeaderCaption>in historic</HeaderCaption>
+
+          <LogoBanner css={styles.logo} onClick={() => navigate(routes.home)} />
+
+          <HeaderCaption>concord, ma</HeaderCaption>
+        </div>
+
+        <Banner />
+      </div>
+
+      {/* <Navigation /> */}
     </header>
   )
 }
-
-export default Header

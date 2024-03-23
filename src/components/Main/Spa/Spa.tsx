@@ -1,7 +1,5 @@
-import styles from './styles'
-
 function Spa() {
-  return <div css={styles.container}>Spa</div>
+  return <div>Spa</div>
 }
 
 export default Spa

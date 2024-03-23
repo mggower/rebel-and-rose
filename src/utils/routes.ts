@@ -6,26 +6,36 @@ export enum RoutePath {
   SPA = '/spa',
   ABOUT = '/about',
   CONTACT = '/contact',
-  TEAM = '/team',
+  TALENT = '/talent',
   POLICIES = '/policies',
 }
 
 export default {
+  // internal links
   home: RoutePath.HOME,
   salon: RoutePath.SALON,
   spa: RoutePath.SPA,
   about: RoutePath.ABOUT,
   contact: RoutePath.CONTACT,
-  team: RoutePath.TEAM,
+  talent: RoutePath.TALENT,
   policies: RoutePath.POLICIES,
+
+  // external links
+  booker: 'https://go.booker.com/location/ReviveSpaMA/service-menu',
+  giftCard: 'https://go.booker.com/location/revivespama/buy',
+
+  // route matching
   match: function matchRoute(route: RoutePath, pathname: string) {
     return matchPath(route, pathname) !== null
   },
+
+  // available routes
   list: [
+    { route: RoutePath.HOME, label: 'Home' },
     { route: RoutePath.SALON, label: 'Salon' },
     { route: RoutePath.SPA, label: 'Spa' },
     { route: RoutePath.ABOUT, label: 'About' },
-    { route: RoutePath.TEAM, label: 'Team' },
+    { route: RoutePath.TALENT, label: 'Talent' },
     { route: RoutePath.CONTACT, label: 'Contact' },
     { route: RoutePath.POLICIES, label: 'Policies' },
   ],

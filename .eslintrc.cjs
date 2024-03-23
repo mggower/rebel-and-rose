@@ -16,11 +16,19 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'react/no-unknown-property': ['error', { ignore: ['css'] }],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      { varsIgnorePattern: '^_', argsIgnorePattern: '^_' },
+    ],
+    'react-hooks/exhaustive-deps': ['warn', { additionalHooks: '(useScreen)' }],
   },
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: ['./tsconfig.json', './tsconfig.node.json'],
     tsconfigRootDir: __dirname,
+  },
+  settings: {
+    react: { version: 'detect' },
   },
 }
