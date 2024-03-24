@@ -3,8 +3,8 @@ import { calcHeightFromWindow } from '@/utils'
 import { useEffect, useRef } from 'react'
 import { accelerate } from '@/utils/parallax'
 import { css } from '@emotion/react'
+import hairCut from '@/assets/images/image-4.jpg'
 import library from '@/styles/library'
-import assets from '@/utils/assets'
 import theme from '@/styles/theme'
 
 const styles = {
@@ -19,7 +19,7 @@ const styles = {
   image: css({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundImage: `url(${assets.images.hairCut})`,
+    backgroundImage: `url(${hairCut})`,
     boxShadow: theme.shadow.sm,
     borderRadius: theme.rounded.sm,
     width: '40vw',
@@ -42,7 +42,7 @@ export default function Haircut() {
     <ParallaxLayer ref={layer} offset={2.1} speed={accelerate(3)}>
       <div css={styles.component}>
         <div css={styles.image}>
-          <img src={assets.images.hairCut} alt='hair cut' css={library.invisible} />
+          <img src={hairCut} alt='hair cut' css={library.invisible} />
         </div>
       </div>
     </ParallaxLayer>
