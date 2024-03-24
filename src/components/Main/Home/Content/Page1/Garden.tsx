@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
 import { accelerate } from '@/utils/parallax'
 import { css } from '@emotion/react'
-import assets from '@/utils/assets'
+import womanInGarden from '@/assets/images/image-2.jpg'
 import library from '@/styles/library'
 import theme from '@/styles/theme'
 import classes from '../styles'
@@ -25,7 +25,7 @@ const styles = {
     height: '48vh',
     overflow: 'hidden',
     borderRadius: theme.rounded.sm,
-    backgroundImage: `url(${assets.images.womanInGarden})`,
+    backgroundImage: `url(${womanInGarden})`,
     backgroundPositionX: '75%',
     backgroundSize: 'cover',
     [theme.screen.md]: {
@@ -50,7 +50,7 @@ export default function Garden() {
       <div css={classes.layer}>
         <div ref={ref} css={styles.component}>
           <div css={styles.image}>
-            <img src={assets.images.womanInGarden} css={library.invisible} alt='woman in garden' />
+            <img src={womanInGarden} css={library.invisible} alt='woman in garden' />
           </div>
         </div>
       </div>

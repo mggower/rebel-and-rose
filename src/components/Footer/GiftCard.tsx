@@ -1,8 +1,9 @@
 import { css } from '@emotion/react'
 import Heading from '../Shared/Heading'
 import library from '@/styles/library'
-import assets from '@/utils/assets'
 import theme from '@/styles/theme'
+import rebelAndRoseGold from '@/assets/logos/rebel-and-rose-gold-logo.png'
+import boquetUrl from '@/assets/textures/tapestry-boquet-3.png'
 
 const styles = {
   component: css({
@@ -62,13 +63,9 @@ export default function GiftCard() {
   return (
     <div css={styles.component}>
       <div css={styles.container}>
-        <img src={assets.florals.boquet[3]} css={styles.florals} alt='floral boquet' />
+        <img src={boquetUrl} css={styles.florals} alt='floral boquet' />
         <div css={[library.flex.column, library.flex.center]}>
-          <img
-            src={assets.logos.rebelAndRoseGold}
-            alt='rebels and roses gold logo'
-            css={styles.logo}
-          />
+          <img src={rebelAndRoseGold} alt='rebels and roses gold logo' css={styles.logo} />
           <Heading uppercase family='dark' tracking='extreme' css={styles.header}>
             Gift Card
           </Heading>

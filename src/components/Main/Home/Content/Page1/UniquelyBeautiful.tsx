@@ -2,9 +2,9 @@ import { IParallaxLayer, ParallaxLayer, ParallaxLayerProps } from '@react-spring
 import { useEffect, useRef } from 'react'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
 import { css } from '@emotion/react'
+import uniquelyBeautiful from '@/assets/logos/uniquely-beautiful.png'
 import library from '@/styles/library'
 import classes from '../styles'
-import assets from '@/utils/assets'
 import theme from '@/styles/theme'
 
 const styles = {
@@ -39,12 +39,7 @@ export default function UniquelyBeautiful(props: ParallaxLayerProps) {
     <ParallaxLayer ref={layer} {...props}>
       <div css={classes.layer}>
         <div css={styles.component}>
-          <img
-            ref={ref}
-            css={styles.banner}
-            src={assets.logos.uniquelyBeautiful}
-            alt='uniquely beautiful'
-          />
+          <img ref={ref} css={styles.banner} src={uniquelyBeautiful} alt='uniquely beautiful' />
         </div>
       </div>
     </ParallaxLayer>
