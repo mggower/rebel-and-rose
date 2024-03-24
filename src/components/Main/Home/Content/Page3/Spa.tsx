@@ -14,9 +14,9 @@ export default function Salon() {
             <Scrapbook variant='one'>Spa</Scrapbook>
 
             <Paragraph prose family='serif' tracking='wider' css={classes.content.paragraph}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse perspiciatis fuga
+              {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse perspiciatis fuga
               commodi cupiditate praesentium maiores. Pariatur, est numquam reprehenderit commodi
-              quas, ipsam voluptates velit, doloremque explicabo ut quos saepe officiis.lorem.
+              quas, ipsam voluptates velit, doloremque explicabo ut quos saepe officiis.lorem. */}
             </Paragraph>
 
             <PageLinks />
