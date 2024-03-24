@@ -155,6 +155,7 @@ export default {
       placeContent: 'center',
       textDecorationLine: 'none',
       border: '1px solid transparent',
+      whiteSpace: 'nowrap',
       boxShadow: theme.shadow.sm,
       borderRadius: theme.rounded.sm,
       padding: theme.spacing(4),

@@ -3,7 +3,7 @@ import { css } from '@emotion/react'
 import HeaderCaption from './HeaderCaption'
 import SocialMedia from './SocialMedia'
 import LogoBanner from '@/assets/logos/banner.svg?react'
-// import Navigation from './Navigation'
+import Navigation from './Navigation'
 import BookNow from './BookNow'
 import Banner from './Banner'
 import library from '@/styles/library'
@@ -13,8 +13,19 @@ import theme from '@/styles/theme'
 const styles = {
   component: css({
     display: 'grid',
+    position: 'relative',
     gridTemplateColumns: 'min-content auto min-content',
     justifyContent: 'space-between',
+    '&::after': {
+      content: '" "',
+      position: 'absolute',
+      background: `linear-gradient(${theme.palette.wheat[100]} 5%, transparent)`,
+      height: theme.spacing(4),
+      zIndex: theme.zIndex.layer,
+      width: '100vw',
+      left: 0,
+      bottom: theme.spacing(-4),
+    },
   }),
   banner: css(library.contain, library.flex.column, {
     alignItems: 'center',
@@ -72,7 +83,7 @@ export default function Header() {
         <Banner />
       </div>
 
-      {/* <Navigation /> */}
+      <Navigation />
     </header>
   )
 }

@@ -1,14 +1,14 @@
-import { utils, style, attributeSelector, spacingFormula } from './utils'
+import { utility, style, attributeSelector, spacingFormula } from './utils'
 import palette from './palette'
 
 const breakpoints = { sm: 640, md: 768, lg: 1024, xl: 1280, max: 1536 }
 
 const screen = {
-  sm: `@media(min-width: ${utils.pixel(breakpoints.sm)})`,
-  md: `@media(min-width: ${utils.pixel(breakpoints.md)})`,
-  lg: `@media(min-width: ${utils.pixel(breakpoints.lg)})`,
-  xl: `@media(min-width: ${utils.pixel(breakpoints.xl)})`,
-  max: `@media(min-width: ${utils.pixel(breakpoints.max)})`,
+  sm: `@media(min-width: ${utility.pixel(breakpoints.sm)})`,
+  md: `@media(min-width: ${utility.pixel(breakpoints.md)})`,
+  lg: `@media(min-width: ${utility.pixel(breakpoints.lg)})`,
+  xl: `@media(min-width: ${utility.pixel(breakpoints.xl)})`,
+  max: `@media(min-width: ${utility.pixel(breakpoints.max)})`,
 }
 
 const typography = {
@@ -35,12 +35,12 @@ const typography = {
     cursive: 'Bandoeng, cursive',
   },
   tracking: {
-    tight: utils.em(-0.025),
-    normal: utils.em(0),
-    wide: utils.em(0.025),
-    wider: utils.em(0.05),
-    widest: utils.em(0.1),
-    extreme: utils.em(0.3),
+    tight: utility.em(-0.025),
+    normal: utility.em(0),
+    wide: utility.em(0.025),
+    wider: utility.em(0.05),
+    widest: utility.em(0.1),
+    extreme: utility.em(0.3),
   },
   line: { tight: 1.3, base: 1.5, max: 1.7 },
   weight: { normal: 400, semibold: 600, strong: 700 },
@@ -90,7 +90,7 @@ const shadow = {
   ].join(', '),
 }
 
-const rounded = { none: 0, sm: utils.pixel(2), md: utils.pixel(6), lg: utils.pixel(8) }
+const rounded = { none: 0, sm: utility.pixel(2), md: utility.pixel(6), lg: utility.pixel(8) }
 
 const zIndex = { below: -20, base: 0, layer: 20, overlay: 40, popover: 60, modal: 80 }
 
@@ -102,16 +102,33 @@ const attr = {
   selected: attributeSelector<boolean>('selected'),
 }
 
+const SPEED_VALUES = {
+  [1]: 0.125,
+  [2]: 0.25,
+  [3]: 0.375,
+  [4]: 0.5,
+  [5]: 0.625,
+  [6]: 0.75,
+  [7]: 0.875,
+  [8]: 1,
+}
+
+const velocity = {
+  accelerate: (speed: keyof typeof SPEED_VALUES, base = 0) => SPEED_VALUES[speed] + base,
+  decelerate: (speed: keyof typeof SPEED_VALUES, base = 0) => -(SPEED_VALUES[speed] + base),
+}
+
 export default {
   palette,
   screen,
   breakpoints,
   shadow,
   rounded,
+  velocity,
   spacing: spacingFormula,
   typography,
   zIndex,
   attr,
   style,
-  utils,
+  utility,
 }

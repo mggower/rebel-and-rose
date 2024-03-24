@@ -1,18 +1,16 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-empty-interface */
-import { css } from '@emotion/react'
-import theme from '@/styles/theme'
-import library from '@/styles/library'
-import Heading from './Heading'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
-import { pixel } from '@/utils'
+import { HeaderFontSize } from '@/styles/typography'
+import { useScreen } from '@/hooks/useScreen'
+import { css } from '@emotion/react'
+import Heading from './Heading'
 import paper1 from '@/assets/textures/paper-1.png'
 import paper2 from '@/assets/textures/paper-2.png'
-// import { cssVars } from '@/utils'
+import theme from '@/styles/theme'
 
 interface Props {
   variant?: 'one' | 'two'
   children: string
+  className?: string
 }
 
 const HEADER_PREFIX = '[the]'
@@ -23,19 +21,19 @@ const styles = {
     display: 'flex',
     placeItems: 'center',
     justifyContent: 'center',
-    backgroundImage: 'var(--paper)',
+    backgroundImage: theme.style.var('paper'),
+    backgroundSize: theme.style.var('size', theme.utility.pixel(200)),
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
-    backgroundSize: 'var(--size, 200px)',
     filter: `drop-shadow(3px 3px 6px ${theme.style.alpha(theme.palette.ink[800], 0.12)})`,
     [paper.eq('one')]: {
-      '--paper': `url("${paper1}")`,
+      '--paper': theme.style.url(paper1),
       '& > hgroup': {
-        transform: `translateY(8px)`,
+        transform: `translateY(6px)`,
       },
     },
     [paper.eq('two')]: {
-      '--paper': `url("${paper2}")`,
+      '--paper': theme.style.url(paper2),
     },
   }),
   header: css({
@@ -50,18 +48,21 @@ const styles = {
   }),
 }
 
-export default function Scrapbook({ variant = 'one', children }: Props) {
+export default function Scrapbook({ variant = 'one', children, className }: Props) {
   const [ref, { width = 200 }] = useBoxSizing({ handleHeight: false })
+  const fontSize = useScreen<HeaderFontSize>((desktop) => (desktop ? 'lg' : 'md'), [])
+
   return (
     <div
       css={styles.component}
       data-paper={variant}
-      style={theme.style.vars({ size: theme.utils.pixel(width) })}>
+      className={className}
+      style={theme.utility.applyVars({ size: theme.utility.pixel(width) })}>
       <hgroup ref={ref} css={styles.header}>
         <Heading family='serif' tracking='extreme' weight='normal' fontSize='min'>
           {HEADER_PREFIX}
         </Heading>
-        <Heading family='serif' fontSize='lg' tracking='widest' weight='normal'>
+        <Heading family='serif' fontSize={fontSize} tracking='widest' weight='normal'>
           {children}
         </Heading>
       </hgroup>

@@ -1,5 +1,4 @@
 import { ParallaxLayer } from '@react-spring/parallax'
-import { accelerate } from '@/utils/parallax'
 import { css } from '@emotion/react'
 import text4 from '@/assets/textures/transparent-text-4.png'
 import classes from '../styles'
@@ -32,7 +31,7 @@ const styles = {
 
 export default function Texture() {
   return (
-    <ParallaxLayer offset={2.9} factor={1} speed={accelerate(3)}>
+    <ParallaxLayer offset={2.9} factor={1} speed={theme.velocity.accelerate(3)}>
       <div css={classes.layer}>
         <div css={styles.component}>
           <div css={styles.texture}></div>

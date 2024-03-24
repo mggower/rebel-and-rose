@@ -11,25 +11,22 @@ export default {
       },
     }),
     component: css(library.flex.column, {
-      alignItems: 'flex-start',
       boxSizing: 'border-box',
-      padding: theme.style.box(8, 4),
+      padding: theme.style.box(8, 0),
       gap: theme.spacing(8),
+      justifyContent: 'center',
       [theme.screen.md]: {
-        padding: theme.style.box(12, 8),
+        justifyContent: 'flex-start',
+        padding: theme.style.box(12, 4),
       },
     }),
     paragraph: css({
       color: theme.palette.ink.main,
       fontSize: theme.typography.fontSize[200],
+      padding: theme.style.box(0, 4),
       [theme.attr.theme.eq('dark')]: {
         color: theme.palette.wheat[100],
       },
-    }),
-    links: css({
-      display: 'flex',
-      alignItems: 'center',
-      gap: theme.spacing(2),
     }),
   },
 }

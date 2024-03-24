@@ -1,7 +1,6 @@
 import { IParallaxLayer, ParallaxLayer } from '@react-spring/parallax'
 import { calcHeightFromWindow } from '@/utils'
 import { useEffect, useRef } from 'react'
-import { accelerate } from '@/utils/parallax'
 import { css } from '@emotion/react'
 import hairCut from '@/assets/images/image-4.jpg'
 import library from '@/styles/library'
@@ -39,7 +38,7 @@ export default function Haircut() {
   }, [])
 
   return (
-    <ParallaxLayer ref={layer} offset={2.1} speed={accelerate(3)}>
+    <ParallaxLayer ref={layer} offset={2.1} speed={theme.velocity.accelerate(3)}>
       <div css={styles.component}>
         <div css={styles.image}>
           <img src={hairCut} alt='hair cut' css={library.invisible} />

@@ -1,4 +1,4 @@
-import SplashImage from './SplashImage'
+import HomeSplashImage from './HomeSplashImage'
 import Garden from './Garden'
 import Texture from './Texture'
 
@@ -9,7 +9,7 @@ interface Props {
 export default function Decorations({ space }: Props) {
   return (
     <>
-      <SplashImage space={space} />
+      <HomeSplashImage space={space} />
       <Texture />
       <Garden />
     </>

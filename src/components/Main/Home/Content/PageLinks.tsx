@@ -3,22 +3,22 @@ import Link from '@/components/Shared/Link'
 import theme from '@/styles/theme'
 import routes from '@/utils/routes'
 
-interface Props {
-  prop?: unknown
-}
-
 const styles = {
   component: css({
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     gap: theme.spacing(2),
+    [theme.screen.md]: {
+      justifyContent: 'flex-start',
+    },
   }),
 }
 
-export default function PageLinks(_: Props) {
+export default function PageLinks() {
   return (
     <div css={styles.component}>
-      {/* <Link
+      <Link
         uppercase
         underline
         variant='button'
@@ -28,7 +28,7 @@ export default function PageLinks(_: Props) {
         family='serif'
         to={routes.talent}>
         Our Talent
-      </Link> */}
+      </Link>
       <Link
         external
         uppercase
@@ -36,6 +36,7 @@ export default function PageLinks(_: Props) {
         variant='button'
         buttonTheme='primary'
         buttonSize='narrow'
+        tracking='wide'
         family='serif'
         to={routes.booker}>
         Book Now

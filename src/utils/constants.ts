@@ -16,3 +16,8 @@ export const SCHEDULE = [
 ]
 
 export const TRADEMARK = 'Rebel & Rose Beauty House ©️ 2023'
+
+export const SPLASH_HEIGHT = {
+  DESKTOP: 72,
+  MOBILE: 32,
+}

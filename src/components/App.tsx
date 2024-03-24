@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { lazy } from 'react'
 import { css } from '@emotion/react'
+import ContentHeight from './ContentHeight'
 import Header from './Header'
 import paths from '../utils/routes'
 
@@ -16,7 +17,7 @@ const styles = {
   app: css({
     display: 'grid',
     width: '100vw',
-    minHeight: '100vh',
+    height: '100vh',
     position: 'relative',
     gridTemplateRows: 'min-content auto',
   }),
@@ -25,6 +26,8 @@ const styles = {
     position: 'relative',
     placeItems: 'center',
     flexDirection: 'column',
+    overflowY: 'scroll',
+    overflowX: 'hidden',
   }),
 }
 
@@ -34,15 +37,17 @@ export default function App() {
       <Header />
 
       <main css={styles.main}>
-        <Routes>
-          <Route path={paths.home} element={<Home />} />
-          <Route path={paths.about} element={<About />} />
-          <Route path={paths.contact} element={<Contact />} />
-          <Route path={paths.policies} element={<Policies />} />
-          <Route path={paths.salon} element={<Salon />} />
-          <Route path={paths.spa} element={<Spa />} />
-          <Route path={paths.talent} element={<Team />} />
-        </Routes>
+        <ContentHeight>
+          <Routes>
+            <Route path={paths.home} element={<Home />} />
+            <Route path={paths.about} element={<About />} />
+            <Route path={paths.contact} element={<Contact />} />
+            <Route path={paths.policies} element={<Policies />} />
+            <Route path={paths.salon} element={<Salon />} />
+            <Route path={paths.spa} element={<Spa />} />
+            <Route path={paths.talent} element={<Team />} />
+          </Routes>
+        </ContentHeight>
       </main>
     </div>
   )

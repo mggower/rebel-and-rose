@@ -1,15 +1,15 @@
-import { ParallaxLayer } from '@react-spring/parallax'
-import { accelerate } from '@/utils/parallax'
+import { IParallaxLayer, ParallaxLayer } from '@react-spring/parallax'
 import { useScreen } from '@/hooks'
 import { Tracking } from '@/styles/typography'
 import { css } from '@emotion/react'
 import Paragraph from '@/components/Shared/Paragraph'
 import Heading from '@/components/Shared/Heading'
-// import Link from '@/components/Shared/Link'
+import Link from '@/components/Shared/Link'
 import library from '@/styles/library'
-// import routes from '@/utils/routes'
+import routes from '@/utils/routes'
 import theme from '@/styles/theme'
 import classes from '../styles'
+import { useRef } from 'react'
 
 const styles = {
   wrapper: css(library.contain, {
@@ -46,8 +46,8 @@ const styles = {
     '--bg': theme.style.alpha(theme.palette.wheat[100], 0.8),
 
     position: 'relative',
-    padding: theme.spacing(4),
-    margin: theme.style.box(0, -4),
+    padding: theme.style.box(4, 6),
+    margin: theme.style.box(0, -6),
     borderRadius: theme.rounded.sm,
     fontSize: theme.typography.fontSize[200],
     backgroundColor: 'var(--bg)',
@@ -59,7 +59,7 @@ const styles = {
     '&::after': {
       content: '" "',
       position: 'absolute',
-      background: `linear-gradient(var(--bg) 1%, transparent)`,
+      background: `linear-gradient(var(--bg) 3%, transparent)`,
       height: theme.spacing(4),
       zIndex: theme.zIndex.layer,
       width: '100%',
@@ -70,6 +70,8 @@ const styles = {
 }
 
 export default function OurStory() {
+  const layer = useRef<IParallaxLayer>(null)
+
   const { offset, factor, tracking } = useScreen<{
     offset: number
     factor: number
@@ -82,8 +84,9 @@ export default function OurStory() {
     }),
     [],
   )
+
   return (
-    <ParallaxLayer offset={offset} factor={factor} speed={accelerate(2)}>
+    <ParallaxLayer ref={layer} offset={offset} factor={factor} speed={theme.velocity.accelerate(2)}>
       <div css={classes.layer}>
         <div css={styles.wrapper}>
           <div css={styles.component}>
@@ -110,7 +113,7 @@ export default function OurStory() {
               to celebrate what makes them uniquely beautiful.
             </Paragraph>
 
-            {/* <Link
+            <Link
               uppercase
               underline
               variant='button'
@@ -120,7 +123,7 @@ export default function OurStory() {
               tracking={tracking}
               to={routes.about}>
               Our Story
-            </Link> */}
+            </Link>
           </div>
         </div>
       </div>

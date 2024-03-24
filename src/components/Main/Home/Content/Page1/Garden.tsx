@@ -2,7 +2,6 @@ import { IParallaxLayer, ParallaxLayer } from '@react-spring/parallax'
 import { calcHeightFromWindow } from '@/utils'
 import { useEffect, useRef } from 'react'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
-import { accelerate } from '@/utils/parallax'
 import { css } from '@emotion/react'
 import womanInGarden from '@/assets/images/image-2.jpg'
 import library from '@/styles/library'
@@ -46,7 +45,7 @@ export default function Garden() {
   }, [height])
 
   return (
-    <ParallaxLayer ref={layer} offset={1} speed={accelerate(4)}>
+    <ParallaxLayer ref={layer} offset={1} speed={theme.velocity.accelerate(4)}>
       <div css={classes.layer}>
         <div ref={ref} css={styles.component}>
           <div css={styles.image}>

@@ -28,7 +28,11 @@ export const useScreen = <T>(
   deps: React.DependencyList,
   breakpoint: Breakpoint = 'md',
 ): T => {
-  const screen = useMediaQuery(`(min-width: ${theme.breakpoints[breakpoint]}px)`)
+  const value = theme.breakpoints[breakpoint]
+  const screen = useMediaQuery(`(min-width: ${theme.utility.pixel(value)})`, {
+    defaultValue: window.innerWidth >= value,
+  })
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   return useMemo(() => factory(screen), [screen, ...deps])
 }

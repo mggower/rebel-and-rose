@@ -68,4 +68,14 @@ export default {
     width: '100%',
     height: '100%',
   }),
+  content: css({
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: theme.style.box(2, 0),
+    [theme.screen.md]: {
+      margin: theme.style.box(4, 0),
+    },
+  }),
 }

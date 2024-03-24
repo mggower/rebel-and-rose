@@ -5,14 +5,31 @@ import { stringify } from '@/utils'
 export const REM_BASE = 16
 export const SPACING_BASE = 0.25
 
-export type Pixel = `${number}px`
-export type Rem = `${number}rem`
-export type Em = `${number}em`
+type Pixel = `${number}px`
+type Rem = `${number}rem`
+type Em = `${number}em`
 
-export const utils = {
+/**
+ *
+ * @param vars css variables and values
+ * @returns CSSProperties assigning variables to values
+ */
+const applyCssVariables = (vars: Record<string, number | string>): React.CSSProperties => {
+  const style: Record<string, string | number> = {}
+
+  for (const name in vars) {
+    style[`--${name}`] = vars[name]
+  }
+
+  return style satisfies React.CSSProperties
+}
+
+export const utility = {
   pixel: (value: number): Pixel => `${value}px`,
   rem: (value: number): Rem => `${value}rem`,
   em: (value: number): Em => `${value}em`,
+  vh: (percentage: number): `${number}vh` => `${percentage}vh`,
+  vw: (percentage: number): `${number}vw` => `${percentage}vw`,
   calc: {
     /**
      * @param factor rem value
@@ -32,9 +49,10 @@ export const utils = {
      */
     vw: (percentage: number) => window.innerWidth * (percentage / 100),
   },
+  applyVars: applyCssVariables,
 }
 
-export const spacingFormula = (index: number) => utils.rem(index * SPACING_BASE)
+export const spacingFormula = (index: number) => utility.rem(index * SPACING_BASE)
 
 /**
  *
@@ -46,17 +64,11 @@ const createBoxSpacing = (...values: number[]) => values.map(spacingFormula).sli
 
 /**
  *
- * @param vars css variables and values
- * @returns CSSProperties assigning variables to values
+ * @param name variable name
+ * @param defaultValue default style value
  */
-const setCssVariables = (vars: Record<string, number | string>): React.CSSProperties => {
-  const style: Record<string, string | number> = {}
-
-  for (const name in vars) {
-    style[`--${name}`] = vars[name]
-  }
-
-  return style satisfies React.CSSProperties
+const setCssVariable = (name: string, defaultValue?: string | number | boolean) => {
+  return `var(--${name}${defaultValue ? `, ${defaultValue}` : ''})`
 }
 
 /**
@@ -126,11 +138,14 @@ const createBorderStyle = (
   }
 }
 
+const setCssUrl = (pathname: string) => `url(${pathname})`
+
 export const style = {
   box: createBoxSpacing,
-  vars: setCssVariables,
   alpha: hexColorOpacity,
   border: createBorderStyle,
+  var: setCssVariable,
+  url: setCssUrl,
 }
 
 /**
