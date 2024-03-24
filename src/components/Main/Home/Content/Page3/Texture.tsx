@@ -1,9 +1,9 @@
 import { ParallaxLayer } from '@react-spring/parallax'
+import { accelerate } from '@/utils/parallax'
 import { css } from '@emotion/react'
-import assets from '@/utils/assets'
+import text4 from '@/assets/textures/transparent-text-4.png'
 import classes from '../styles'
 import theme from '@/styles/theme'
-import { accelerate } from '@/utils/parallax'
 
 const styles = {
   component: css({
@@ -18,7 +18,7 @@ const styles = {
     width: '60vw',
     height: '70vh',
     overflow: 'hidden',
-    backgroundImage: `url(${assets.scrapbook.text[4]})`,
+    backgroundImage: `url(${text4})`,
     backgroundSize: 'contain',
     backgroundPosition: 'center right',
     backgroundRepeat: 'no-repeat',

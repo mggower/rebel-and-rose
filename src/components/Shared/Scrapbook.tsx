@@ -3,10 +3,11 @@
 import { css } from '@emotion/react'
 import theme from '@/styles/theme'
 import library from '@/styles/library'
-import assets from '@/utils/assets'
 import Heading from './Heading'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
 import { pixel } from '@/utils'
+import paper1 from '@/assets/textures/paper-1.png'
+import paper2 from '@/assets/textures/paper-2.png'
 // import { cssVars } from '@/utils'
 
 interface Props {
@@ -28,13 +29,13 @@ const styles = {
     backgroundSize: 'var(--size, 200px)',
     filter: `drop-shadow(3px 3px 6px ${theme.style.alpha(theme.palette.ink[800], 0.12)})`,
     [paper.eq('one')]: {
-      '--paper': `url("${assets.scrapbook.paper[1]}")`,
+      '--paper': `url("${paper1}")`,
       '& > hgroup': {
         transform: `translateY(8px)`,
       },
     },
     [paper.eq('two')]: {
-      '--paper': `url("${assets.scrapbook.paper[2]}")`,
+      '--paper': `url("${paper2}")`,
     },
   }),
   header: css({

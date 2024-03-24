@@ -5,9 +5,9 @@ import { useScreen } from '@/hooks'
 import { css } from '@emotion/react'
 import UniquelyBeautiful from './UniquelyBeautiful'
 import CelebrateYou from './CelebrateYou'
+import breezeWarm from '@/assets/images/image-7.jpg'
 import library from '@/styles/library'
 import classes from '../styles'
-import assets from '@/utils/assets'
 import theme from '@/styles/theme'
 
 interface Props {
@@ -20,7 +20,7 @@ const MOBILE_HEIGHT = 32
 const styles = {
   component: css(library.contain, library.shadow, {
     borderRadius: theme.rounded.sm,
-    backgroundImage: `url(${assets.images.breezeWarm})`,
+    backgroundImage: `url(${breezeWarm})`,
     backgroundSize: 'cover',
     backgroundPosition: 'left top',
     height: `${MOBILE_HEIGHT}vh`,
@@ -55,7 +55,7 @@ export default function SplashImage({ space }: Props) {
       <ParallaxLayer>
         <div css={classes.layer}>
           <div css={styles.component}>
-            <img src={assets.images.breezeWarm} alt='breeze warm' css={library.invisible} />
+            <img src={breezeWarm} alt='breeze warm' css={library.invisible} />
           </div>
         </div>
       </ParallaxLayer>

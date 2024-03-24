@@ -1,9 +1,11 @@
-import { css } from '@emotion/react'
-import assets from '@/utils/assets'
-import theme from '@/styles/theme'
-import { useEffect, useRef } from 'react'
 import { IParallaxLayer, ParallaxLayer } from '@react-spring/parallax'
+import { useEffect, useRef } from 'react'
 import { calcRem } from '@/utils'
+import { css } from '@emotion/react'
+import bohoFolkB from '@/assets/textures/boho-folk-B.jpg'
+import bohoFolkD from '@/assets/textures/boho-folk-D.jpg'
+import bohoFolkF from '@/assets/textures/boho-folk-F.jpg'
+import theme from '@/styles/theme'
 
 interface Props {
   space: number
@@ -24,15 +26,15 @@ const styles = {
     },
   }),
   one: css({
-    backgroundImage: `url(${assets.boho.F})`,
+    backgroundImage: `url(${bohoFolkF})`,
     backgroundSize: 'cover',
   }),
   two: css({
-    backgroundImage: `url(${assets.boho.B})`,
+    backgroundImage: `url(${bohoFolkB})`,
     backgroundSize: 'cover',
   }),
   three: css({
-    backgroundImage: `url(${assets.boho.D})`,
+    backgroundImage: `url(${bohoFolkD})`,
     backgroundSize: 'cover',
   }),
 }

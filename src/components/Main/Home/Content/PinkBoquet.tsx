@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import assets from '@/utils/assets'
+import boquet3 from '@/assets/textures/tapestry-boquet-3.png'
 import theme from '@/styles/theme'
 
 const styles = {
@@ -25,7 +25,7 @@ const styles = {
 export default function PinkBoquet() {
   return (
     <div css={styles.component}>
-      <img src={assets.florals.boquet[3]} alt='pink floral boquet' css={styles.boquet} />
+      <img src={boquet3} alt='pink floral boquet' css={styles.boquet} />
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { calcHeightFromWindow } from '@/utils'
 import { useEffect, useRef } from 'react'
 import { useMinScreen } from '@/hooks'
 import { css } from '@emotion/react'
-import assets from '@/utils/assets'
+import text3 from '@/assets/textures/transparent-text-3.png'
 import theme from '@/styles/theme'
 
 const styles = {
@@ -13,7 +13,7 @@ const styles = {
   }),
   texture: css({
     opacity: 0.125,
-    backgroundImage: `url(${assets.scrapbook.text[3]})`,
+    backgroundImage: `url(${text3})`,
     backgroundSize: 'contain',
     backgroundPosition: 'center',
     height: '50vh',

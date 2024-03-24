@@ -8,8 +8,8 @@ import Link from '../Shared/Link'
 import library from '@/styles/library'
 import classes from '../Main/Home/Content/styles'
 import theme from '@/styles/theme'
-import assets from '@/utils/assets'
 import routes from '@/utils/routes'
+import scrapbookText from '@/assets/textures/transparent-text-1.png'
 
 const styles = {
   background: {
@@ -24,7 +24,7 @@ const styles = {
       backgroundColor: theme.palette.russet.main,
     }),
     texture: css({
-      backgroundImage: `url(${assets.scrapbook.text[1]})`,
+      backgroundImage: `url(${scrapbookText})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'repeat-y',

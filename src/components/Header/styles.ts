@@ -1,5 +1,5 @@
 import { CSSObject, css } from '@emotion/react'
-import assets from '@/utils/assets'
+import bohoFolkA from '@/assets/textures/boho-folk-A.jpg'
 import buttons from '@/styles/buttons'
 import library from '@/styles/library'
 import theme from '@/styles/theme'
@@ -71,7 +71,7 @@ export default {
       borderRadius: theme.rounded.sm,
       border: `1px solid ${theme.palette.earth[600]}`,
       backgroundColor: theme.palette.earth[200],
-      backgroundImage: `url(${assets.boho.A})`,
+      backgroundImage: `url(${bohoFolkA})`,
       backgroundSize: 'cover',
 
       [left.eq(true)]: {
