@@ -5,9 +5,9 @@ import { Tracking } from '@/styles/typography'
 import { css } from '@emotion/react'
 import Paragraph from '@/components/Shared/Paragraph'
 import Heading from '@/components/Shared/Heading'
-import Link from '@/components/Shared/Link'
+// import Link from '@/components/Shared/Link'
 import library from '@/styles/library'
-import routes from '@/utils/routes'
+// import routes from '@/utils/routes'
 import theme from '@/styles/theme'
 import classes from '../styles'
 
@@ -91,7 +91,7 @@ export default function OurStory() {
               to celebrate what makes them uniquely beautiful.
             </Paragraph>
 
-            <Link
+            {/* <Link
               uppercase
               underline
               variant='button'
@@ -101,7 +101,7 @@ export default function OurStory() {
               tracking={tracking}
               to={routes.about}>
               Our Story
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
