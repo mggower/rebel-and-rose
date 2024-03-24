@@ -21,7 +21,7 @@ const styles = {
     boxSizing: 'border-box',
     alignItems: 'flex-start',
     margin: theme.style.box(8, 4),
-    gap: theme.spacing(8),
+    gap: theme.spacing(4),
     [theme.screen.md]: {
       margin: theme.style.box(12, 8),
     },
@@ -43,9 +43,28 @@ const styles = {
     }),
   },
   paragraph: css({
+    '--bg': theme.style.alpha(theme.palette.wheat[100], 0.8),
+
+    position: 'relative',
+    padding: theme.spacing(4),
+    margin: theme.style.box(0, -4),
+    borderRadius: theme.rounded.sm,
     fontSize: theme.typography.fontSize[200],
+    backgroundColor: 'var(--bg)',
+
     [theme.screen.md]: {
       fontSize: theme.typography.fontSize[300],
+    },
+
+    '&::after': {
+      content: '" "',
+      position: 'absolute',
+      background: `linear-gradient(var(--bg) 1%, transparent)`,
+      height: theme.spacing(4),
+      zIndex: theme.zIndex.layer,
+      width: '100%',
+      bottom: theme.spacing(-4),
+      left: 0,
     },
   }),
 }
