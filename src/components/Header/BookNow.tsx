@@ -41,7 +41,7 @@ export default function BookNow() {
 
   return (
     <div css={styles.component}>
-      <Link external variant='button' to={routes.booker} css={styles.link}>
+      <Link external variant='button' to={routes.booking} css={styles.link}>
         {mobile ? <Icon icon={book} /> : <>Book Now</>}
       </Link>
     </div>

@@ -38,7 +38,7 @@ export default function PageLinks() {
         buttonSize='narrow'
         tracking='wide'
         family='serif'
-        to={routes.booker}>
+        to={routes.booking}>
         Book Now
       </Link>
     </div>

@@ -76,7 +76,7 @@ export default function Navigation() {
               target='_blank'
               rel='noreferrer'
               style={{ opacity }}
-              href={routes.booker}
+              href={routes.booking}
               tabIndex={isOpen ? 0 : -1}
               data-button-theme='primary'
               data-font-tracking='widest'

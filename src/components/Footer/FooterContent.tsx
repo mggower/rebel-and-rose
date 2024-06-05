@@ -176,7 +176,7 @@ function FooterContent() {
               tracking={tracking}
               fontSize='sm'
               css={styles.link}
-              to={routes.booker}>
+              to={routes.booking}>
               Book Now
             </Link>
           </nav>
