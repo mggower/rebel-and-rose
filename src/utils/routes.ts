@@ -21,8 +21,8 @@ export default {
   policies: RoutePath.POLICIES,
 
   // external links
-  booker: 'https://go.booker.com/location/ReviveSpaMA/service-menu',
-  giftCard: 'https://go.booker.com/location/revivespama/buy',
+  booking: 'https://login.meevo.com/rebelandrose/ob?locationId=501752',
+  giftCard: '',
 
   // route matching
   match: function matchRoute(route: RoutePath, pathname: string) {

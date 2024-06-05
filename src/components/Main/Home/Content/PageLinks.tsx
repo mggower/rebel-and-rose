@@ -37,7 +37,7 @@ export default function PageLinks(_: Props) {
         buttonTheme='primary'
         buttonSize='narrow'
         family='serif'
-        to={routes.booker}>
+        to={routes.booking}>
         Book Now
       </Link>
     </div>
