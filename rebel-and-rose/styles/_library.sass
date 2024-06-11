@@ -1,0 +1,26 @@
+@use 'colors'
+@use 'theme'
+
+@mixin contain-content
+  width: calc(100vw - 4rem)
+  @media (min-width: theme.$screen-md)
+    width: 80vw
+    max-width: 1200px
+
+
+$ink-opacity-6: rgba(colors.$ink-900, 0.06)
+
+@mixin shadow-sm
+  box-shadow: 0 0 0 1px $ink-opacity-6, 1px 1px 1px -0.5px $ink-opacity-6, 3px 3px 3px -1.5px $ink-opacity-6, 6px 6px 6px -3px $ink-opacity-6, 12px 12px 12px -6px $ink-opacity-6, 24px 24px 24px -12px $ink-opacity-6
+
+@mixin flex-box($direction: row, $justify: center, $align: center, $gap: 0)
+  display: flex
+  flex-direction: $direction
+  justify-content: $justify
+  align-items: $align
+  gap: $gap
+
+@mixin border($color: colors.$ink-main, $width: 1px, $style: solid)
+  border-style: $style
+  border-width: $width
+  border-color: $color
