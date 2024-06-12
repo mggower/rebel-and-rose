@@ -49,7 +49,7 @@ $boho-folk-e: '../../assets/textures/boho-folk-E.jpg'
       gap: 4rem
 
 .logo
-  filter: drop-shadow(4px 4px 3px rgba(colors.$earth-600, 0.3))
+  filter: drop-shadow(5px 5px 3px rgba(colors.$earth-800, 0.3))
 
 .captionContainer
   display: none
@@ -61,11 +61,14 @@ $boho-folk-e: '../../assets/textures/boho-folk-E.jpg'
 
 .caption
   @include lib.border
-  padding: 0.25rem 1rem
+  font-family: var(--font-serif)
+  padding: 0.25rem 0.5rem
   white-space: nowrap
   text-transform: uppercase
   border-left: none
   border-right: none
+  letter-spacing: theme.$tracking-wide
+  font-size: theme.$header-size-xs
 
 .bannerContainer
   width: 100vw
