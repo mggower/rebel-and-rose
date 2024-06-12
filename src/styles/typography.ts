@@ -118,6 +118,7 @@ export default {
       }, {}),
 
       [theme.attr.create<boolean>('font', 'prose').eq(true)]: {
+        textIndent: '0.8em',
         maxWidth: '65ch',
       },
       [theme.attr.create<boolean>('font', 'uppercase').eq(true)]: {

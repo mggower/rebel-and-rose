@@ -1,5 +1,5 @@
 import { ADDRESS, SCHEDULE, TRADEMARK } from '@/utils/constants'
-// import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { useScreen } from '@/hooks'
 import { Tracking } from '@/styles/typography'
 import { css } from '@emotion/react'
@@ -116,7 +116,7 @@ const styles = {
 }
 
 function Footer() {
-  // const { pathname } = useLocation()
+  const { pathname } = useLocation()
   const tracking = useScreen<Tracking>((desktop) => (desktop ? 'widest' : 'wide'), [])
 
   return (
@@ -154,7 +154,7 @@ function Footer() {
           </table>
 
           <nav css={styles.routes}>
-            {/* {routes.list.map(({ route, label }) => (
+            {routes.list.map(({ route, label }) => (
               <Link
                 to={route}
                 key={label}
@@ -166,7 +166,7 @@ function Footer() {
                 selected={routes.match(route, pathname)}>
                 {label}
               </Link>
-            ))} */}
+            ))}
 
             <Link
               external

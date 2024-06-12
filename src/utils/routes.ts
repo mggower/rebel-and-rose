@@ -32,11 +32,11 @@ export default {
   // available routes
   list: [
     { route: RoutePath.HOME, label: 'Home' },
-    { route: RoutePath.SALON, label: 'Salon' },
-    { route: RoutePath.SPA, label: 'Spa' },
-    { route: RoutePath.ABOUT, label: 'About' },
-    { route: RoutePath.TALENT, label: 'Talent' },
-    { route: RoutePath.CONTACT, label: 'Contact' },
+    // { route: RoutePath.SALON, label: 'Salon' },
+    // { route: RoutePath.SPA, label: 'Spa' },
+    // { route: RoutePath.ABOUT, label: 'About' },
+    // { route: RoutePath.TALENT, label: 'Talent' },
+    // { route: RoutePath.CONTACT, label: 'Contact' },
     { route: RoutePath.POLICIES, label: 'Policies' },
   ],
 }
