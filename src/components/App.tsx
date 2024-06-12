@@ -1,16 +1,14 @@
 import { Routes, Route } from 'react-router-dom'
-import { lazy } from 'react'
 import { css } from '@emotion/react'
 import Header from './Header'
 import paths from '../utils/routes'
-
-const Home = lazy(() => import('./Main/Home'))
-const About = lazy(() => import('./Main/About'))
-const Contact = lazy(() => import('./Main/Contact'))
-const Policies = lazy(() => import('./Main/Policies'))
-const Salon = lazy(() => import('./Main/Salon'))
-const Spa = lazy(() => import('./Main/Spa'))
-const Team = lazy(() => import('./Main/Team'))
+import Home from './Main/Home'
+import About from './Main/About'
+import Contact from './Main/Contact'
+import Policies from './Main/Policies'
+import Salon from './Main/Salon'
+import Spa from './Main/Spa'
+import Team from './Main/Team'
 
 const styles = {
   app: css({
