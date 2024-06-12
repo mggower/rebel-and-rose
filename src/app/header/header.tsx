@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import styles from './header.module.sass'
 import logoBanner from '@/assets/logos/banner.svg'
-import fonts from '@/fonts'
 
 export default function Header() {
   return (

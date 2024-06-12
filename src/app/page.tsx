@@ -4,7 +4,7 @@ import splash from '@/assets/images/splash.png'
 export default function Home() {
   return (
     <main>
-      <Image priority src={splash} alt='splash image' width={1000} />
+      <Image priority src={splash} alt='splash image' height={500} />
     </main>
   )
 }
