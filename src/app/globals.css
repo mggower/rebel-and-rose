@@ -23,6 +23,20 @@ body {
   overflow-x: hidden;
 }
 
+p {
+  font-family: var(--font-serif);
+  max-width: 62ch;
+  text-indent: 0.25rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 500;
+}
+
 *,
 *::before,
 *::after {
@@ -66,8 +80,6 @@ h6 {
 body {
   min-height: 100vh;
   font-family: var(--font-sans-serif);
-  font-weight: 300;
-  letter-spacing: 0.1;
 }
 
 #root {
