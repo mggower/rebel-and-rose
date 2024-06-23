@@ -35,7 +35,7 @@ $boho-folk-e: '../../assets/textures/boho-folk-E.jpg'
     height: 2rem
     width: 100vw
     left: 0
-    bottom: -2rem
+    bottom: calc(-2rem + 1px)
 
 .left
   justify-self: start
@@ -84,6 +84,8 @@ $boho-folk-e: '../../assets/textures/boho-folk-E.jpg'
   padding: 0 2rem
   box-sizing: border-box
   z-index: 22
+  @media (max-width: theme.$screen-md)
+    padding: 0 1rem
   
 .banner
   @include lib.shadow(theme.$shadow-200)

@@ -20,9 +20,6 @@ export default function Header() {
     <div className={styles.headerContainer}>
       <header className={styles.header}>
         <div className={styles.left}>
-          <Button variant='tertiary' size='icon'>
-            <Icon icon={plusIcon} />
-          </Button>
           {mobile ? (
             <LinkButton size='icon' href={routes.bookingUrl}>
               <Icon icon={bookIcon} />
@@ -30,6 +27,10 @@ export default function Header() {
           ) : (
             <LinkButton href={routes.bookingUrl}>Book Now</LinkButton>
           )}
+
+          <Button variant='tertiary' size='icon'>
+            <Icon icon={plusIcon} />
+          </Button>
         </div>
 
         <div className={styles.center}>
