@@ -5,7 +5,7 @@ import {
   faBook as bookIcon,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import LinkButton from '@/components/button/link-button'
+import AnchorButton from '@/components/button/anchor-button'
 import Button from '@/components/button/button'
 import Image from 'next/image'
 import useBreakpoints from '@/hooks/useBreakpoints'
@@ -21,11 +21,11 @@ export default function Header() {
       <header className={styles.header}>
         <div className={styles.left}>
           {mobile ? (
-            <LinkButton size='icon' href={routes.bookingUrl}>
+            <AnchorButton size='icon' href={routes.bookingUrl}>
               <Icon icon={bookIcon} />
-            </LinkButton>
+            </AnchorButton>
           ) : (
-            <LinkButton href={routes.bookingUrl}>Book Now</LinkButton>
+            <AnchorButton href={routes.bookingUrl}>Book Now</AnchorButton>
           )}
 
           <Button variant='tertiary' size='icon'>
