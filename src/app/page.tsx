@@ -4,9 +4,7 @@ import gardenImage from '@/assets/images/garden.jpg'
 import haircutImage from '@/assets/images/haircut.jpg'
 import facialSerumImage from '@/assets/images/serum.jpg'
 import styles from './page.module.sass'
-import AnchorButton from '@/components/button/anchor-button'
 import LinkButton from '@/components/button/link-button'
-import routes from '@/utils/routes'
 
 export default function Home() {
   return (
@@ -44,7 +42,7 @@ export default function Home() {
             </p>
 
             <div className={styles.links}>
-              <LinkButton variant='tertiary' href='/'>
+              <LinkButton variant='secondary' href='/'>
                 Our Story
               </LinkButton>
             </div>
@@ -64,9 +62,11 @@ export default function Home() {
 
             <div className={styles.links}>
               <LinkButton variant='tertiary' href='/'>
-                Our Talent
+                talent
               </LinkButton>
-              <AnchorButton href={routes.bookingUrl}>Book Now</AnchorButton>
+              <LinkButton variant='secondary' href='/'>
+                Services
+              </LinkButton>
             </div>
           </div>
 
@@ -103,9 +103,11 @@ export default function Home() {
 
             <div className={styles.links}>
               <LinkButton variant='tertiary' href='/'>
-                Our Talent
+                talent
               </LinkButton>
-              <AnchorButton href={routes.bookingUrl}>Book Now</AnchorButton>
+              <LinkButton variant='secondary' href='/'>
+                Services
+              </LinkButton>
             </div>
           </div>
         </div>

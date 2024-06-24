@@ -20,6 +20,10 @@ export default function Header() {
     <div className={styles.headerContainer}>
       <header className={styles.header}>
         <div className={styles.left}>
+          <Button variant='tertiary' size='icon'>
+            <Icon icon={plusIcon} />
+          </Button>
+
           {mobile ? (
             <AnchorButton size='icon' href={routes.bookingUrl}>
               <Icon icon={bookIcon} />
@@ -27,10 +31,6 @@ export default function Header() {
           ) : (
             <AnchorButton href={routes.bookingUrl}>Book Now</AnchorButton>
           )}
-
-          <Button variant='tertiary' size='icon'>
-            <Icon icon={plusIcon} />
-          </Button>
         </div>
 
         <div className={styles.center}>

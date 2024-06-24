@@ -2,6 +2,7 @@
 @use '../../styles/theme' as theme
 
 .button
+  @include lib.shadow(theme.$shadow-100)
   @include lib.flex-box
   padding: 8px 16px
   border-radius: 4px
@@ -18,7 +19,7 @@
   outline: none
 
   &:hover
-    @include lib.shadow(theme.$shadow-200)
+    @include lib.shadow(theme.$shadow-300)
     transform: translateY(-1px)
   
   &:focus:not(:hover)
@@ -62,9 +63,10 @@
 .tertiary
   background-color: var(--wheat-50)
   color: var(--ink-900)
+  border-color: var(--earth-500)
 
   &:hover
-    background-color: var(--blonde-200)
+    background-color: var(--earth-100)
 
   &:active
-    background-color: var(--blonde-400)
+    background-color: var(--earth-300)

@@ -19,7 +19,8 @@
     @include lib.shadow(theme.$shadow-200)
 
 .section
-  @include lib.shadow(theme.$shadow-100)
+  @include lib.contain-content
+  @include lib.shadow(theme.$shadow-200)
   margin: 2rem 1rem
   padding: 2rem
   position: relative
@@ -45,7 +46,7 @@
   height: 400px
 
   & > img
-    @include lib.shadow(theme.$shadow-200)
+    @include lib.shadow(theme.$shadow-100)
     object-fit: cover
     border-radius: theme.$radius-100
 
@@ -72,4 +73,3 @@
 
 .links
   @include lib.flex-box(row, flex-start, center, 1rem)
-  margin-left: -16px
