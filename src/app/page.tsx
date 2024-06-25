@@ -9,17 +9,17 @@ import LinkButton from '@/components/button/link-button'
 export default function Home() {
   return (
     <main className={styles.container}>
-      <section>
+      <div className={styles.splashContainer}>
         <div className={styles.splash}>
           <Image
             fill
             priority
             src={splashImage}
             alt='splash image'
-            sizes='(max-width: 800px), 50vw, 100vw'
+            sizes='(max-width: 800px), 50vw, 95vw'
           />
         </div>
-      </section>
+      </div>
 
       <section className={styles.section}>
         <div className={styles.content}>

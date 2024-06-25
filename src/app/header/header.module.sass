@@ -17,7 +17,7 @@ $boho-folk-e: '../../assets/textures/boho-folk-E.jpg'
   align-items: flex-start
   background-color: transparent
   justify-content: space-between
-  grid-template-columns: 1fr 3fr 1fr
+  grid-template-columns: auto max-content
   white-space: nowrap
   padding: 2rem 2rem 0
   background-color: var(--wheat-50)
@@ -25,7 +25,7 @@ $boho-folk-e: '../../assets/textures/boho-folk-E.jpg'
 
   @media (max-width: theme.$screen-sm)
     grid-template-columns: 1fr 1fr
-    padding: 2rem 1rem 0
+    padding: 1rem 1rem 0
     gap: 1rem
 
   &:after
@@ -37,28 +37,9 @@ $boho-folk-e: '../../assets/textures/boho-folk-E.jpg'
     left: 0
     bottom: calc(-2rem + 1px)
 
-.left
-  justify-self: start
-  @include lib.flex-box(row, flex-end, center, 0.5rem)
+.nav
+  @include lib.flex-box(row, flex-end, center, 1rem)
 
-.right
-  justify-self: end
-
-.center
-  @include lib.flex-box(column, center, center, 1rem)
-  padding: 1.5rem 0
-  @media (max-width: theme.$screen-sm)
-    grid-row: 2
-    grid-column: span 2
-    padding: 1rem 0
-  @media (min-width: theme.$screen-sm)
-    flex-direction: row
-    gap: 3rem
-    @media (min-width: theme.$screen-md)
-      gap: 4rem
-
-.logo
-  filter: drop-shadow(5px 5px 3px rgba(colors.$earth-800, 0.3))
 
 .captionContainer
   display: none
