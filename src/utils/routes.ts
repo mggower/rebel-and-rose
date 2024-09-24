@@ -22,6 +22,7 @@ export default {
 
   // external links
   booking: 'https://login.meevo.com/rebelandrose/ob?locationId=501752',
+  aboutFaceMedSpa: 'https://book.squareup.com/appointments/pgm6dz3c0o4wt9/location/L41D07RSJP0DM/services',
   giftCard: '',
 
   // route matching

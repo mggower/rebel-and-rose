@@ -72,6 +72,20 @@ export default function Navigation() {
             ))}
 
             <animated.a
+              key='about-face'
+              target='_blank'
+              rel='noreferrer'
+              style={{ opacity }}
+              href={routes.aboutFaceMedSpa}
+              tabIndex={isOpen ? 0 : -1}
+              data-button-theme='primary'
+              data-font-tracking='widest'
+              css={[classes.link, classes.booker]}
+              onClick={() => setOpen(false)}>
+              About Face
+            </animated.a>
+
+            <animated.a
               key='booker'
               target='_blank'
               rel='noreferrer'
@@ -80,7 +94,7 @@ export default function Navigation() {
               tabIndex={isOpen ? 0 : -1}
               data-button-theme='primary'
               data-font-tracking='widest'
-              css={[classes.link, classes.booker]}
+              css={[classes.link]}
               onClick={() => setOpen(false)}>
               Book Now
             </animated.a>

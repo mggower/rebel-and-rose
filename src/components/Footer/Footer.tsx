@@ -170,6 +170,17 @@ function Footer() {
 
             <Link
               external
+              key='about-face'
+              linkTheme='dark'
+              linkColor='secondary'
+              tracking={tracking}
+              fontSize='sm'
+              css={styles.link}
+              to={routes.aboutFaceMedSpa}>
+              About Face
+            </Link>
+            <Link
+              external
               key='booker'
               linkTheme='dark'
               linkColor='secondary'
