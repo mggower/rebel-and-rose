@@ -21,6 +21,7 @@ const data = [
 const styles = {
   component: css(library.flex.column, {
     height: '100%',
+    width: '100%',
     justifyContent: 'flex-end',
     flexGrow: 1,
   }),
