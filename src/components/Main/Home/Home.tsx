@@ -57,7 +57,7 @@ export default function Home() {
 
         <ParallaxLayer offset={2.9} factor={0.6}></ParallaxLayer>
 
-        <PageOne.Content />
+        <PageOne.Content desktop={desktop} />
         <PageTwo.Content />
         <PageThree.Content />
 

@@ -1,15 +1,17 @@
 import { ParallaxLayer } from '@react-spring/parallax'
 import { accelerate } from '@/utils/parallax'
-import { useScreen } from '@/hooks'
-import { Tracking } from '@/styles/typography'
 import { css } from '@emotion/react'
 import Paragraph from '@/components/Shared/Paragraph'
 import Heading from '@/components/Shared/Heading'
-// import Link from '@/components/Shared/Link'
+import Link from '@/components/Shared/Link'
 import library from '@/styles/library'
-// import routes from '@/utils/routes'
+import routes from '@/utils/routes'
 import theme from '@/styles/theme'
 import classes from '../styles'
+
+interface Props {
+  desktop: boolean
+}
 
 const styles = {
   wrapper: css(library.contain, {
@@ -69,21 +71,13 @@ const styles = {
   }),
 }
 
-export default function OurStory() {
-  const { offset, factor, tracking } = useScreen<{
-    offset: number
-    factor: number
-    tracking: Tracking
-  }>(
-    (desktop) => ({
-      offset: desktop ? 1.1 : 0.85,
-      factor: desktop ? 0.9 : 1.15,
-      tracking: desktop ? 'wider' : 'wide',
-    }),
-    [],
-  )
+export default function OurStory(props: Props) {
+  const offset = props.desktop ? 1.1 : 0.85
+  const factor = props.desktop ? 0.9 : 1.15
+  const tracking = props.desktop ? 'wider' : 'wide'
+
   return (
-    <ParallaxLayer offset={offset} factor={factor} speed={accelerate(2)}>
+    <ParallaxLayer offset={offset} factor={factor} speed={accelerate(1)}>
       <div css={classes.layer}>
         <div css={styles.wrapper}>
           <div css={styles.component}>
@@ -105,12 +99,13 @@ export default function OurStory() {
             </div>
 
             <Paragraph prose family='serif' tracking={tracking} css={styles.paragraph}>
-              We are a full service hair studio and spa featuring luxury services for all of your
-              beauty needs. We strive to create an atmosphere where all are welcome and encouraged
-              to celebrate what makes them uniquely beautiful.
+              The Rebel and the Rose. One courageous, brave and unyielding, the other soft, delicate
+              and graceful. Each of these are distinct, unique and equally beautiful in their own
+              right. At Rebel & Rose, we aim to celebrate all that makes us individual and encourage
+              you to express yourself and connect to what makes you uniquely beautiful.
             </Paragraph>
 
-            {/* <Link
+            <Link
               uppercase
               underline
               variant='button'
@@ -120,7 +115,7 @@ export default function OurStory() {
               tracking={tracking}
               to={routes.about}>
               Our Story
-            </Link> */}
+            </Link>
           </div>
         </div>
       </div>
