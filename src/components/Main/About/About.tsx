@@ -27,10 +27,6 @@ const styles = {
     alignItems: 'center',
     padding: theme.style.box(8, 4),
     gap: theme.spacing(4),
-
-    '& > h2': {
-      margin: theme.style.box(0, 0, 4),
-    },
   }),
   imageContainer: css({
     display: 'flex',
@@ -54,8 +50,8 @@ export default function About() {
               About us
             </Heading>
 
-            <Paragraph fontSize='xl' weight='semibold'>
-              Drawing a Parallel to History
+            <Paragraph italic fontSize='xl' weight='semibold'>
+              Drawing a parallel to history
             </Paragraph>
 
             <Paragraph prose family='serif' tracking='wide'>
