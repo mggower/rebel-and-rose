@@ -4,7 +4,7 @@ import Paragraph from '@/components/Shared/Paragraph'
 import library from '@/styles/library'
 import theme from '@/styles/theme'
 import womanPortrait from '@/assets/images/image-5.jpg'
-import Footer from '@/components/Footer/Footer'
+import Footer from '@/components/Footer'
 
 const styles = {
   component: css({
@@ -12,8 +12,11 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: theme.style.box(8, 4),
     width: '100%',
+    margin: theme.style.box(4, 0),
+    [theme.screen.md]: {
+      margin: theme.style.box(8, 4),
+    },
   }),
   container: css(library.contain, {
     display: 'grid',
@@ -25,7 +28,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: theme.style.box(8, 4),
+    padding: theme.style.box(4, 0),
     gap: theme.spacing(4),
   }),
   imageContainer: css({

@@ -14,7 +14,10 @@ const styles = {
   }),
   component: css(library.flex.column, {
     gap: theme.spacing(4),
-    margin: theme.spacing(12),
+    margin: theme.style.box(4, 0),
+    [theme.screen.md]: {
+      margin: theme.spacing(12),
+    },
   }),
 }
 function Policies() {
@@ -24,7 +27,7 @@ function Policies() {
         css={[library.contain, library.flex.column, library.flex.center]}
         style={{ alignSelf: 'center ' }}>
         <div css={styles.component}>
-          <Heading fontSize='sm' weight='normal' style={{ alignSelf: 'center' }}>
+          <Heading element='h3' family='dark' tracking='wide' style={{ alignSelf: 'center' }}>
             Privacy policy
           </Heading>
           <Paragraph prose>

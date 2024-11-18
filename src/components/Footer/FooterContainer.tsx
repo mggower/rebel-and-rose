@@ -3,13 +3,14 @@ import GiftCardAdvertisement from './GiftCardAdvertisement'
 import Footer from './Footer'
 
 interface Props {
-  height: number
+  height?: number
 }
 
 const styles = {
   component: css({
     display: 'grid',
     gridTemplateRows: 'auto min-content',
+    width: '100vw',
   }),
 }
 

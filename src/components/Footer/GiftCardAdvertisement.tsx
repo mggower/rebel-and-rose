@@ -1,10 +1,10 @@
-// import { TypographyProps } from '@/styles/typography'
-// import { useScreen } from '@/hooks'
-// import Scrapbook from '@/components/Shared/Scrapbook'
-// import Paragraph from '@/components/Shared/Paragraph'
-// import GiftCard from './GiftCard'
-// import Link from '../Shared/Link'
-// import routes from '@/utils/routes'
+import { TypographyProps } from '@/styles/typography'
+import { useScreen } from '@/hooks'
+import Scrapbook from '@/components/Shared/Scrapbook'
+import Paragraph from '@/components/Shared/Paragraph'
+import GiftCard from './GiftCard'
+import Link from '../Shared/Link'
+import routes from '@/utils/routes'
 import { css } from '@emotion/react'
 import library from '@/styles/library'
 import classes from '../Main/Home/Content/styles'
@@ -55,22 +55,23 @@ const styles = {
     }),
     paragraph: css({
       color: theme.palette.wheat[100],
+      textAlign: 'justify',
     }),
   },
 }
 
 export default function GiftCardAdvertisement() {
-  // const [desktop, style] = useScreen<[desktop: boolean, style: TypographyProps]>(
-  //   (desktop) => [
-  //     desktop,
-  //     {
-  //       family: 'serif',
-  //       fontSize: desktop ? 'lg' : 'sm',
-  //       tracking: desktop ? 'wider' : 'normal',
-  //     },
-  //   ],
-  //   [],
-  // )
+  const [desktop, style] = useScreen<[desktop: boolean, style: TypographyProps]>(
+    (desktop) => [
+      desktop,
+      {
+        family: 'serif',
+        fontSize: desktop ? 'lg' : 'sm',
+        tracking: desktop ? 'wider' : 'normal',
+      },
+    ],
+    [],
+  )
 
   return (
     <div css={styles.container}>
@@ -78,7 +79,7 @@ export default function GiftCardAdvertisement() {
       <div css={[styles.background.base, styles.background.texture]}></div>
 
       <div css={classes.layer}>
-        {/* <div css={styles.component}>
+        <div css={styles.component}>
           <GiftCard />
 
           <div css={styles.details.container}>
@@ -86,10 +87,8 @@ export default function GiftCardAdvertisement() {
 
             <div css={[library.flex.column, library.flex.start]}>
               <Paragraph {...style} css={styles.details.paragraph}>
-                Give them the gift you know they will love.
-              </Paragraph>
-              <Paragraph {...style} css={styles.details.paragraph}>
-                Purchase your Rebel & Rose Gift Card today!
+                Give them the gift you know they will love. Purchase your Rebel & Rose gift card
+                today!
               </Paragraph>
             </div>
             <Link
@@ -104,7 +103,7 @@ export default function GiftCardAdvertisement() {
               Buy Now
             </Link>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   )
