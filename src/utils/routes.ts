@@ -25,7 +25,7 @@ export default {
   aboutFaceMedSpa:
     'https://book.squareup.com/appointments/pgm6dz3c0o4wt9/location/L41D07RSJP0DM/services',
   giftCard: 'https://na2.meevo.com/EgiftApp/home?tenantId=501353',
-  reviewLink: 'https://na2.meevo.com/tKkKx/5vSZ ',
+  reviewLink: 'https://na2.meevo.com/tKkKx/5vSZ',
 
   // route matching
   match: function matchRoute(route: RoutePath, pathname: string) {
