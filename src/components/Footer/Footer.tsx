@@ -110,7 +110,7 @@ const styles = {
     padding: theme.style.box(0, 2),
     [theme.screen.md]: {
       '&:last-of-type': {
-        // marginTop: theme.spacing(4),
+        marginTop: theme.spacing(4),
       },
     },
   }),
@@ -190,6 +190,17 @@ function Footer() {
               css={styles.link}
               to={routes.booking}>
               Book Now
+            </Link>
+            <Link
+              external
+              key='booker'
+              linkTheme='dark'
+              linkColor='secondary'
+              tracking={tracking}
+              fontSize='sm'
+              css={styles.link}
+              to={routes.reviewLink}>
+              Write us a review!
             </Link>
           </nav>
         </div>
