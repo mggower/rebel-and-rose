@@ -1,0 +1,10 @@
+{
+  "extends": "@rebel/tsconfig/react",
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
+}
