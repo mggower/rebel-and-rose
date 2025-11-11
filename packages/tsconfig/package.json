@@ -1,0 +1,13 @@
+{
+  "name": "@rebel/tsconfig",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "tsconfig.root.json",
+    "tsconfig.react.json"
+  ],
+  "exports": {
+    "./root": "./tsconfig.root.json",
+    "./react": "./tsconfig.react.json"
+  }
+}
