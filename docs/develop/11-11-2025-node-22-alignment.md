@@ -10,10 +10,10 @@
 
 - Set `"engines": { "node": ">=22.0.0 <23" }` in:
   - `package.json`
-  - `apps/ui/package.json`
+  - `apps/web/package.json`
   - `packages/tsconfig/package.json`
 - Bumped `.nvmrc` to `22.10.0`.
-- Adjusted onboarding steps in `README.md` and `apps/ui/README.md` to reference Node 22.x and `corepack enable`.
+- Adjusted onboarding steps in `README.md` and `apps/web/README.md` to reference Node 22.x and `corepack enable`.
 
 ### Follow-Up / Verification
 
