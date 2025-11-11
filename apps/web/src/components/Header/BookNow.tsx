@@ -21,7 +21,7 @@ const styles = {
     textTransform: 'uppercase',
     width: theme.spacing(8),
     height: theme.spacing(8),
-    padding: theme.spacing(0),
+    padding: `${theme.spacing(0)} !important`,
     borderTopLeftRadius: theme.rounded.none,
     borderBottomLeftRadius: theme.rounded.none,
     borderLeft: 'none',

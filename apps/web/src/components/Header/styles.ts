@@ -50,7 +50,8 @@ export default {
     {
       width: theme.spacing(8),
       height: theme.spacing(8),
-      padding: theme.spacing(0),
+      // TODO: fix emotion priority issue
+      padding: `${theme.spacing(0)} !important`,
 
       [theme.screen.md]: {
         width: theme.spacing(12),
