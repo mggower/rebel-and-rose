@@ -1,127 +1,57 @@
-## Summary
+## Rebel & Rose Monorepo Migration (11-11-2025)
 
-Root now delegates all lifecycle commands to Turborepo and brings in `turbo` as the sole root dependency for coordination across workspaces, leaving app-level dependencies scoped to their packages.
+This document captures the full scope of work required to transform the Rebel & Rose codebase into a Turborepo-powered monorepo. The migration delivers better separation of concerns, centralized tooling, and scalability for new apps and packages.
 
-```json
-// 1:17:package.json
-{
-  "name": "rebel-and-rose",
-  // ... existing code ...
-  "scripts": {
-    "dev": "turbo run dev --parallel",
-    "build": "turbo run build",
-    "lint": "turbo run lint",
-    "typecheck": "turbo run typecheck",
-    "preview": "turbo run preview --parallel"
-  },
-  "devDependencies": {
-    "@rebel/tsconfig": "workspace:*",
-    "turbo": "^2.1.1"
-  }
-}
-```
+---
 
-The Vite UI has been relocated into `apps/ui` and published internally as `@rebel/ui`, retaining all runtime and build tooling so it can run independently inside the monorepo structure.
+### 1. Repository Restructure
 
-```json
-// 1:56:apps/ui/package.json
-{
-  "name": "@rebel/ui",
-  // ... existing code ...
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "@rebel/tsconfig": "workspace:*"
-    // ... existing code ...
-  }
-  // ... existing code ...
-}
-```
+- Introduced the canonical monorepo layout with top-level `apps/` and `packages/` directories.
+- Moved the existing Vite + React site into `apps/ui` and renamed the workspace to `@rebel/ui`.
+- Added placeholder `.gitkeep` files to ensure empty directories are tracked.
+- Updated `.gitignore` to exclude Turborepo cache artifacts (`.turbo/`).
 
-Turborepo configuration, pnpm workspace roots, and shared TypeScript options now live at the repo root, while the UI package extends those settings without project references so its path aliases keep working.
+### 2. Turborepo & pnpm Workspaces
 
-```json
-// 1:22:turbo.json
-{
-  "$schema": "https://turbo.build/schema.json",
-  "tasks": {
-    "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
-    }
-    // ... existing code ...
-  }
-}
-```
+- Installed `turbo` at the root and replaced legacy scripts with Turbo-powered pipelines (`dev`, `build`, `lint`, `typecheck`, `preview`).
+- Authored `turbo.json` to define task orchestration, caching behaviour, and dependencies between pipelines.
+- Added `pnpm-workspace.yaml` to register `apps/*` and `packages/*` as first-class workspaces.
+- Refreshed `pnpm-lock.yaml` to capture new workspace topology and dependency graph.
 
-```json
-// 1:12:apps/ui/tsconfig.json
-{
-  "extends": "@rebel/tsconfig/root",
-  "compilerOptions": {
-    "skipLibCheck": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "@emotion/react",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["src"]
-}
-```
+### 3. TypeScript Configuration Package
 
-ESLint now targets the new TypeScript config, `.gitignore` ignores Turborepo artifacts, and the `Scrapbook` component shed leftover disable directives/imports picked up during linting.
+- Created the shared package `@rebel/tsconfig` under `packages/tsconfig`.
+  - `tsconfig.root.json` encapsulates universal compiler options (ES2020 target, bundler module resolution, `noEmit`, etc.).
+  - `tsconfig.react.json` extends the root preset with React-specific JSX settings.
+- Exported both presets via the package’s `package.json` `exports` map for clean consumption.
+- Updated the root `tsconfig.json` and `apps/ui/tsconfig.json` to extend from `@rebel/tsconfig/react`, while localising path aliases in the app.
 
-```
-// 10:30:.gitignore
-node_modules
-dist
-dist-ssr
-*.local
-.turbo
+### 4. Tooling Alignment
 
-# Editor directories and files
-.vscode/*
-```
+- Pointed `.eslintrc.cjs` at the relocated TypeScript configs to keep parser projects accurate.
+- Removed stale ESLint disable directives and unused imports (e.g., `Scrapbook.tsx`) exposed during lint pipelines.
+- Ensured existing Tailwind, PostCSS, and Vite configuration files travel with the UI workspace without behavioural regressions.
 
-```javascript
-// 1:34:.eslintrc.cjs
-module.exports = {
-  // ... existing code ...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./apps/ui/tsconfig.json', './apps/ui/tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-  // ... existing code ...
-}
-```
+### 5. Documentation
 
-```typescript
-// 1:31:apps/ui/src/components/Shared/Scrapbook.tsx
-import { css } from '@emotion/react'
-import theme from '@/styles/theme'
-import Heading from './Heading'
-import { useBoxSizing } from '@/hooks/useBoxSizing'
-import paper1 from '@/assets/textures/paper-1.png'
-import paper2 from '@/assets/textures/paper-2.png'
-// ... existing code ...
-```
+- Authored comprehensive README files:
+  - Root `README.md` documents the monorepo architecture, commands, and development workflow.
+  - `apps/ui/README.md` describes the UI application stack, scripts, and deployment guidance.
+  - `packages/tsconfig/README.md` explains the shared TypeScript presets and extension strategy.
+- Replaced this migration report with the present narrative to serve as historical context.
 
-## Testing
+### 6. Validation
 
 - `pnpm turbo run lint`
 - `pnpm turbo run typecheck`
 - `pnpm turbo run build`
 
-## Follow-Up
+All tasks succeeded, confirming the monorepo configuration, shared tooling, and application builds remain healthy.
 
-- Populate `packages/` with shared libraries as they emerge, updating task pipelines if new build or lint targets are required.
-- Run `npx update-browserslist-db@latest` when feasible to refresh the browserslist data flagged during build.
-- Consider enabling Turborepo remote caching once a shared cache endpoint is available.
+---
+
+### Next Steps
+
+- Standardise additional shared tooling (e.g., ESLint or Jest presets) as packages under `packages/`.
+- Introduce new applications or feature packages by following the existing workspace patterns.
+- Consider enabling Turbo remote caching to accelerate CI once an appropriate cache backend is available.
