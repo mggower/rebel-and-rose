@@ -1,11 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-empty-interface */
 import { css } from '@emotion/react'
 import theme from '@/styles/theme'
-import library from '@/styles/library'
 import Heading from './Heading'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
-import { pixel } from '@/utils'
 import paper1 from '@/assets/textures/paper-1.png'
 import paper2 from '@/assets/textures/paper-2.png'
 // import { cssVars } from '@/utils'
