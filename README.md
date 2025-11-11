@@ -16,8 +16,8 @@ This repository contains the Rebel & Rose web properties managed as a single Tur
 Ensure your environment matches the repo’s Node requirement:
 
 ```bash
-nvm use               # respects the checked-in .nvmrc (Node 25.1+)
-corepack enable       # activates pnpm that ships with Node 25.1+
+nvm use               # respects the checked-in .nvmrc (Node 22.x)
+corepack enable       # activates pnpm that ships with Node 22.x
 pnpm install          # bootstrap workspace (installs all app + package deps)
 pnpm dev              # run all dev servers in parallel via Turbo
 pnpm turbo run dev    # explicit Turbo invocation if you prefer
@@ -46,7 +46,7 @@ Because the workspaces are linked, TypeScript path aliases and `pnpm` peer depen
 
 ### Tooling
 
-- **Node.js 25.1+** (enforced via `package.json` engines + `.nvmrc`).
+- **Node.js 22.x** (enforced via `package.json` engines + `.nvmrc`).
 - **Turborepo** orchestrates builds and caches intermediate results.
 - **pnpm** provides workspace-aware dependency management.
 - **TypeScript** configuration is centralized under `@rebel/tsconfig`.

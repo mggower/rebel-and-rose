@@ -34,8 +34,8 @@ These scripts are also reachable from the repo root via Turborepo (`pnpm turbo r
 ### Local Development
 
 ```bash
-nvm use               # picks up repo-wide Node 25.1+ requirement
-corepack enable       # ensures pnpm is available with Node 25.1+
+nvm use               # picks up repo-wide Node 22.x requirement
+corepack enable       # ensures pnpm is available with Node 22.x
 ```
 
 Then install dependencies and start the dev server:
