@@ -40,7 +40,12 @@ This document captures the full scope of work required to transform the Rebel & 
   - `packages/tsconfig/README.md` explains the shared TypeScript presets and extension strategy.
 - Replaced this migration report with the present narrative to serve as historical context.
 
-### 6. Validation
+### 6. Deployment Integration
+
+- Updated `vercel.json` so Vercel installs with `pnpm`, runs `pnpm turbo run build --filter=@rebel/ui...`, emits `apps/ui/dist`, and rewrites SPA routes.
+- Documented Vercel/GitHub deployment commands in the root README, including the exact install/build/output values needed for CI.
+
+### 7. Validation
 
 - `pnpm turbo run lint`
 - `pnpm turbo run typecheck`

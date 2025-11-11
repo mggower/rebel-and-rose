@@ -59,6 +59,16 @@ Because the workspaces are linked, TypeScript path aliases and `pnpm` peer depen
    ```
 3. Commit with a meaningful message and open a pull request summarizing the impact.
 
+### Deployment (Vercel + GitHub)
+
+- **Project configuration:** Point the Vercel dashboard at the repository root. Leave the framework preset as “Other”.
+- **Install command:** `pnpm install --frozen-lockfile`
+- **Build command:** `pnpm turbo run build --filter=@rebel/ui...`
+- **Output directory:** `apps/ui/dist`
+- **Routing:** All paths rewrite to `/` (defined in `vercel.json`) for SPA navigation.
+
+These values are also codified in `vercel.json`, so fresh deployments using `vercel --prod` or GitHub→Vercel integrations inherit the correct behavior automatically. Ensure Corepack is enabled on CI runners (`corepack enable`), and keep `pnpm-lock.yaml` committed so Vercel can reproduce workspace installs.
+
 ### Additional Resources
 
 - `docs/develop/` contains narrative documentation for significant refactors such as the monorepo migration.
