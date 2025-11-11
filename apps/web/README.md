@@ -1,6 +1,6 @@
-## @rebel/ui
+## @rebel/web
 
-`@rebel/ui` is the Vite + React application that powers the Rebel & Rose customer-facing experience. It consumes shared tooling from the monorepo and exposes common scripts for development, testing, and deployments.
+`@rebel/web` is the Vite + React application that powers the Rebel & Rose customer-facing experience. It consumes shared tooling from the monorepo and exposes common scripts for development, testing, and deployments.
 
 ### Tech Stack
 
@@ -22,4 +22,4 @@ Running `pnpm turbo run dev`/`build` automatically handles this dependency chain
 
 ### Available Scripts
 
-Inside the `apps/ui`
+Inside the `apps/web`

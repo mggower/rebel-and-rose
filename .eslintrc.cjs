@@ -26,8 +26,8 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: [
-      './apps/ui/tsconfig.json',
-      './apps/ui/tsconfig.node.json',
+      './apps/web/tsconfig.json',
+      './apps/web/tsconfig.node.json',
       './packages/components/tsconfig.json',
       './packages/theme/tsconfig.json',
     ],

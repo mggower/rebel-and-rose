@@ -7,7 +7,7 @@ This document captures the full scope of work required to transform the Rebel & 
 ### 1. Repository Restructure
 
 - Introduced the canonical monorepo layout with top-level `apps/` and `packages/` directories.
-- Moved the existing Vite + React site into `apps/ui` and renamed the workspace to `@rebel/ui`.
+- Moved the existing Vite + React site into `apps/web` and renamed the workspace to `@rebel/web`.
 - Added placeholder `.gitkeep` files to ensure empty directories are tracked.
 - Updated `.gitignore` to exclude Turborepo cache artifacts (`.turbo/`).
 
@@ -24,7 +24,7 @@ This document captures the full scope of work required to transform the Rebel & 
   - `tsconfig.root.json` encapsulates universal compiler options (ES2020 target, bundler module resolution, `noEmit`, etc.).
   - `tsconfig.react.json` extends the root preset with React-specific JSX settings.
 - Exported both presets via the package’s `package.json` `exports` map for clean consumption.
-- Updated the root `tsconfig.json` and `apps/ui/tsconfig.json` to extend from `@rebel/tsconfig/react`, while localising path aliases in the app.
+- Updated the root `tsconfig.json` and `apps/web/tsconfig.json` to extend from `@rebel/tsconfig/react`, while localising path aliases in the app.
 
 ### 4. Tooling Alignment
 
@@ -36,13 +36,13 @@ This document captures the full scope of work required to transform the Rebel & 
 
 - Authored comprehensive README files:
   - Root `README.md` documents the monorepo architecture, commands, and development workflow.
-  - `apps/ui/README.md` describes the UI application stack, scripts, and deployment guidance.
+  - `apps/web/README.md` describes the web application stack, scripts, and deployment guidance.
   - `packages/tsconfig/README.md` explains the shared TypeScript presets and extension strategy.
 - Replaced this migration report with the present narrative to serve as historical context.
 
 ### 6. Deployment Integration
 
-- Updated `vercel.json` so Vercel installs with `pnpm`, runs `pnpm turbo run build --filter=@rebel/ui...`, emits `apps/ui/dist`, and rewrites SPA routes.
+- Updated `vercel.json` so Vercel installs with `pnpm`, runs `pnpm turbo run build --filter=@rebel/web...`, emits `apps/web/dist`, and rewrites SPA routes.
 - Documented Vercel/GitHub deployment commands in the root README, including the exact install/build/output values needed for CI.
 
 ### 7. Validation

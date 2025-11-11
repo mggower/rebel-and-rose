@@ -11,10 +11,10 @@ This change set establishes the foundation for a modular, theme-driven design sy
 
 Both packages now compile to `dist/` via Vite + `vite-plugin-dts`, ensuring Turbo can cache artefacts while applications depend on the published build outputs (`"@rebel/theme": "workspace:*"`, `"@rebel/components": "workspace:*"`).
 
-### 2. Application Integration (`@rebel/ui`)
+### 2. Application Integration (`@rebel/web`)
 
 - Replaced bespoke `src/styles` modules and TailwindCSS with the shared packages.
-- Updated feature areas (header, footer, home, policies, about) to consume the new primitives and theme tokens directly.
+- Updated feature areas (header, footer, home, policies, about) to consume the new primitives and theme tokens directly throughout `@rebel/web`.
 - Removed legacy Tailwind/PostCSS/Sass tooling and simplified global CSS to only cover fonts, resets, and structural primitives.
 - Migrated leftover bespoke components (e.g. `Scrapbook`, `SplashImage`) to leverage shared styling helpers while keeping domain-specific assets in the app.
 

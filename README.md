@@ -5,7 +5,7 @@ This repository contains the Rebel & Rose web properties managed as a single Tur
 ### Directory Layout
 
 - `apps/` – deployable applications.
-  - `ui/` – the public Vite + React experience (`@rebel/ui`).
+  - `web/` – the public Vite + React experience (`@rebel/web`).
 - `packages/` – shareable libraries.
   - `components/` – themed UI primitives and composite widgets (`@rebel/components`).
   - `theme/` – canonical design tokens and utilities (`@rebel/theme`).
@@ -58,7 +58,7 @@ The root `package.json` exposes standard scripts that fan out to every relevant 
 To focus on a single workspace, `cd` into it and use `pnpm` locally:
 
 ```bash
-cd apps/ui
+cd apps/web
 pnpm dev
 ```
 
@@ -88,8 +88,8 @@ Because the workspaces are linked, TypeScript path aliases and `pnpm` peer depen
 
 - **Project configuration:** Point the Vercel dashboard at the repository root. Leave the framework preset as “Other”.
 - **Install command:** `pnpm install --frozen-lockfile`
-- **Build command:** `pnpm turbo run build --filter=@rebel/ui...`
-- **Output directory:** `apps/ui/dist`
+- **Build command:** `pnpm turbo run build --filter=@rebel/web...`
+- **Output directory:** `apps/web/dist`
 - **Routing:** All paths rewrite to `/` (defined in `vercel.json`) for SPA navigation.
 
 These values are also codified in `vercel.json`, so fresh deployments using `vercel --prod` or GitHub→Vercel integrations inherit the correct behavior automatically. Ensure Corepack is enabled on CI runners (`corepack enable`), and keep `pnpm-lock.yaml` committed so Vercel can reproduce workspace installs.
