@@ -13,7 +13,11 @@ This repository contains the Rebel & Rose web properties managed as a single Tur
 
 ### Getting Started
 
+Ensure your environment matches the repo’s Node requirement:
+
 ```bash
+nvm use               # respects the checked-in .nvmrc (Node 22.x)
+corepack enable       # activates pnpm that ships with Node 22.x
 pnpm install          # bootstrap workspace (installs all app + package deps)
 pnpm dev              # run all dev servers in parallel via Turbo
 pnpm turbo run dev    # explicit Turbo invocation if you prefer
@@ -21,13 +25,13 @@ pnpm turbo run dev    # explicit Turbo invocation if you prefer
 
 The root `package.json` exposes standard scripts that fan out to every relevant workspace:
 
-| Script        | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| `pnpm dev`    | Run `dev` in parallel across all apps.                |
-| `pnpm lint`   | Run ESLint in every package that declares the script. |
-| `pnpm typecheck` | Run TypeScript `--noEmit` checks everywhere.      |
-| `pnpm build`  | Execute the build pipeline for all applications.      |
-| `pnpm preview`| Run each app’s preview command (after build).         |
+| Script           | Description                                           |
+| ---------------- | ----------------------------------------------------- |
+| `pnpm dev`       | Run `dev` in parallel across all apps.                |
+| `pnpm lint`      | Run ESLint in every package that declares the script. |
+| `pnpm typecheck` | Run TypeScript `--noEmit` checks everywhere.          |
+| `pnpm build`     | Execute the build pipeline for all applications.      |
+| `pnpm preview`   | Run each app’s preview command (after build).         |
 
 ### Developing Individual Packages
 
@@ -42,6 +46,7 @@ Because the workspaces are linked, TypeScript path aliases and `pnpm` peer depen
 
 ### Tooling
 
+- **Node.js 22.x** (enforced via `package.json` engines + `.nvmrc`).
 - **Turborepo** orchestrates builds and caches intermediate results.
 - **pnpm** provides workspace-aware dependency management.
 - **TypeScript** configuration is centralized under `@rebel/tsconfig`.
@@ -73,4 +78,3 @@ These values are also codified in `vercel.json`, so fresh deployments using `ver
 
 - `docs/develop/` contains narrative documentation for significant refactors such as the monorepo migration.
 - `packages/tsconfig` exports reusable TS config presets that new packages should rely on.
-
