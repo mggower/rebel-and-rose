@@ -11,6 +11,7 @@
     "preview": "turbo run preview --parallel"
   },
   "devDependencies": {
+    "@rebel/tsconfig": "workspace:*",
     "turbo": "^2.1.1"
   },
   "packageManager": "pnpm@9.12.2+sha256.2ef6e547b0b07d841d605240dce4d635677831148cd30f6d564b8f4f928f73d2"

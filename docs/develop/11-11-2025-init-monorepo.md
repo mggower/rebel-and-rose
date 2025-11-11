@@ -15,17 +15,18 @@ Root now delegates all lifecycle commands to Turborepo and brings in `turbo` as 
     "preview": "turbo run preview --parallel"
   },
   "devDependencies": {
+    "@rebel/tsconfig": "workspace:*",
     "turbo": "^2.1.1"
   }
 }
 ```
 
-The Vite UI has been relocated into `apps/ui` with its own `package.json`, retaining all runtime and build tooling so it can run independently inside the monorepo structure.
+The Vite UI has been relocated into `apps/ui` and published internally as `@rebel/ui`, retaining all runtime and build tooling so it can run independently inside the monorepo structure.
 
 ```json
 // 1:56:apps/ui/package.json
 {
-  "name": "ui",
+  "name": "@rebel/ui",
   // ... existing code ...
   "scripts": {
     "dev": "vite",
@@ -33,6 +34,10 @@ The Vite UI has been relocated into `apps/ui` with its own `package.json`, retai
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@rebel/tsconfig": "workspace:*"
+    // ... existing code ...
   }
   // ... existing code ...
 }
@@ -57,7 +62,7 @@ Turborepo configuration, pnpm workspace roots, and shared TypeScript options now
 ```json
 // 1:12:apps/ui/tsconfig.json
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "@rebel/tsconfig/root",
   "compilerOptions": {
     "skipLibCheck": true,
     "jsx": "react-jsx",
