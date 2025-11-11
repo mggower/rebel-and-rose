@@ -1,6 +1,6 @@
-import library from '@/styles/library'
-import theme from '@/styles/theme'
 import { css } from '@emotion/react'
+import { library } from '@rebel/components'
+import theme from '@rebel/theme'
 
 export default {
   layer: css(library.flex.column, library.flex.itemsCenter),

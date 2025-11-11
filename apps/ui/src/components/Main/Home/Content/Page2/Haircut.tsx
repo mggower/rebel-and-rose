@@ -4,8 +4,8 @@ import { useEffect, useRef } from 'react'
 import { accelerate } from '@/utils/parallax'
 import { css } from '@emotion/react'
 import hairCut from '@/assets/images/image-4.jpg'
-import library from '@/styles/library'
-import theme from '@/styles/theme'
+import { library } from '@rebel/components'
+import theme from '@rebel/theme'
 
 const styles = {
   component: css({

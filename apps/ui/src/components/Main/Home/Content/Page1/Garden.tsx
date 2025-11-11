@@ -4,9 +4,9 @@ import { useEffect, useRef } from 'react'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
 import { accelerate } from '@/utils/parallax'
 import { css } from '@emotion/react'
+import { library } from '@rebel/components'
+import theme from '@rebel/theme'
 import womanInGarden from '@/assets/images/image-2.jpg'
-import library from '@/styles/library'
-import theme from '@/styles/theme'
 import classes from '../styles'
 
 const styles = {

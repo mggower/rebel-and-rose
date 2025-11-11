@@ -1,6 +1,6 @@
 import { ParallaxLayer } from '@react-spring/parallax'
 import { css } from '@emotion/react'
-import theme from '@/styles/theme'
+import theme from '@rebel/theme'
 
 const styles = {
   component: css({

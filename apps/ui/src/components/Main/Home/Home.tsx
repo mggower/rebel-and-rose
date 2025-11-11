@@ -9,8 +9,8 @@ import RedBoquet from './Content/RedBoquet'
 import PageOne from './Content/Page1'
 import PageTwo from './Content/Page2'
 import PageThree from './Content/Page3'
-import library from '@/styles/library'
-import theme from '@/styles/theme'
+import { library } from '@rebel/components'
+import theme from '@rebel/theme'
 
 const styles = {
   component: css(library.flex.column, library.flex.itemsCenter, {

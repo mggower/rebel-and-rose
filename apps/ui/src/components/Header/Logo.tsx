@@ -3,7 +3,7 @@ import { forwardRef } from 'react'
 import { css } from '@emotion/react'
 import LogoBanner from '@/assets/logos/banner.svg?react'
 import routes from '@/utils/routes'
-import theme from '@/styles/theme'
+import theme from '@rebel/theme'
 import HeaderCaption from './HeaderCaption'
 
 const styles = {

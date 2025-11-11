@@ -1,14 +1,16 @@
 import { ADDRESS, SCHEDULE, TRADEMARK } from '@/utils/constants'
 import { useLocation } from 'react-router-dom'
 import { useScreen } from '@/hooks'
-import { Tracking } from '@/styles/typography'
 import { css } from '@emotion/react'
-import Typography from '../Shared/Typography'
+import {
+  Typography,
+  Link,
+  library,
+  type Tracking,
+} from '@rebel/components'
 import Pendant from '@/assets/logos/pendant.svg?react'
-import Link from '../Shared/Link'
-import library from '@/styles/library'
 import routes from '@/utils/routes'
-import theme from '@/styles/theme'
+import theme from '@rebel/theme'
 
 const data = [
   { address: 'Contact Us:', schedule: SCHEDULE[0] },

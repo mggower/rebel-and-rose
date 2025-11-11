@@ -1,8 +1,6 @@
 import { css } from '@emotion/react'
-import Heading from '@/components/Shared/Heading'
-import Paragraph from '@/components/Shared/Paragraph'
-import library from '@/styles/library'
-import theme from '@/styles/theme'
+import { Heading, Paragraph, library } from '@rebel/components'
+import theme from '@rebel/theme'
 import womanPortrait from '@/assets/images/image-5.jpg'
 import Footer from '@/components/Footer'
 

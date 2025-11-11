@@ -3,7 +3,7 @@ import { accelerate } from '@/utils/parallax'
 import { css } from '@emotion/react'
 import text4 from '@/assets/textures/transparent-text-4.png'
 import classes from '../styles'
-import theme from '@/styles/theme'
+import theme from '@rebel/theme'
 
 const styles = {
   component: css({

@@ -7,9 +7,29 @@ This repository contains the Rebel & Rose web properties managed as a single Tur
 - `apps/` – deployable applications.
   - `ui/` – the public Vite + React experience (`@rebel/ui`).
 - `packages/` – shareable libraries.
+  - `components/` – themed UI primitives and composite widgets (`@rebel/components`).
+  - `theme/` – canonical design tokens and utilities (`@rebel/theme`).
   - `tsconfig/` – shared TypeScript configuration presets (`@rebel/tsconfig`).
 - `docs/` – engineering notes and change retrospectives.
 - `.turbo/` – Turborepo’s cache directory (ignored from git).
+
+### Build & Quality Gates
+
+Both `@rebel/theme` and `@rebel/components` ship as compiled libraries. Before consuming them from applications (or publishing), emit their build artefacts:
+
+```bash
+pnpm turbo run build --filter="@rebel/theme @rebel/components"
+```
+
+The standard project checks remain:
+
+```bash
+pnpm lint
+pnpm typecheck
+pnpm build
+```
+
+These commands fan out through Turbo and run the appropriate Vite builds and TypeScript validation for every workspace.
 
 ### Getting Started
 

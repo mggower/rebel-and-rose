@@ -1,9 +1,7 @@
 import { css } from '@emotion/react'
+import { Heading, Paragraph, library } from '@rebel/components'
+import theme from '@rebel/theme'
 import Footer from '@/components/Footer'
-import Heading from '@/components/Shared/Heading'
-import Paragraph from '@/components/Shared/Paragraph'
-import library from '@/styles/library'
-import theme from '@/styles/theme'
 
 const styles = {
   container: css({

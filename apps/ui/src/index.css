@@ -1,65 +1,59 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  @font-face {
-    font-family: Nickson One;
-    src: url('@/assets/fonts/S_S Nickson One.otf');
-    font-weight: 400;
-  }
-
-  @font-face {
-    font-family: Bandoeng;
-    src: url('@/assets/fonts/Bandoeng.otf');
-    font-weight: 400;
-  }
-
-  :root {
-    font-family: theme(fontFamily.sans);
-    color-scheme: normal;
-    color: theme(colors.ink.DEFAULT);
-    background-color: theme(colors.wheat.100);
-  }
-
-  #root,
-  #portal {
-    isolation: isolate;
-  }
-
-  #root {
-    display: flex;
-    place-items: center;
-  }
-
-  #portal {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+@font-face {
+  font-family: 'Nickson One';
+  src: url('./assets/fonts/S_S Nickson One.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
 }
 
-@layer components {
-  .link {
-    @apply cursor-pointer rounded-sm border-none px-3 py-1 text-sm uppercase tracking-widest text-ink no-underline outline-none transition-all hover:bg-ink-300/50 active:bg-blush data-active:bg-ink-300/50 data-selected:underline data-secondary:text-russet data-secondary:active:text-ink data-dark:bg-ink-800 data-dark:text-wheat-100 data-dark:hover:bg-ink-600/50 data-dark:active:bg-earth-300 data-dark:active:text-ink data-dark:data-active:bg-earth/75;
-  }
-
-  .button {
-    @apply rounded-sm bg-russet p-4 text-sm uppercase text-wheat-100 no-underline outline-none hover:bg-russet-600 focus:bg-russet-600 hover:active:bg-russet-700 focus:active:bg-russet-700;
-  }
+@font-face {
+  font-family: 'Bandoeng';
+  src: url('./assets/fonts/Bandoeng.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
 }
 
-@layer utilities {
-  .contain-content {
-    width: 100vw;
-    @media screen(md) {
-      max-width: 1200px;
-      width: 80vw;
-    }
-  }
+:root {
+  font-family: 'Myriad Pro', sans-serif;
+  color-scheme: normal;
+  color: #1b1b1b;
+  background-color: #faf8f0;
+}
 
-  .vertical-text {
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: inherit;
+  color: inherit;
+}
+
+#root,
+#portal {
+  isolation: isolate;
+}
+
+#root {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+#portal {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
 }

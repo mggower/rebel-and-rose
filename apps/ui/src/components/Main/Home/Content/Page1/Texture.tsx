@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 import { useMinScreen } from '@/hooks'
 import { css } from '@emotion/react'
 import text3 from '@/assets/textures/transparent-text-3.png'
-import theme from '@/styles/theme'
+import theme from '@rebel/theme'
 
 const styles = {
   component: css({

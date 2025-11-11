@@ -1,12 +1,9 @@
 import { ParallaxLayer } from '@react-spring/parallax'
 import { accelerate } from '@/utils/parallax'
 import { css } from '@emotion/react'
-import Paragraph from '@/components/Shared/Paragraph'
-import Heading from '@/components/Shared/Heading'
-import Link from '@/components/Shared/Link'
-import library from '@/styles/library'
+import { Heading, Paragraph, Link, library } from '@rebel/components'
+import theme from '@rebel/theme'
 import routes from '@/utils/routes'
-import theme from '@/styles/theme'
 import classes from '../styles'
 
 interface Props {

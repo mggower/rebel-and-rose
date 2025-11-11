@@ -6,9 +6,9 @@ import LogoBanner from '@/assets/logos/banner.svg?react'
 import Navigation from './Navigation'
 import BookNow from './BookNow'
 import Banner from './Banner'
-import library from '@/styles/library'
+import { library } from '@rebel/components'
 import routes from '@/utils/routes'
-import theme from '@/styles/theme'
+import theme from '@rebel/theme'
 
 const styles = {
   component: css({

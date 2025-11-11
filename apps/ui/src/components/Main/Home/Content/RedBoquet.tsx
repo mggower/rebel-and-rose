@@ -1,6 +1,6 @@
+import redBoquet from '@/assets/textures/tapestry-boquet-4.png'
 import { css } from '@emotion/react'
-import boquet4 from '@/assets/textures/tapestry-boquet-4.png'
-import theme from '@/styles/theme'
+import theme from '@rebel/theme'
 
 const styles = {
   component: css({
@@ -26,7 +26,7 @@ const styles = {
 export default function RedBoquet() {
   return (
     <div css={styles.component}>
-      <img src={boquet4} alt='red floral boquet' css={styles.boquet} />
+      <img src={redBoquet} alt='red floral boquet' css={styles.boquet} />
     </div>
   )
 }

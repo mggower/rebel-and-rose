@@ -5,7 +5,7 @@ import { css } from '@emotion/react'
 import bohoFolkB from '@/assets/textures/boho-folk-B.jpg'
 import bohoFolkD from '@/assets/textures/boho-folk-D.jpg'
 import bohoFolkF from '@/assets/textures/boho-folk-F.jpg'
-import theme from '@/styles/theme'
+import theme from '@rebel/theme'
 
 interface Props {
   space: number

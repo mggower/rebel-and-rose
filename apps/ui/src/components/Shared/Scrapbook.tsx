@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
-import theme from '@/styles/theme'
-import Heading from './Heading'
+import theme from '@rebel/theme'
+import { Heading } from '@rebel/components'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
 import paper1 from '@/assets/textures/paper-1.png'
 import paper2 from '@/assets/textures/paper-2.png'

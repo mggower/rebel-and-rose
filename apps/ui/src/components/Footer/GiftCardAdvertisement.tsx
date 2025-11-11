@@ -1,14 +1,16 @@
-import { TypographyProps } from '@/styles/typography'
 import { useScreen } from '@/hooks'
 import Scrapbook from '@/components/Shared/Scrapbook'
-import Paragraph from '@/components/Shared/Paragraph'
 import GiftCard from './GiftCard'
-import Link from '../Shared/Link'
 import routes from '@/utils/routes'
 import { css } from '@emotion/react'
-import library from '@/styles/library'
+import {
+  Paragraph,
+  Link,
+  library,
+  type TypographyProps,
+} from '@rebel/components'
 import classes from '../Main/Home/Content/styles'
-import theme from '@/styles/theme'
+import theme from '@rebel/theme'
 import scrapbookText from '@/assets/textures/transparent-text-1.png'
 
 const styles = {

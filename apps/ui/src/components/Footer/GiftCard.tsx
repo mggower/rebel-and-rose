@@ -1,7 +1,6 @@
 import { css } from '@emotion/react'
-import Heading from '../Shared/Heading'
-import library from '@/styles/library'
-import theme from '@/styles/theme'
+import { Heading, library } from '@rebel/components'
+import theme from '@rebel/theme'
 import rebelAndRoseGold from '@/assets/logos/rebel-and-rose-gold-logo.png'
 import boquetUrl from '@/assets/textures/tapestry-boquet-3.png'
 

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
-import Link from '@/components/Shared/Link'
-import theme from '@/styles/theme'
+import { Link } from '@rebel/components'
+import theme from '@rebel/theme'
 import routes from '@/utils/routes'
 
 interface Props {

@@ -1,9 +1,8 @@
 import { useMaxScreen } from '@/hooks'
 import { book } from '@/utils/icons'
 import { css } from '@emotion/react'
-import Icon from '../Shared/Icon'
-import Link from '../Shared/Link'
-import theme from '@/styles/theme'
+import { Icon, Link } from '@rebel/components'
+import theme from '@rebel/theme'
 import routes from '@/utils/routes'
 
 const styles = {

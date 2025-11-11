@@ -1,6 +1,6 @@
 import { useMediaQuery } from 'usehooks-ts'
 import { useMemo } from 'react'
-import theme from '@/styles/theme'
+import theme from '@rebel/theme'
 
 export type Breakpoint = keyof typeof theme.breakpoints
 

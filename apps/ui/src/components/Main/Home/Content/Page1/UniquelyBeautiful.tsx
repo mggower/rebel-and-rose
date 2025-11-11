@@ -3,9 +3,9 @@ import { useEffect, useRef } from 'react'
 import { useBoxSizing } from '@/hooks/useBoxSizing'
 import { css } from '@emotion/react'
 import uniquelyBeautiful from '@/assets/logos/uniquely-beautiful.png'
-import library from '@/styles/library'
+import { library } from '@rebel/components'
+import theme from '@rebel/theme'
 import classes from '../styles'
-import theme from '@/styles/theme'
 
 const styles = {
   component: css(library.contain, library.flex.column, library.flex.center, {

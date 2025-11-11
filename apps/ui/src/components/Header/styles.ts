@@ -1,8 +1,7 @@
 import { CSSObject, css } from '@emotion/react'
 import bohoFolkA from '@/assets/textures/boho-folk-A.jpg'
-import buttons from '@/styles/buttons'
-import library from '@/styles/library'
-import theme from '@/styles/theme'
+import { buttonStyles, library } from '@rebel/components'
+import theme from '@rebel/theme'
 
 const left = theme.attr.create<boolean>('left')
 const right = theme.attr.create<boolean>('right')
@@ -84,5 +83,5 @@ export default {
     },
     tabBorderStyle,
   ),
-  link: css(buttons.button, { marginRight: '1px' }),
+  link: css(buttonStyles, { marginRight: '1px' }),
 }

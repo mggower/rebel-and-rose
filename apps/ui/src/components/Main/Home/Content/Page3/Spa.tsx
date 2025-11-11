@@ -1,6 +1,6 @@
 import { ParallaxLayer } from '@react-spring/parallax'
 import { accelerate } from '@/utils/parallax'
-import Paragraph from '@/components/Shared/Paragraph'
+import { Paragraph } from '@rebel/components'
 import Scrapbook from '@/components/Shared/Scrapbook'
 import classes from '../styles'
 import PageLinks from '../PageLinks'

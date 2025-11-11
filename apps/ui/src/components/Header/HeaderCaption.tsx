@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
-import Heading from '../Shared/Heading'
-import theme from '@/styles/theme'
+import { Heading } from '@rebel/components'
+import theme from '@rebel/theme'
 
 interface Props {
   children: React.ReactNode

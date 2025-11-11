@@ -2,9 +2,8 @@ import { IParallaxLayer, ParallaxLayer, ParallaxLayerProps } from '@react-spring
 import { useEffect, useRef } from 'react'
 import { calcRem } from '@/utils'
 import { css } from '@emotion/react'
-import Heading from '@/components/Shared/Heading'
-import library from '@/styles/library'
-import theme from '@/styles/theme'
+import { Heading, library } from '@rebel/components'
+import theme from '@rebel/theme'
 import classes from '../styles'
 
 const styles = {
