@@ -1,6 +1,5 @@
 import { CSSObject, css } from '@emotion/react'
 import theme from '@rebel/theme'
-import { CustomCSS } from '../types'
 import typography from './typography'
 import library from './library'
 

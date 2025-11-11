@@ -33,7 +33,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
 ) {
   const innerRef = useRef<HTMLButtonElement>(null)
 
-  useImperativeHandle(ref, () => innerRef.current as HTMLButtonElement, [])
+  useImperativeHandle(ref, () => innerRef.current!, [])
 
   const handleMouseUp: MouseEventHandler<HTMLButtonElement> = (event) => {
     innerRef.current?.blur()

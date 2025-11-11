@@ -38,7 +38,7 @@ export default {
     // { route: RoutePath.SALON, label: 'Salon' },
     // { route: RoutePath.SPA, label: 'Spa' },
     { route: RoutePath.ABOUT, label: 'About' },
-    // { route: RoutePath.TALENT, label: 'Talent' },
+    { route: RoutePath.TALENT, label: 'Talent' },
     // { route: RoutePath.CONTACT, label: 'Contact' },
     { route: RoutePath.POLICIES, label: 'Policies' },
   ],
