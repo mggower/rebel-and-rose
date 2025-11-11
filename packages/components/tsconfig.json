@@ -1,8 +1,0 @@
-{
-  "extends": "@rebel/tsconfig/react",
-  "compilerOptions": {
-    "noEmit": true,
-    "skipLibCheck": true
-  },
-  "include": ["src"]
-}
