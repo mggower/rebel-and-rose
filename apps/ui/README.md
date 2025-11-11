@@ -34,6 +34,13 @@ These scripts are also reachable from the repo root via Turborepo (`pnpm turbo r
 ### Local Development
 
 ```bash
+nvm use               # picks up repo-wide Node 25.1+ requirement
+corepack enable       # ensures pnpm is available with Node 25.1+
+```
+
+Then install dependencies and start the dev server:
+
+```bash
 pnpm install      # from repo root
 pnpm dev          # or pnpm turbo run dev
 ```
